@@ -1,0 +1,55 @@
+.header-logo {
+  width: 40px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-group {
+  display: flex;
+}
+
+.logo-group img {
+  padding: 0 1rem;
+}
+
+.logo-group p {
+  display: inline-block;
+  color: #00d8ff;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-links > li {
+  padding: 0 1rem;
+}
+
+header {
+  box-shadow: 1px 2px 5px -2px rgba(0, 0, 0, 0.7);
+}
+
+.content {
+  padding: 1rem;
+}
+
+footer {
+  border-top: 1px solid black;
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+footer small {
+  margin: 1rem;
+}
