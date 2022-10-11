@@ -1,0 +1,79 @@
+a {
+  color: inherit;
+  text-decoration: none;
+  /* Do not break for colons */
+  white-space: nowrap;
+}
+
+.socialBoxFather {
+  display: flex;
+  margin: 0 10vw 5vh 10vw;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.socialBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 8px;
+  padding: 0.3rem 1rem;
+  font-size: small;
+  width: 100%;
+}
+
+.socialIcon {
+  width: 1rem;
+}
+
+.namebox,
+.chat-status {
+  text-align: center;
+}
+
+.namebox h1 {
+  margin-bottom: 0;
+}
+
+.namebox h3 {
+  margin: 0.2em 0 0 0;
+  font-size: small;
+  color: rgba(221, 169, 133, 0.295);
+}
+
+.chat-status h4 {
+  font-size: x-small;
+  margin-top: 0.1rem;
+}
+
+.content-box {
+  margin: 0 10vw;
+}
+
+.text-block h2 {
+  margin-bottom: 0;
+  font-size: 1.1rem;
+}
+
+.text-block p {
+  opacity: 0.5;
+  line-height: 1.2em;
+  font-size: 0.9rem;
+  text-align: left;
+  margin-top: 0.3rem;
+}
+
+.footer-2 {
+  display: flex;
+  justify-content: space-evenly;
+  background: #1f1f1f;
+  font-size: small;
+  padding: 1rem 10vw;
+  position: sticky;
+  bottom: 0;
+}
+
+.socialicons {
+  height: 1.5rem;
+}
