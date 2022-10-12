@@ -23,11 +23,20 @@ section {
   width: 320px;
 }
 
+.cards {
+  display: flex;
+  gap: 1rem;
+  overflow-x: scroll;
+}
+
 .card {
+  flex-grow: 0;
+  flex-shrink: 0;
   font-size: small;
   position: relative;
   width: 175px;
   border-radius: 8px;
+  display: inline-block;
 
   & .thumb {
     width: 100%;

@@ -5,7 +5,11 @@ export default function Card(props: { card: card }) {
   return (
     <div className="card">
       <div>
-        {props.card.badge && <div className="badge">{props.card.badge}</div>}
+        {props.card.openSpots !== undefined && (
+          <div className="badge">
+            {props.card.openSpots > 0 ? 'Available' : 'Sold out'}
+          </div>
+        )}
         <img src={props.card.img} alt="Katy" className="thumb" />
       </div>
       <Rating
@@ -22,7 +26,7 @@ export default function Card(props: { card: card }) {
 }
 
 export interface card {
-  badge?: string | undefined
+  openSpots?: number | undefined
   img: string
   rating?: number | undefined
   reviews?: number | undefined

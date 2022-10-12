@@ -18,7 +18,25 @@ export default function Three() {
 
 const testdata: card[] = [
   {
-    badge: 'Sold out',
+    openSpots: 0,
+    img: katy,
+    rating: 5,
+    reviews: 6,
+    country: 'USA',
+    description: 'Life lessons with Katy are great.',
+    price: 135.99,
+  },
+  {
+    openSpots: 0,
+    img: katy,
+    rating: 5,
+    reviews: 6,
+    country: 'USA',
+    description: 'Life lessons with Katy are great.',
+    price: 135.99,
+  },
+  {
+    openSpots: 0,
     img: katy,
     rating: 5,
     reviews: 6,
