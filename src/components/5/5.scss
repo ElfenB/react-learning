@@ -1,0 +1,11 @@
+form {
+  display: flex;
+  gap: 1rem;
+
+  .textinput {
+    flex: 1;
+    padding: .5rem 1rem;
+    font-size: larger;
+    width: 100%;
+  }
+}

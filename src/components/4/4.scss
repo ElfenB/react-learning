@@ -64,6 +64,24 @@ header {
   display: flex;
   justify-content: center;
   margin-top: 5vh;
+  position: relative;
+
+  & .memetext {
+    position: absolute;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 3rem;
+    margin: 1.5rem;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+
+    &.toptext {
+      top: 0;
+    }
+    &.bottomtext {
+      bottom: 0;
+    }
+  }
 
   & .imageBox {
     max-height: 60vh;
