@@ -1,11 +1,11 @@
 import { CardPrice } from './CardPrice';
 import { Rating } from './Rating';
 
-export function Card(props: { card: card }) {
+export function Card(props: { card: Card }) {
   return (
     <div className="card">
       <div>
-        {props.card.openSpots !== undefined && (
+        {props.card.openSpots && (
           <div className="badge">{props.card.openSpots > 0 ? 'Available' : 'Sold out'}</div>
         )}
         <img alt="Katy" className="thumb" src={props.card.img} />
@@ -18,12 +18,12 @@ export function Card(props: { card: card }) {
   );
 }
 
-export type card = {
-  country?: string | undefined;
-  description?: string | undefined;
+export type Card = {
+  country?: string;
+  description?: string;
   img: string;
-  openSpots?: number | undefined;
-  price?: number | undefined;
-  rating?: number | undefined;
-  reviews?: number | undefined;
+  openSpots?: number;
+  price?: number;
+  rating?: number;
+  reviews?: number;
 }

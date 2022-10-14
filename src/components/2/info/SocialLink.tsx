@@ -1,8 +1,8 @@
 export function SocialLink(props: {
-  children: string | undefined;
-  color?: string | undefined;
-  src: any | undefined;
-  to: string | undefined;
+  children: string;
+  color?: string;
+  src: any;
+  to: string;
 }) {
   const getBg = () => (props.color ? props.color : 'var(--color)');
   const getColor = () => (props.color ? 'white' : 'var(--background-color)');

@@ -2,17 +2,17 @@ import './4.scss';
 
 import { useEffect, useState } from 'react';
 
+import { CurrentMeme } from './Display';
 import { Display } from './Display';
 import { Header } from '../4/Header';
 import { Interaction } from './Interaction';
 import { api_data } from './api-data';
-import { currentMeme } from './Display';
 
 export function Four() {
   const testdata = api_data.data.memes;
   const data = testdata;
 
-  const [currentMeme, setCurrentMeme] = useState<currentMeme>({ bottomText: '', meme: data[0], topText: '' });
+  const [currentMeme, setCurrentMeme] = useState<CurrentMeme>({ bottomText: '', meme: data[0], topText: '' });
   const displayNew = () =>
     setCurrentMeme((prevCurrMeme) => ({
       ...prevCurrMeme,
@@ -25,7 +25,7 @@ export function Four() {
     <div>
       <Header />
       <Interaction getNewMeme={displayNew} />
-      {currentMeme !== undefined && <Display data={currentMeme} />}
+      {currentMeme && <Display data={currentMeme} />}
     </div>
   );
 }

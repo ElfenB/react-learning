@@ -3,7 +3,7 @@ import './5.scss';
 import { useState } from 'react';
 
 export function Five() {
-  const [formData, setFormData] = useState<formValues>({ email: '', firstName: '', lastName: '' });
+  const [formData, setFormData] = useState<FormValues>({ email: '', firstName: '', lastName: '' });
 
   function handleFormInput(e: any) {
     setFormData((prevFormData) => ({
@@ -46,7 +46,7 @@ export function Five() {
   );
 }
 
-type formValues = {
+type FormValues = {
   email: string;
   firstName: string;
   lastName: string;

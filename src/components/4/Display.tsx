@@ -1,8 +1,8 @@
-export function Display(props: { data: currentMeme }) {
+export function Display(props: { data: CurrentMeme }) {
   return (
     <div className="display">
       <p className="toptext memetext">toptext</p>
-      {props.data !== undefined && (
+      {props.data && (
         <img alt={props.data?.meme?.name} className="imageBox" src={props.data?.meme?.url} />
       )}
       <p className="bottomtext memetext">bottomtext</p>
@@ -10,13 +10,13 @@ export function Display(props: { data: currentMeme }) {
   );
 }
 
-export type currentMeme = {
+export type CurrentMeme = {
   bottomText: string;
-  meme: meme;
+  meme: Meme;
   topText: string;
 }
 
-export type meme = {
+export type Meme = {
   box_count: number;
   height: number;
   id: string;

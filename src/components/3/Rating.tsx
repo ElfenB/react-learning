@@ -1,9 +1,9 @@
 import star from './assets/star.svg';
 
 export function Rating(props: {
-  country?: string | undefined;
-  reviews?: number | undefined;
-  value?: number | undefined;
+  country?: string;
+  reviews?: number;
+  value?: number;
 }) {
   return (
     <div className="rating">

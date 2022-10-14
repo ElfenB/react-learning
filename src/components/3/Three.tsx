@@ -1,10 +1,10 @@
 import './3.scss';
 
+import { Card } from './Card';
 import { Cards } from './Cards';
 import { Hero } from './Hero';
 import { Navbar } from './Navbar';
 import bike from './assets/bike.svg';
-import { card } from './Card';
 import katy from './assets/katy.svg';
 import wedding from './assets/wedding.svg';
 
@@ -18,7 +18,7 @@ export function Three() {
   );
 }
 
-const testdata: card[] = [
+const testdata: Card[] = [
   {
     country: 'USA',
     description: 'Life lessons with Katy are great',

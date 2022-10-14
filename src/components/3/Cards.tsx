@@ -1,6 +1,6 @@
-import { Card, card } from './Card';
+import { Card, Card } from './Card';
 
-export function Cards(props: { data: card[] }) {
+export function Cards(props: { data: Card[] }) {
   return (
     <section className="cards">
       {props.data.map((c) => (
