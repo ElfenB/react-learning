@@ -1,9 +1,9 @@
-import ChatStatus from './ChatStatus'
-import Name from './Name'
-import ProfilePicture from './ProfilePicture'
-import SocialLinkBlock from './SocialLinkBlock'
+import { ChatStatus } from './ChatStatus';
+import { Name } from './Name';
+import { ProfilePicture } from './ProfilePicture';
+import { SocialLinkBlock } from './SocialLinkBlock';
 
-export default function Info() {
+export function Info() {
   return (
     <div>
       <ProfilePicture />
@@ -11,5 +11,5 @@ export default function Info() {
       <ChatStatus />
       <SocialLinkBlock />
     </div>
-  )
+  );
 }

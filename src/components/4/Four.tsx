@@ -1,24 +1,25 @@
-import "./4.scss"
+import './4.scss';
 
-import { currentMeme, meme } from "./Display"
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react';
 
-import Display from "./Display"
-import Header from "../4/Header"
-import Interaction from "./Interaction"
-import { api_data } from "./api-data"
+import { Display } from './Display';
+import { Header } from '../4/Header';
+import { Interaction } from './Interaction';
+import { api_data } from './api-data';
+import { currentMeme } from './Display';
 
-export default function Four() {
-  const testdata = api_data.data.memes
-  const data = testdata
+export function Four() {
+  const testdata = api_data.data.memes;
+  const data = testdata;
 
-  const [currentMeme, setCurrentMeme] = useState<currentMeme>({meme: data[0], topText: "", bottomText: ""})
-  const displayNew = () => setCurrentMeme(prevCurrMeme => ({
-    ...prevCurrMeme,
-    meme: data[Math.floor(Math.random() * data.length)],
-  }))
+  const [currentMeme, setCurrentMeme] = useState<currentMeme>({ bottomText: '', meme: data[0], topText: '' });
+  const displayNew = () =>
+    setCurrentMeme((prevCurrMeme) => ({
+      ...prevCurrMeme,
+      meme: data[Math.floor(Math.random() * data.length)],
+    }));
 
-  useEffect(() => displayNew(), [])
+  useEffect(() => displayNew());
 
   return (
     <div>
@@ -26,5 +27,5 @@ export default function Four() {
       <Interaction getNewMeme={displayNew} />
       {currentMeme !== undefined && <Display data={currentMeme} />}
     </div>
-  )
+  );
 }

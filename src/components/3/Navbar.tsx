@@ -1,9 +1,9 @@
-import airbnb from "./assets/airbnb.svg"
+import airbnb from './assets/airbnb.svg';
 
-export default function Navbar() {
+export function Navbar() {
   return (
     <div className="navbar">
-      <img src={airbnb} alt="AirBnB logo" className="logo" />
+      <img alt="AirBnB logo" className="logo" src={airbnb} />
     </div>
-  )
+  );
 }

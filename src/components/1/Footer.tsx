@@ -1,7 +1,7 @@
-export default function Footer() {
+export function Footer() {
   return (
     <footer>
       <small>&copy;2022 Benjamin Elfen</small>
     </footer>
-  )
+  );
 }

@@ -1,3 +1,3 @@
-export default function SocialIcon(props: { name: string; src: string }) {
-  return <img src={props.src} alt="props.name" className="socialicons" />
+export function SocialIcon(props: { name: string; src: string }) {
+  return <img alt="props.name" className="socialicons" src={props.src} />;
 }

@@ -1,24 +1,26 @@
-export default function Display(props: {data: currentMeme}) {
+export function Display(props: { data: currentMeme }) {
   return (
     <div className="display">
       <p className="toptext memetext">toptext</p>
-      {props.data !== undefined && <img src={props.data?.meme?.url} alt={props.data?.meme?.name} className="imageBox" />}
+      {props.data !== undefined && (
+        <img alt={props.data?.meme?.name} className="imageBox" src={props.data?.meme?.url} />
+      )}
       <p className="bottomtext memetext">bottomtext</p>
     </div>
-  )
+  );
 }
 
 export interface currentMeme {
-  meme: meme
-  topText: string
-  bottomText: string
+  bottomText: string;
+  meme: meme;
+  topText: string;
 }
 
 export interface meme {
-  id: string
-  name: string
-  url: string
-  width: number
-  height: number
-  box_count: number
+  box_count: number;
+  height: number;
+  id: string;
+  name: string;
+  url: string;
+  width: number;
 }

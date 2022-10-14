@@ -1,9 +1,9 @@
-import src from '../assets/laura.png'
+import src from '../assets/laura.png';
 
-export default function ProfilePicture() {
+export function ProfilePicture() {
   return (
     <div>
-      <img src={src} alt="Profile Picture" style={{ width: '100%' }} />
+      <img alt="Profile Picture" src={src} style={{ width: '100%' }} />
     </div>
-  )
+  );
 }

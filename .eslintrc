@@ -1,0 +1,146 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:react-hooks/recommended",
+    // "plugin:sonarjs/recommended",
+    "plugin:typescript-sort-keys/recommended"
+    // HINT: prettier must be the last extension to work
+    // "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "react",
+    "import",
+    "react-hooks",
+    // "sonarjs",
+    "sort-keys-fix",
+    "typescript-sort-keys"
+    // HINT: prettier must be the last plugin to work
+    // "prettier"
+  ],
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    },
+    "propWrapperFunctions": ["forbidExtraProps"]
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "rules": {
+    "arrow-spacing": [1, { "before": true, "after": true }],
+    "eqeqeq": 1,
+    "indent": [1, 2, { "SwitchCase": 1 }],
+    "no-extra-semi": 1,
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "quotes": [1, "single"],
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "warn",
+    "semi": [1, "always"]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/typescript"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint"],
+      "rules": {
+        "@typescript-eslint/ban-ts-comment": 0,
+        "@typescript-eslint/explicit-function-return-type": [0, { "allowExpressions": true }],
+        "@typescript-eslint/explicit-module-boundary-types": [
+          0,
+          {
+            "allowArgumentsExplicitlyTypedAsAny": true,
+            "allowTypedFunctionExpressions": true,
+            "allowDirectConstAssertionInArrowFunctions": true
+          }
+        ],
+        "@typescript-eslint/no-explicit-any": 0,
+        "@typescript-eslint/no-non-null-assertion": 0,
+        "@typescript-eslint/no-shadow": 0,
+        "@typescript-eslint/no-var-requires": 0,
+        "arrow-spacing": [1, { "before": true, "after": true }],
+        "brace-style": [1, "1tbs"],
+        "curly": [1, "all"],
+        "eqeqeq": 1,
+        "import/extensions": 0,
+        "keyword-spacing": 1,
+        "no-extra-semi": 1,
+        "no-useless-return": 1,
+        "prefer-const": 1,
+        "quotes": [1, "single"],
+        "react/prop-types": 0,
+        "react/display-name": 0,
+        "react/jsx-sort-props": [
+          "warn",
+          {
+            "callbacksLast": true,
+            "ignoreCase": true,
+            "noSortAlphabetically": false,
+            "reservedFirst": true,
+            "shorthandFirst": false,
+            "shorthandLast": false
+          }
+        ],
+        "react/react-in-jsx-scope": "off",
+        "semi": [1, "always"],
+        "sort-keys-fix/sort-keys-fix": [
+          "warn",
+          "asc",
+          {
+            "caseSensitive": false,
+            "natural": true
+          }
+        ],
+        "sonarjs/no-small-switch": "off",
+        // "sonarjs/cognitive-complexity": "warn",
+        // "sonarjs/no-collapsible-if": "warn",
+        // "sonarjs/no-duplicate-string": "warn",
+        // "sonarjs/no-identical-functions": "warn",
+        // "sonarjs/no-nested-switch": "warn",
+        // "sonarjs/no-nested-template-literals": "warn",
+        "space-before-blocks": [1, "always"],
+        "space-infix-ops": 1,
+        "space-unary-ops": [
+          1,
+          {
+            "words": true,
+            "nonwords": false
+          }
+        ]
+      }
+    }
+  ]
+}

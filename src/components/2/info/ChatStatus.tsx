@@ -1,7 +1,7 @@
-export default function ChatStatus() {
+export function ChatStatus() {
   return (
     <div className="chat-status">
       <h4>laurasmith - available</h4>
     </div>
-  )
+  );
 }

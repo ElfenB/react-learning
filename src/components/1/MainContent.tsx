@@ -1,4 +1,4 @@
-export default function MainContent() {
+export function MainContent() {
   return (
     <div className="content">
       <h1>React Fun Facts</h1>
@@ -8,5 +8,5 @@ export default function MainContent() {
         <li>Teset</li>
       </ol>
     </div>
-  )
+  );
 }
