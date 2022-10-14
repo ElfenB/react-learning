@@ -23,7 +23,7 @@ export function Footer() {
   );
 }
 
-interface icon {
+type icon = {
   name: string;
   src: string;
 }

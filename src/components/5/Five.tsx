@@ -46,7 +46,7 @@ export function Five() {
   );
 }
 
-interface formValues {
+type formValues = {
   email: string;
   firstName: string;
   lastName: string;

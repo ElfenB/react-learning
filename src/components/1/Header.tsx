@@ -8,6 +8,7 @@ export function Header() {
           <img alt="React Logo" className="header-logo" src={reactLogo} />
           <p>ReactFacts</p>
         </div>
+        
         <ul className="navbar-links">
           <li>Pricing</li>
           <li>About</li>

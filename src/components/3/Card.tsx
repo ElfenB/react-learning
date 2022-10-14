@@ -10,6 +10,7 @@ export function Card(props: { card: card }) {
         )}
         <img alt="Katy" className="thumb" src={props.card.img} />
       </div>
+      
       <Rating country={props.card.country} reviews={props.card.reviews} value={props.card.rating} />
       {props.card.description && <span className="card-desc">{props.card.description}</span>}
       <CardPrice value={props.card.price} />
@@ -17,7 +18,7 @@ export function Card(props: { card: card }) {
   );
 }
 
-export interface card {
+export type card = {
   country?: string | undefined;
   description?: string | undefined;
   img: string;

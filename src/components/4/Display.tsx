@@ -10,13 +10,13 @@ export function Display(props: { data: currentMeme }) {
   );
 }
 
-export interface currentMeme {
+export type currentMeme = {
   bottomText: string;
   meme: meme;
   topText: string;
 }
 
-export interface meme {
+export type meme = {
   box_count: number;
   height: number;
   id: string;
