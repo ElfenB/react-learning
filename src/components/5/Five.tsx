@@ -1,16 +1,16 @@
 import './5.scss';
 
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 export function Five() {
   const [formData, setFormData] = useState<FormValues>({ email: '', firstName: '', lastName: '' });
 
-  function handleFormInput(e: any) {
+  const handleFormInput = useCallback((e: any) => {
     setFormData((prevFormData) => ({
       ...prevFormData,
       [e.target.name]: e.target.value,
     }));
-  }
+  }, []);
 
   return (
     <div>
@@ -50,4 +50,4 @@ type FormValues = {
   email: string;
   firstName: string;
   lastName: string;
-}
+};

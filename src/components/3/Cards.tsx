@@ -1,4 +1,4 @@
-import { Card, Card } from './Card';
+import { Card } from './Card';
 
 export function Cards(props: { data: Card[] }) {
   return (
