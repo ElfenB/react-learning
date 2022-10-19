@@ -1,16 +1,18 @@
-export function SocialLink(props: {
+type Props = {
   children: string;
   color?: string;
   src: any;
   to: string;
-}) {
-  const getBg = () => (props.color ? props.color : 'var(--color)');
-  const getColor = () => (props.color ? 'white' : 'var(--background-color)');
+};
+
+export function SocialLink({ children, color, src, to }: Props) {
+  const getBg = () => (color ? color : 'var(--color)');
+  const getColor = () => (color ? 'white' : 'var(--background-color)');
 
   return (
     <div className="socialBox" style={{ background: getBg(), color: getColor() }}>
-      <img alt={props.children} className="socialIcon" src={props.src} />
-      <a href={props.to}>{props.children}</a>
+      <img alt={children} className="socialIcon" src={src} />
+      <a href={to}>{children}</a>
     </div>
   );
 }
