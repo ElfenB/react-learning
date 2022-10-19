@@ -3,7 +3,7 @@ import './5.scss';
 import { useCallback, useState } from 'react';
 
 export function Five() {
-  const [formData, setFormData] = useState<FormValues>({ email: '', firstName: '', lastName: '' });
+  const [formData, setFormData] = useState<FormValues>({ comments: '', email: '', firstName: '', lastName: '' });
 
   const handleFormInput = useCallback((e: any) => {
     setFormData((prevFormData) => ({
@@ -40,6 +40,13 @@ export function Five() {
           value={formData?.email}
           onChange={handleFormInput}
         />
+        <textarea
+          className="areainput"
+          name="comments"
+          placeholder="Comments"
+          value={formData?.comments}
+          onChange={handleFormInput}
+        />
       </form>
       <p>{JSON.stringify(formData)}</p>
     </div>
@@ -47,6 +54,7 @@ export function Five() {
 }
 
 type FormValues = {
+  comments?: string;
   email: string;
   firstName: string;
   lastName: string;
