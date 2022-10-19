@@ -12,19 +12,26 @@ export function Four() {
   const testdata = api_data.data.memes;
   const data = testdata;
 
-  const [currentMeme, setCurrentMeme] = useState<CurrentMeme>({ bottomText: '', meme: data[0], topText: '' });
+  const [currentMeme, setCurrentMeme] = useState<CurrentMeme>({ bottomText: 'bottom', meme: data[0], topText: 'top' });
   const displayNew = () =>
     setCurrentMeme((prevCurrMeme) => ({
       ...prevCurrMeme,
       meme: data[Math.floor(Math.random() * data.length)],
     }));
 
-  useEffect(() => displayNew());
+  const setText = (fieldName: string, newText: string) =>
+    setCurrentMeme((prevCurrMeme) => ({
+      ...prevCurrMeme,
+      [fieldName]: newText,
+    }));
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => displayNew(), []);
 
   return (
     <div>
       <Header />
-      <Interaction getNewMeme={displayNew} />
+      <Interaction data={currentMeme} getNewMeme={displayNew} setNewText={setText} />
       {currentMeme && <Display data={currentMeme} />}
     </div>
   );

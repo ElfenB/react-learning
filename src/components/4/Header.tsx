@@ -2,7 +2,7 @@ import troll from './assets/troll.svg';
 
 export function Header() {
   return (
-    <header>
+    <header className='four'>
       <span className="logo-group">
         <img alt="Troll face" className="trollface" src={troll} />
         <h1>Meme Generator</h1>

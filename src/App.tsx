@@ -7,17 +7,20 @@ import { Three } from './components/3/Three';
 import { Two } from './components/2/Two';
 
 function App() {
+  // eslint-disable-next-line prefer-const
+  let show = 5;
+
   return (
     <div>
-      {false && <One />}
+      {show === 1 && <One />}
 
-      {false && <Two />}
+      {show === 2 && <Two />}
 
-      {false && <Three />}
+      {show === 3 && <Three />}
 
-      {false && <Four />}
+      {show === 4 && <Four />}
 
-      {true && <Five />}
+      {show === 5 && <Five />}
     </div>
   );
 }

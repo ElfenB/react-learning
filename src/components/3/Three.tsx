@@ -41,7 +41,6 @@ const testdata: Card[] = [
     country: 'England',
     description: 'Group Mountain Biking',
     img: bike,
-    openSpots: 0,
     price: 49.99,
     rating: 4.8,
     reviews: 2,
