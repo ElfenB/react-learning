@@ -1,7 +1,7 @@
 type Props = {
   children: string;
   color?: string;
-  src: any;
+  src: string;
   to: string;
 };
 

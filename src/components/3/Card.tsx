@@ -1,8 +1,9 @@
 import { CardPrice } from './CardPrice';
+import { CardType } from './Card.types';
 import { Rating } from './Rating';
 
 type Props = {
-  card: Card;
+  card: CardType;
 };
 
 export function Card(props: Props) {
@@ -21,13 +22,3 @@ export function Card(props: Props) {
     </div>
   );
 }
-
-export type Card = {
-  country?: string;
-  description?: string;
-  img: string;
-  openSpots?: number;
-  price?: number;
-  rating?: number;
-  reviews?: number;
-};
