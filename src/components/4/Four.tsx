@@ -2,7 +2,7 @@ import './4.scss';
 
 import { useEffect, useState } from 'react';
 
-import { CurrentMeme } from './Display';
+import { CurrentMeme } from './Four.types';
 import { Display } from './Display';
 import { Header } from '../4/Header';
 import { Interaction } from './Interaction';

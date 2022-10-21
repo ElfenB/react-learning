@@ -1,4 +1,4 @@
-import { CurrentMeme } from './Display';
+import { CurrentMeme } from './Four.types';
 
 type Props = {
   data: CurrentMeme;
@@ -27,7 +27,7 @@ export function Interaction({ data, getNewMeme, setNewText }: Props) {
           onChange={(e) => setNewText(e.target.name, e.target.value)}
         />
       </div>
-      
+
       <button className="action-button input" onClick={getNewMeme}>
         Get new meme
       </button>

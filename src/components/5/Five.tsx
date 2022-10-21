@@ -2,6 +2,8 @@ import './5.scss';
 
 import { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 
+import { FormValues } from './Five.types';
+
 export function Five() {
   const [formData, setFormData] = useState<FormValues>({
     comments: '',
@@ -125,18 +127,8 @@ export function Five() {
 
         <button type="submit">Send</button>
       </form>
-      
+
       <p>{JSON.stringify(formData)}</p>
     </div>
   );
 }
-
-type FormValues = {
-  comments?: string;
-  email: string;
-  employment: string;
-  favColor: string;
-  firstName: string;
-  isFriendly: boolean;
-  lastName: string;
-};
