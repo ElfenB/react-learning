@@ -1,4 +1,4 @@
-import { CSSProperties, ChangeEvent, FormEvent, useCallback, useState } from 'react';
+import { CSSProperties, ChangeEvent, FormEvent, useState } from 'react';
 
 import { FormValues } from './LoginDialog.types';
 
@@ -45,12 +45,20 @@ export default function LoginDialog() {
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+    const matchingPasswords: boolean = formData.password === formData.passwordRepeat;
+    if (matchingPasswords) {
+      // passwords match
+      console.log(formData);
+      formData.newsletter ? console.log('Thank you for signing up to our newsletter!') : '';
+    } else {
+      // passwords dont match
+      alert('error, passwords don\'t match');
+    }
   };
 
   return (
     <div style={style.component}>
-      <h1>LoginDialog works!</h1>
+      <h1>Login</h1>
       <form onSubmit={handleFormSubmit}>
         <input
           name="email"
