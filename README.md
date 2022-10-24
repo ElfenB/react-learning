@@ -26,4 +26,4 @@ npm run dev
 The learning path is based on:
 
 - [The official tutorial](https://reactjs.org/tutorial/tutorial.html#overview)
-- [Scrimba course from Bob Ziroll](https://www.youtube.com/watch?v=bMknfKXIFA8)
+- [Scrimba course from Bob Ziroll](https://youtu.be/bMknfKXIFA8?t=36474)

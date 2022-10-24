@@ -17,7 +17,6 @@ export function Four() {
     try {
       (async () => {
         const res = await (await fetch('https://api.imgflip.com/get_memes')).json();
-        console.info('API data was fetched');
         setMemeData(await res?.data.memes);
       })();
     } catch (err: unknown) {
