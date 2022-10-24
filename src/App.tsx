@@ -3,13 +3,14 @@ import './App.css';
 import { Five } from './components/5/Five';
 import { Four } from './components/4/Four';
 import { One } from './components/1/One';
+import Seven from './components/7/Seven';
 import Six from './components/6/Six';
 import { Three } from './components/3/Three';
 import { Two } from './components/2/Two';
 
 function App() {
   // eslint-disable-next-line prefer-const
-  let show = 6;
+  let show = 4;
 
   return (
     <div>
@@ -24,6 +25,8 @@ function App() {
       {show === 5 && <Five />}
 
       {show === 6 && <Six />}
+
+      {show === 7 && <Seven />}
     </div>
   );
 }
