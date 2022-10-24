@@ -5,7 +5,7 @@ import { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 import { FormValues } from './Five.types';
 
 export function Five() {
-  const [formData, setFormData] = useState<FormValues>({
+  const formDataInit = {
     comments: '',
     email: '',
     employment: '',
@@ -13,11 +13,13 @@ export function Five() {
     firstName: '',
     isFriendly: false,
     lastName: '',
-  });
+  };
+  const [formData, setFormData] = useState<FormValues>(formDataInit);
 
   const handleFormInput = useCallback(
     (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLSelectElement>) => {
-      const { name, value, type, checked } = e.target as HTMLInputElement;
+      const { name, value, type } = e.target;
+      const checked = (e.target as HTMLInputElement).checked;
       setFormData((prevFormData) => ({
         ...prevFormData,
         [name]: type === 'checkbox' ? checked : value,

@@ -6,20 +6,24 @@ import { CurrentMeme } from './Four.types';
 import { Display } from './Display';
 import { Header } from '../4/Header';
 import { Interaction } from './Interaction';
-import { api_data } from './api-data';
+import { apiData } from './api-data';
 
 export function Four() {
-  const testdata = api_data.data.memes;
+  const testdata = apiData.data.memes;
   const data = testdata;
 
-  const [currentMeme, setCurrentMeme] = useState<CurrentMeme>({ bottomText: 'bottom', meme: data[0], topText: 'top' });
+  const getRandomMeme = useCallback(() => data[Math.floor(Math.random() * data.length)], [data]);
+
+  const currentMemeInit = { bottomText: 'bottom', meme: getRandomMeme(), topText: 'top' };
+
+  const [currentMeme, setCurrentMeme] = useState<CurrentMeme>(currentMemeInit);
   const displayNew = useCallback(
     () =>
       setCurrentMeme((prevCurrMeme) => ({
         ...prevCurrMeme,
-        meme: data[Math.floor(Math.random() * data.length)],
+        meme: getRandomMeme(),
       })),
-    [data]
+    [getRandomMeme]
   );
 
   const setText = (fieldName: string, newText: string) =>
