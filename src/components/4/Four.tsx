@@ -1,6 +1,6 @@
 import './4.scss';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { CurrentMeme } from './Four.types';
 import { Display } from './Display';
@@ -13,11 +13,14 @@ export function Four() {
   const data = testdata;
 
   const [currentMeme, setCurrentMeme] = useState<CurrentMeme>({ bottomText: 'bottom', meme: data[0], topText: 'top' });
-  const displayNew = () =>
-    setCurrentMeme((prevCurrMeme) => ({
-      ...prevCurrMeme,
-      meme: data[Math.floor(Math.random() * data.length)],
-    }));
+  const displayNew = useCallback(
+    () =>
+      setCurrentMeme((prevCurrMeme) => ({
+        ...prevCurrMeme,
+        meme: data[Math.floor(Math.random() * data.length)],
+      })),
+    [data]
+  );
 
   const setText = (fieldName: string, newText: string) =>
     setCurrentMeme((prevCurrMeme) => ({
@@ -25,8 +28,7 @@ export function Four() {
       [fieldName]: newText,
     }));
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => displayNew(), []);
+  useEffect(() => displayNew(), [displayNew]);
 
   return (
     <div>

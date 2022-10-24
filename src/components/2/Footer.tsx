@@ -4,8 +4,8 @@ import { icons } from './Footer.consts';
 export function Footer() {
   return (
     <div className="footer-2">
-      {icons.map((i) => (
-        <SocialIcon key={i.name} name={i.name} src={i.src} />
+      {icons.map(({ name, src }) => (
+        <SocialIcon key={name} name={name} src={src} />
       ))}
     </div>
   );
