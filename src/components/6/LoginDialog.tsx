@@ -43,10 +43,15 @@ export default function LoginDialog() {
     }));
   };
 
+  const passwordsMatch = formData.password === formData.passwordRepeat;
+  const passwordLongerThanZero = formData.password.length > 0;
+  const emailLongerThanZero = formData.email.length > 0;
+
+  const validForm: boolean = passwordsMatch && passwordLongerThanZero && emailLongerThanZero;
+
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const matchingPasswords: boolean = formData.password === formData.passwordRepeat;
-    if (matchingPasswords) {
+    if (validForm) {
       // passwords match
       console.log(formData);
       formData.newsletter ? console.log('Thank you for signing up to our newsletter!') : '';
@@ -94,7 +99,7 @@ export default function LoginDialog() {
           />
           <label htmlFor="newsletter">I want to join the newsletter</label>
         </div>
-        <button style={style.textinput} type="submit">
+        <button disabled={!validForm} style={style.textinput} type="submit">
           Login
         </button>
       </form>
