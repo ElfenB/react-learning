@@ -4,6 +4,7 @@ import ActionButton from './ActionButton';
 import { DiceType } from './Dice.types';
 import Dices from './Dices';
 import RoundIndicator from './RoundIndicator';
+import Timer from './Timer';
 
 const style: Record<string, CSSProperties> = {
   component: {
@@ -32,6 +33,7 @@ export default function Eight() {
   const [dices, setDices] = useState<DiceType[]>(generateInitialDices());
   const [round, setRound] = useState<number>(startRound);
   const [gameOver, setGameOver] = useState<boolean>(false);
+  const [gameNumber, setGameNumber] = useState(0);
 
   // Check if the game is over
   useEffect(() => {
@@ -61,12 +63,9 @@ export default function Eight() {
   const handleReset = () => {
     setRound(startRound);
     setDices(generateInitialDices());
-    // TODO: Reset timer
+    setGameNumber(gameNumber + 1);
   };
   const handleRoll = () => {
-    if (round === 1) {
-      // TODO: Start timer
-    }
     setRound(round + 1);
     shuffleAllUnlocked();
   };
@@ -89,6 +88,7 @@ export default function Eight() {
       <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
       <Dices dices={dices} handleToggleSelect={handleToggleSelect} />
       <ActionButton finished={gameOver} reset={handleReset} roll={handleRoll} />
+      {round > 0 && <Timer gameNumber={gameNumber} gameOver={gameOver} />}
     </div>
   );
 }

@@ -38,7 +38,6 @@ export default function LoginDialog() {
 
     setFormData((prevFormData) => ({
       ...prevFormData,
-      // TODO: Check on type of name
       [name]: type === 'checkbox' ? checked : value,
     }));
   };
