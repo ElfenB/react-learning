@@ -17,6 +17,10 @@ const style: Record<string, CSSProperties> = {
   },
 };
 
+// TODO: Letzte Ergebnisse in localStorage speichern (Rounds, Zeit und gewählte Zahl) => Nickname vergeben?
+// TODO: Letzte Ergebnisse in Tabelle (rechts oder drunter) darstellen
+// TODO: Clear Button für die History
+
 export default function Eight() {
   const gameSize = 10;
   const startRound = 0;
