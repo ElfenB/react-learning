@@ -10,8 +10,8 @@ const style: Record<string, CSSProperties> = {
     cursor: 'pointer',
     fontSize: 'larger',
     fontWeight: '600',
-    marginTop: '1rem',
     padding: '0.7em 1.5em',
+    userSelect: 'none',
   },
 };
 
@@ -25,7 +25,7 @@ export default function ActionButton({ finished, reset, roll }: Props) {
   return (
     <div style={style.component}>
       <button style={style.button} onClick={finished ? reset : roll}>
-        {finished ? 'Reset game' : 'Roll'}
+        {finished ? 'Save & Reset' : 'Roll'}
       </button>
     </div>
   );

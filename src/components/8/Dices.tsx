@@ -16,10 +16,10 @@ const style: Record<string, CSSProperties> = {
 
 type Props = {
   dices: DiceType[];
-  handleToggleSelect: (diceId: number, newVal: boolean) => void;
+  toggleSelect: (diceId: number, newVal: boolean) => void;
 };
 
-export default function Dices({ dices, handleToggleSelect }: Props) {
+export default function Dices({ dices, toggleSelect: handleToggleSelect }: Props) {
   return (
     <div style={style.component}>
       <div style={style.dices}>

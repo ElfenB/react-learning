@@ -14,25 +14,28 @@ const style: Record<string, CSSProperties> = {
 type Props = {
   gameNumber: number;
   gameOver: boolean;
+  publishTime: (time: number) => void;
 };
 
-export default function Timer({ gameNumber, gameOver }: Props) {
+export default function Timer({ gameNumber, gameOver, publishTime }: Props) {
   const [timer, setTimer] = useState(0);
   const [startTime, setStartTime] = useState<number>(Date.now());
 
   useEffect(() => setStartTime(Date.now()), [gameNumber]);
 
+  useEffect(() => publishTime(timer), [publishTime, timer]);
+
   useEffect(() => {
-    const interval = setInterval(() => setTimer(startTime - Date.now()), 1000);
+    const interval = setInterval(() => setTimer(Math.ceil((Date.now() - startTime) / 1000) - 1), 1000);
     if (gameOver) {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [startTime, gameOver]);
+  }, [startTime, gameOver, timer]);
 
   return (
     <div style={style.component}>
-      <span>{Math.abs(Math.ceil(timer / 1000))}s</span>
+      <span>{timer}s</span>
     </div>
   );
 }
