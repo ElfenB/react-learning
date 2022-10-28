@@ -5,6 +5,7 @@ const style: Record<string, CSSProperties> = {
     color: 'gray',
     fontSize: 'small',
     position: 'absolute',
+    userSelect: 'none',
   },
   value: {
     color: 'var(--color)',
@@ -12,22 +13,27 @@ const style: Record<string, CSSProperties> = {
 };
 
 type Props = {
-  description: string;
+  clicked?: () => void;
+  description?: string;
   positionX: 'left' | 'right';
   positionY: 'top' | 'bottom';
-  value: number;
+  value?: number;
 };
 
-export default function GameIndicator({ description, positionX, positionY, value }: Props) {
+export default function GameIndicator({ description, positionX, positionY, value, clicked }: Props) {
   return (
     <div
       style={{
         ...style.component,
         [positionY === 'top' ? 'top' : 'bottom']: '0',
         [positionX === 'left' ? 'left' : 'right']: '0',
+        cursor: clicked ? 'pointer' : 'select',
       }}
+      onClick={clicked}
     >
-      {description}: <span style={style.value}>{value}</span>
+      {description}
+      {description && value && ': '}
+      {value && <span style={style.value}>{value}</span>}
     </div>
   );
 }

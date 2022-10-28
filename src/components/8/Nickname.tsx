@@ -11,6 +11,7 @@ const style: Record<string, CSSProperties> = {
     fontSize: 'small',
     fontWeight: 'normal',
     margin: '1rem 0 0rem 0',
+    userSelect: 'none',
   },
 };
 

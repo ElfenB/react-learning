@@ -6,6 +6,7 @@ import Bin from './Bin';
 import { DiceType } from './Dice.types';
 import Dices from './Dices';
 import { GameStats } from './TenziesGame.types';
+import HistoryPane from './HistoryPane';
 import Indicator from './Indicator';
 import Nickname from './Nickname';
 import Timer from './Timer';
@@ -18,10 +19,9 @@ const style: Record<string, CSSProperties> = {
   },
   h1: {
     margin: '0',
+    userSelect: 'none',
   },
 };
-
-// TODO: Letzte Ergebnisse in Tabelle (rechts oder drunter) darstellen
 
 export default function Eight() {
   const getRandomNumber = (): number => Math.ceil(Math.random() * 6);
@@ -37,6 +37,7 @@ export default function Eight() {
   const [dices, setDices] = useState<DiceType[]>(generateInitialDices());
   const [gameOver, setGameOver] = useState<boolean>(false);
   const [gameNumber, setGameNumber] = useState(startGameNumber);
+  const [showHistory, setShowHistory] = useState(false);
 
   // Get last value from localStore if available, otherwise take starting value
   const [currentGameStats, setCurrentGameStats] = useState<GameStats>(
@@ -133,6 +134,10 @@ export default function Eight() {
     }));
   }, []);
 
+  const handleFoldHistory = () => {
+    setShowHistory(!showHistory);
+  };
+
   const handleClearHistory = () => {
     setGameStats([]);
     setCurrentGameStats(gameStartValue);
@@ -141,7 +146,13 @@ export default function Eight() {
 
   return (
     <div style={style.component}>
-      <Indicator description={'Game'} positionX={'left'} positionY={'top'} value={gameNumber} />
+      <Indicator
+        clicked={handleFoldHistory}
+        description={'Game'}
+        positionX={'left'}
+        positionY={'top'}
+        value={gameNumber}
+      />
       <Indicator description={'Round'} positionX={'right'} positionY={'top'} value={currentGameStats.rounds} />
 
       <h1 style={style.h1}>Tenzies</h1>
@@ -160,6 +171,8 @@ export default function Eight() {
         <Timer gameNumber={gameNumber} gameOver={gameOver} publishTime={handleTimer} />
       )}
       <Bin clearHistory={handleClearHistory} username={currentGameStats.nickname} />
+
+      {showHistory && <HistoryPane data={gameStats} size={3} />}
     </div>
   );
 }
