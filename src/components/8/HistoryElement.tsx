@@ -8,7 +8,7 @@ export default function HistoryElement({ game }: Props) {
   return (
     <div>
       <p>
-        <b>{game.nickname}</b> - {game.numberPicked} - {game.rounds} - {game.timeNeeded}s
+        <b>{game.nickname}</b> - N:{game.numberPicked} - R:{game.rounds} - T:{game.timeNeeded}s
       </p>
     </div>
   );
