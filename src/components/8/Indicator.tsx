@@ -25,9 +25,9 @@ export function Indicator({ description, positionX, positionY, value, clicked }:
     <div
       style={{
         ...style.component,
-        [positionY === 'top' ? 'top' : 'bottom']: 0,
-        [positionX === 'left' ? 'left' : 'right']: 0,
         cursor: clicked ? 'pointer' : 'select',
+        [positionX]: 0,
+        [positionY]: 0,
       }}
       onClick={clicked}
     >

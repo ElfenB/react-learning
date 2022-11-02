@@ -1,4 +1,4 @@
-import { CSSProperties, SyntheticEvent, useState } from 'react';
+import { CSSProperties, MouseEvent, useState } from 'react';
 
 import { DiceType } from './Dice.types';
 
@@ -35,7 +35,7 @@ type Props = {
 export function Dice({ dice, toggleSelect }: Props) {
   const [hovered, setHovered] = useState(false);
 
-  const handleHover = (e: SyntheticEvent) => (e.type === 'mouseover' ? setHovered(true) : setHovered(false));
+  const handleHover = (e: MouseEvent) => (e.type === 'mouseover' ? setHovered(true) : setHovered(false));
 
   return (
     <div>
@@ -49,7 +49,7 @@ export function Dice({ dice, toggleSelect }: Props) {
         onMouseLeave={handleHover}
         onMouseOver={handleHover}
       >
-        {dice.number}
+        {dice.value}
       </button>
     </div>
   );

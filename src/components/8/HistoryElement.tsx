@@ -5,10 +5,12 @@ type Props = {
 };
 
 export function HistoryElement({ game }: Props) {
+  const { nickname, numberPicked, rounds, timeNeeded } = game;
+
   return (
     <div>
       <p>
-        <b>{game.nickname}</b> - N:{game.numberPicked} - R:{game.rounds} - T:{game.timeNeeded}s
+        <b>{nickname}</b> - N:{numberPicked} - R:{rounds} - T:{timeNeeded}s
       </p>
     </div>
   );

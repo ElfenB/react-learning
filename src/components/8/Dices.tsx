@@ -23,8 +23,8 @@ export function Dices({ dices, toggleSelect: handleToggleSelect }: Props) {
   return (
     <div style={style.component}>
       <div style={style.dices}>
-        {dices.map((dice, i) => (
-          <Dice key={i} dice={dice} toggleSelect={() => handleToggleSelect(dice.id, !dice.lockedIn)} />
+        {dices.map((dice) => (
+          <Dice key={dice.id} dice={dice} toggleSelect={() => handleToggleSelect(dice.id, !dice.lockedIn)} />
         ))}
       </div>
     </div>
