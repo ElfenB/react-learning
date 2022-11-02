@@ -1,15 +1,15 @@
 import './App.css';
 
-import Eight from './components/8/Eight';
+import { Eight } from './components/8/Eight';
 import { Five } from './components/5/Five';
 import { Four } from './components/4/Four';
 import { One } from './components/1/One';
-import Seven from './components/7/Seven';
-import Six from './components/6/Six';
+import { Seven } from './components/7/Seven';
+import { Six } from './components/6/Six';
 import { Three } from './components/3/Three';
 import { Two } from './components/2/Two';
 
-function App() {
+export function App() {
   // eslint-disable-next-line prefer-const
   let show = 8;
 
@@ -33,5 +33,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

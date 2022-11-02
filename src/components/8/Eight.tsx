@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import TenziesGame from './TenziesGame';
+import { TenziesGame } from './TenziesGame';
 
 const style: Record<string, CSSProperties> = {
   component: {
@@ -20,7 +20,7 @@ const style: Record<string, CSSProperties> = {
   },
 };
 
-export default function Eight() {
+export function Eight() {
   return (
     <div style={style.component}>
       <div style={style.game}>

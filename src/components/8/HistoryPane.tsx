@@ -1,17 +1,17 @@
 import { GameStats } from './TenziesGame.types';
-import HistoryElement from './HistoryElement';
+import { HistoryElement } from './HistoryElement';
 
 type Props = {
   data: GameStats[];
   size?: number;
 };
 
-export default function HistoryPane({ data, size = 3 }: Props) {
+export function HistoryPane({ data, size = 3 }: Props) {
   const substraction = Math.min(data.length, size);
 
   return (
     <div>
-      <h4 style={{ marginBottom: '0' }}>Last {size} entries</h4>
+      <h4 style={{ marginBottom: 0 }}>Last {size} entries</h4>
       <span style={{ fontSize: 'small' }}>N=Number picked, R=Needed rounds, T=Time</span>
       {data
         .slice(data.length - substraction, data.length)

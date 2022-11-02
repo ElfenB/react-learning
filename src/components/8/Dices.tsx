@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import Dice from './Dice';
+import { Dice } from './Dice';
 import { DiceType } from './Dice.types';
 
 const style: Record<string, CSSProperties> = {
@@ -19,7 +19,7 @@ type Props = {
   toggleSelect: (diceId: number, newVal: boolean) => void;
 };
 
-export default function Dices({ dices, toggleSelect: handleToggleSelect }: Props) {
+export function Dices({ dices, toggleSelect: handleToggleSelect }: Props) {
   return (
     <div style={style.component}>
       <div style={style.dices}>

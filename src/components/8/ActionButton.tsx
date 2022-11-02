@@ -21,7 +21,7 @@ type Props = {
   roll: () => void;
 };
 
-export default function ActionButton({ finished, reset, roll }: Props) {
+export function ActionButton({ finished, reset, roll }: Props) {
   return (
     <div style={style.component}>
       <button style={style.button} onClick={finished ? reset : roll}>

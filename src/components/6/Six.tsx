@@ -1,4 +1,4 @@
-import LoginDialog from './LoginDialog';
+import { LoginDialog } from './LoginDialog';
 
 const style = {
   component: {
@@ -7,7 +7,7 @@ const style = {
   },
 };
 
-export default function Six() {
+export function Six() {
   return (
     <div style={style.component}>
       <LoginDialog />

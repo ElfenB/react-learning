@@ -32,7 +32,7 @@ type Props = {
   toggleSelect: () => void;
 };
 
-export default function Dice({ dice, toggleSelect }: Props) {
+export function Dice({ dice, toggleSelect }: Props) {
   const [hovered, setHovered] = useState(false);
 
   const handleHover = (e: SyntheticEvent) => (e.type === 'mouseover' ? setHovered(true) : setHovered(false));

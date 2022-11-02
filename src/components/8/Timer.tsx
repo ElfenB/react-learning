@@ -2,10 +2,10 @@ import { CSSProperties, useEffect, useState } from 'react';
 
 const style: Record<string, CSSProperties> = {
   component: {
-    bottom: '0',
+    bottom: 0,
     color: 'gray',
     fontSize: '0.7rem',
-    left: '0',
+    left: 0,
     lineHeight: '0.7rem',
     position: 'absolute',
   },
@@ -17,7 +17,7 @@ type Props = {
   publishTime: (time: number) => void;
 };
 
-export default function Timer({ gameNumber, gameOver, publishTime }: Props) {
+export function Timer({ gameNumber, gameOver, publishTime }: Props) {
   const [timer, setTimer] = useState(0);
   const [startTime, setStartTime] = useState<number>(Date.now());
 

@@ -1,15 +1,15 @@
 import { CSSProperties, useCallback, useEffect, useState } from 'react';
 import { gameSize, gameStartValue, startGameNumber, startRound } from './TenziesGame.config';
 
-import ActionButton from './ActionButton';
-import Bin from './Bin';
+import { ActionButton } from './ActionButton';
+import { Bin } from './Bin';
 import { DiceType } from './Dice.types';
-import Dices from './Dices';
+import { Dices } from './Dices';
 import { GameStats } from './TenziesGame.types';
-import HistoryPane from './HistoryPane';
-import Indicator from './Indicator';
-import Nickname from './Nickname';
-import Timer from './Timer';
+import { HistoryPane } from './HistoryPane';
+import { Indicator } from './Indicator';
+import { Nickname } from './Nickname';
+import { Timer } from './Timer';
 
 const style: Record<string, CSSProperties> = {
   component: {
@@ -18,12 +18,12 @@ const style: Record<string, CSSProperties> = {
     textAlign: 'center',
   },
   h1: {
-    margin: '0',
+    margin: 0,
     userSelect: 'none',
   },
 };
 
-export default function Eight() {
+export function TenziesGame() {
   const getRandomNumber = (): number => Math.ceil(Math.random() * 6);
 
   const generateInitialDices = (): DiceType[] => {

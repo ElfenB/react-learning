@@ -2,11 +2,11 @@ import { CSSProperties } from 'react';
 
 const style: Record<string, CSSProperties> = {
   button: {
-    bottom: '0',
+    bottom: 0,
     cursor: 'pointer',
     display: 'inline-block',
     position: 'absolute',
-    right: '0',
+    right: 0,
   },
 };
 
@@ -15,7 +15,7 @@ type Props = {
   username?: string;
 };
 
-export default function Bin({ clearHistory, username = 'Anonymous' }: Props) {
+export function Bin({ clearHistory, username = 'Anonymous' }: Props) {
   const askUser = () => {
     if (confirm(`Hey ${username}, sure you want to delete all of the history?`)) {
       clearHistory();

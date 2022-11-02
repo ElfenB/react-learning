@@ -20,13 +20,13 @@ type Props = {
   value?: number;
 };
 
-export default function GameIndicator({ description, positionX, positionY, value, clicked }: Props) {
+export function Indicator({ description, positionX, positionY, value, clicked }: Props) {
   return (
     <div
       style={{
         ...style.component,
-        [positionY === 'top' ? 'top' : 'bottom']: '0',
-        [positionX === 'left' ? 'left' : 'right']: '0',
+        [positionY === 'top' ? 'top' : 'bottom']: 0,
+        [positionX === 'left' ? 'left' : 'right']: 0,
         cursor: clicked ? 'pointer' : 'select',
       }}
       onClick={clicked}

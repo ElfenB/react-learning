@@ -4,7 +4,7 @@ type Props = {
   game: GameStats;
 };
 
-export default function HistoryElement({ game }: Props) {
+export function HistoryElement({ game }: Props) {
   return (
     <div>
       <p>

@@ -20,7 +20,7 @@ type Props = {
   value: string;
 };
 
-export default function Nickname({ changed: handleChange, value }: Props) {
+export function Nickname({ changed: handleChange, value }: Props) {
   return (
     <div>
       <h4 style={style.title}>Please choose a nickname</h4>

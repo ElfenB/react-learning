@@ -25,7 +25,7 @@ const style: Record<string, CSSProperties> = {
   },
 };
 
-export default function LoginDialog() {
+export function LoginDialog() {
   const [formData, setFormData] = useState<FormValues>({
     email: '',
     newsletter: true,
@@ -50,14 +50,14 @@ export default function LoginDialog() {
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (validForm) {
-      // passwords match
-      console.log(formData);
-      formData.newsletter ? console.log('Thank you for signing up to our newsletter!') : '';
-    } else {
+    if (!validForm) {
       // passwords dont match
       alert('error, passwords don\'t match');
+      return;
     }
+    // passwords match
+    console.log(formData);
+    formData.newsletter ? console.log('Thank you for signing up to our newsletter!') : '';
   };
 
   return (
