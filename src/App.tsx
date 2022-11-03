@@ -1,35 +1,44 @@
 import './App.css';
 
-import { Eight } from './components/8/Eight';
-import { Five } from './components/5/Five';
-import { Four } from './components/4/Four';
-import { One } from './components/1/One';
-import { Seven } from './components/7/Seven';
-import { Six } from './components/6/Six';
-import { Three } from './components/3/Three';
-import { Two } from './components/2/Two';
+import { CSSProperties } from 'react';
+import { router } from './routes';
+
+const style: Record<string, CSSProperties> = {
+  component: {
+    height: '100vh',
+  },
+  link: {
+    background: 'var(--color)',
+    border: '1px solid green',
+    borderRadius: '8px',
+    color: 'var(--background-color)',
+    display: 'block',
+    padding: '1rem',
+  },
+  list: {
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'row',
+    height: '100%',
+    justifyContent: 'space-evenly',
+    listStyle: 'none',
+    margin: 0,
+    padding: 0,
+  },
+};
 
 export function App() {
-  // eslint-disable-next-line prefer-const
-  let show = 8;
+  const routes = router.routes;
 
   return (
-    <div>
-      {show === 1 && <One />}
-
-      {show === 2 && <Two />}
-
-      {show === 3 && <Three />}
-
-      {show === 4 && <Four />}
-
-      {show === 5 && <Five />}
-
-      {show === 6 && <Six />}
-
-      {show === 7 && <Seven />}
-
-      {show === 8 && <Eight />}
-    </div>
+    <nav style={style.component}>
+      <ul style={style.list}>
+        {Object.values(routes).map((route) => (
+          <a key={route.id} href={route.path} style={style.link}>
+            {route.path}
+          </a>
+        ))}
+      </ul>
+    </nav>
   );
 }
