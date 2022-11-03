@@ -88,7 +88,7 @@ export function TenziesGame() {
     });
   };
 
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     // Save stats to all stats array
     setGameStats((prevGameStats) => [...prevGameStats, currentGameStats]);
 
@@ -101,8 +101,9 @@ export function TenziesGame() {
     setDices(generateInitialDices());
 
     setGameNumber(gameNumber + 1);
-  };
-  const handleRoll = () => {
+  }, [currentGameStats, gameNumber]);
+
+  const handleRoll = useCallback(() => {
     // Increase round number
     setCurrentGameStats((prevCurrentGameStats) => ({
       ...prevCurrentGameStats,
@@ -110,26 +111,29 @@ export function TenziesGame() {
     }));
 
     shuffleAllUnlocked();
-  };
+  }, []);
 
-  const handleCurrentGameStatsChange = (field: string, value: number | string) => {
+  const handleCurrentGameStatsChange = useCallback((field: string, value: number | string) => {
     setCurrentGameStats((prevCurrentGameStats) => ({
       ...prevCurrentGameStats,
       [field]: value,
     }));
-  };
+  }, []);
 
-  const handleToggleSelect = (diceIndex: any, newVal: boolean) => {
-    setDices((prevDices) => {
-      return prevDices.map((dice) => {
-        if (dice.id === diceIndex) {
-          dice.lockedIn = newVal;
-        }
-        return dice;
+  const handleToggleSelect = useCallback(
+    (diceIndex: any, newVal: boolean) => {
+      setDices((prevDices) => {
+        return prevDices.map((dice) => {
+          if (dice.id === diceIndex) {
+            dice.lockedIn = newVal;
+          }
+          return dice;
+        });
       });
-    });
-    handleCurrentGameStatsChange('numberPicked', dices[diceIndex].value);
-  };
+      handleCurrentGameStatsChange('numberPicked', dices[diceIndex].value);
+    },
+    [dices, handleCurrentGameStatsChange]
+  );
 
   const handleTimer = useCallback((time: number) => {
     setCurrentGameStats((prevCurrentGameStats) => ({
@@ -138,15 +142,15 @@ export function TenziesGame() {
     }));
   }, []);
 
-  const handleFoldHistory = () => {
+  const handleFoldHistory = useCallback(() => {
     setShowHistory(!showHistory);
-  };
+  }, [showHistory]);
 
-  const handleClearHistory = () => {
+  const handleClearHistory = useCallback(() => {
     setGameStats([]);
     setCurrentGameStats(gameStartValue);
     setGameNumber(startGameNumber);
-  };
+  }, []);
 
   return (
     <div style={style.component}>

@@ -42,11 +42,14 @@ export function Four() {
     [getRandomMeme]
   );
 
-  const setText = (fieldName: string, newText: string) =>
-    setCurrentMeme((prevCurrMeme) => ({
-      ...prevCurrMeme,
-      [fieldName]: newText,
-    }));
+  const setText = useCallback(
+    (fieldName: string, newText: string) =>
+      setCurrentMeme((prevCurrMeme) => ({
+        ...prevCurrMeme,
+        [fieldName]: newText,
+      })),
+    []
+  );
 
   useEffect(() => displayNew(), [displayNew]);
 
