@@ -13,7 +13,7 @@ const style: Record<string, CSSProperties> = {
     background: 'var(--background-color)',
     border: '1px solid transparent',
     borderRadius: '8px',
-    boxShadow: '1px 2px 15px -8px rgba(0,0,0,0.7)',
+    boxShadow: '1px 2px 15px -8px rgba(130,130,130,0.7)',
     marginTop: '10vh',
     maxWidth: 'calc(100vw - 2rem)',
     width: '30rem',

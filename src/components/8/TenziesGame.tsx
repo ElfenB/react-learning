@@ -30,17 +30,26 @@ export function TenziesGame() {
   const [gameNumber, setGameNumber] = useState(startGameNumber);
   const [showHistory, setShowHistory] = useState(false);
 
+  const getJsonFromLocalStorage = (item: string) => {
+    try {
+      const storageItem = localStorage.getItem(item) as string;
+      const data = JSON.parse(storageItem);
+      return data;
+    } catch (err) {
+      if (typeof err === 'string') {
+        console.warn(err);
+      } else if (err instanceof Error) {
+        console.warn(err.message);
+      }
+    }
+    return gameStartValue;
+  };
+
   // Get last value from localStore if available, otherwise take starting value
-  const [currentGameStats, setCurrentGameStats] = useState<GameStats>(
-    localStorage.getItem('currentGame') !== null
-      ? (JSON.parse(localStorage.getItem('currentGame') as string) as GameStats)
-      : gameStartValue
-  );
+  const [currentGameStats, setCurrentGameStats] = useState<GameStats>(getJsonFromLocalStorage('currentGame'));
 
   // Get overall stats from localStorage when exists, otherwise start with empty array
-  const [gameStats, setGameStats] = useState<GameStats[]>(
-    JSON.parse(localStorage.getItem('gameStats') || '[]') as GameStats[]
-  );
+  const [gameStats, setGameStats] = useState<GameStats[]>(getJsonFromLocalStorage('gameStats'));
 
   // Check if the game is over
   useEffect(() => {
