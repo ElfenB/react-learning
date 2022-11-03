@@ -1,6 +1,7 @@
 import './App.css';
 
 import { CSSProperties } from 'react';
+import { Link } from 'react-router-dom';
 import { router } from './routes';
 
 const style: Record<string, CSSProperties> = {
@@ -18,7 +19,8 @@ const style: Record<string, CSSProperties> = {
   list: {
     alignItems: 'center',
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
     height: '100%',
     justifyContent: 'space-evenly',
     listStyle: 'none',
@@ -34,9 +36,9 @@ export function App() {
     <nav style={style.component}>
       <ul style={style.list}>
         {Object.values(routes).map((route) => (
-          <a key={route.id} href={route.path} style={style.link}>
+          <Link key={route.id} style={style.link} to={`${route.path}`}>
             {route.path}
-          </a>
+          </Link>
         ))}
       </ul>
     </nav>
