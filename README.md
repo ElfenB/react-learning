@@ -11,6 +11,18 @@ The project is based on an empty vite React template.
 2. Redux
 3. MaterialUI
 
+### Chapters/Folders
+
+1. Static page
+2. More components (still static)
+3. First state
+4. Props and Events
+5. Forms
+6. More forms and js-styling
+7. Effects and API-calls
+8. Small game as final exercise of first course
+9. Redux with Redux Toolkit
+
 ## Installation
 
 To install the required packages:
@@ -34,4 +46,4 @@ The learning path is based on:
 - [The official tutorial](https://reactjs.org/tutorial/tutorial.html#overview)
 - [Scrimba course from Bob Ziroll](https://youtu.be/bMknfKXIFA8)
 - [Redux Tutorial - Learn Redux from Scratch](https://www.youtube.com/watch?v=poQXNp9ItL4)
-- [Redux Toolkit Tutorial – JavaScript State Management Library](https://youtu.be/bbkBuqC1rU4?t=660)
+- [Redux Tutorial (with Redux Toolkit)](https://youtu.be/iBUJVy8phqw?t=755)
