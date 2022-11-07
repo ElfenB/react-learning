@@ -5,6 +5,12 @@ The idea is to start simple and refine the project further and further.
 
 The project is based on an empty vite React template.
 
+## Learning Path
+
+1. React Basics
+2. Redux
+3. MaterialUI
+
 ## Installation
 
 To install the required packages:
@@ -26,4 +32,6 @@ npm run dev
 The learning path is based on:
 
 - [The official tutorial](https://reactjs.org/tutorial/tutorial.html#overview)
-- [Scrimba course from Bob Ziroll](https://youtu.be/bMknfKXIFA8?t=41775)
+- [Scrimba course from Bob Ziroll](https://youtu.be/bMknfKXIFA8)
+- [Redux Tutorial - Learn Redux from Scratch](https://www.youtube.com/watch?v=poQXNp9ItL4)
+- [Redux Toolkit Tutorial – JavaScript State Management Library](https://youtu.be/bbkBuqC1rU4?t=660)

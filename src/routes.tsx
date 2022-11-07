@@ -5,6 +5,7 @@ import { Eight } from './components/8/Eight';
 import { ErrorPage } from './ErrorPage';
 import { Five } from './components/5/Five';
 import { Four } from './components/4/Four';
+import { Nine } from './components/9/Nine';
 import { One } from './components/1/One';
 import { Seven } from './components/7/Seven';
 import { Six } from './components/6/Six';
@@ -56,6 +57,11 @@ export const router = createBrowserRouter([
   {
     path: '/eight',
     element: <Eight />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/nine',
+    element: <Nine />,
     errorElement: <ErrorPage />,
   },
 ]);
