@@ -46,4 +46,5 @@ The learning path is based on:
 - [The official tutorial](https://reactjs.org/tutorial/tutorial.html#overview)
 - [Scrimba course from Bob Ziroll](https://youtu.be/bMknfKXIFA8)
 - [Redux Tutorial - Learn Redux from Scratch](https://www.youtube.com/watch?v=poQXNp9ItL4)
-- [Redux Tutorial (with Redux Toolkit)](https://youtu.be/iBUJVy8phqw?t=755)
+- [Redux Tutorial (with Redux Toolkit)](https://www.youtube.com/watch?v=iBUJVy8phqw)
+- [Let’s Learn Modern Redux!](https://youtu.be/9zySeP5vH9c?t=3386)
