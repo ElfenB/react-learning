@@ -1,5 +1,5 @@
-import { cartItem as CartItem } from './cart.types';
-import { createSlice } from '@reduxjs/toolkit/dist/createSlice';
+import { CartItem } from './cart.types';
+import { createSlice } from '@reduxjs/toolkit';
 
 type State = {
   cart: CartItem[];
@@ -19,3 +19,7 @@ export const cartSlice = createSlice({
     },
   },
 });
+
+export const { addItem, removeItem } = cartSlice.actions;
+
+export default cartSlice.reducer;
