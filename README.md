@@ -21,7 +21,8 @@ The project is based on an empty vite React template.
 6. More forms and js-styling
 7. Effects and API-calls
 8. Small game as final exercise of first course
-9. Redux with Redux Toolkit
+9. First steps with Redux and Redux Toolkit
+10. Shopping cart example with Redux Toolkit
 
 ## Installation
 

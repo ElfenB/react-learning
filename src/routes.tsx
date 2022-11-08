@@ -9,6 +9,7 @@ import { Nine } from './components/9/Nine';
 import { One } from './components/1/One';
 import { Seven } from './components/7/Seven';
 import { Six } from './components/6/Six';
+import { Ten } from './components/10/Ten';
 import { Three } from './components/3/Three';
 import { Two } from './components/2/Two';
 import { createBrowserRouter } from 'react-router-dom';
@@ -62,6 +63,11 @@ export const router = createBrowserRouter([
   {
     path: '/nine',
     element: <Nine />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/ten',
+    element: <Ten />,
     errorElement: <ErrorPage />,
   },
 ]);
