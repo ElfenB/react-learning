@@ -4,8 +4,7 @@ import { ShoppingCart } from './ShoppingCart';
 export function Ten() {
   return (
     <div>
-      {/* TODO: Make pretty */}
-      {/* <Header /> */}
+      <Header />
       <ShoppingCart />
     </div>
   );

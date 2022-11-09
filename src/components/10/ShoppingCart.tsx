@@ -1,10 +1,27 @@
+import { CSSProperties } from 'react';
+import { CartSummary } from './CartSummary';
+import { RootState } from '../redux/store';
+import { ShoppingCartItem } from './ShoppingCartItem';
+import { useSelector } from 'react-redux';
+
+const style: Record<string, CSSProperties> = {
+  component: {
+    padding: '0 20vw',
+  },
+};
+
 export function ShoppingCart() {
+  const { cart } = useSelector((state: RootState) => state.cartState);
+
   return (
-    <div>
+    <div style={style.component}>
       <h1>ShoppingCart works!</h1>
-      {/* TODO: List of items */}
-      {/* TODO:   Component for list item */}
-      {/* TODO: Summary of total items and total sum */}
+
+      {cart.map((cartItem) => (
+        <ShoppingCartItem key={cartItem.productId} data={cartItem} />
+      ))}
+
+      <CartSummary />
     </div>
   );
 }

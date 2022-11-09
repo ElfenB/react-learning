@@ -1,8 +1,8 @@
-import { decrement, increment, incrementByAmount, reset, setAmount } from './redux/features/counter';
+import { decrement, increment, incrementByAmount, reset, setAmount } from '../redux/features/counter/counter';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ChangeEvent } from 'react';
-import { RootState } from './redux/store';
+import { RootState } from '../redux/store';
 
 export function Nine() {
   const { count, amount } = useSelector((state: RootState) => state.counterState);
