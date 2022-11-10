@@ -1,9 +1,10 @@
+import { CSSProperties, useCallback } from 'react';
 import { decreaseAmountBy, increaseAmountBy, removeItem } from '../redux/features/cart/cart';
 
-import { CSSProperties } from 'react';
 import { CartItem } from '../redux/features/cart/cart.types';
 import placeholderProduct from './assets/placeholderProduct.webp';
 import { useDispatch } from 'react-redux';
+import { useDispatchAction } from './ShoppingCart.utils';
 
 const style: Record<string, CSSProperties> = {
   amount: {
@@ -66,9 +67,17 @@ type Props = {
 export function ShoppingCartItem({ data }: Props) {
   const dispatch = useDispatch();
 
-  const handleIncrease = () => dispatch(increaseAmountBy({ amount: 1, productId: data.productId }));
-  const handleDecrease = () => dispatch(decreaseAmountBy({ amount: 1, productId: data.productId }));
-  const handleDelete = () => dispatch(removeItem(data.productId));
+  const handleIncreaseNEW = useDispatchAction(increaseAmountBy, { amount: 1, productId: data.productId });
+
+  // const handleIncrease = useCallback(
+  //   () => dispatch(increaseAmountBy({ amount: 1, productId: data.productId })),
+  //   [data.productId, dispatch]
+  // );
+  const handleDecrease = useCallback(
+    () => dispatch(decreaseAmountBy({ amount: 1, productId: data.productId })),
+    [data.productId, dispatch]
+  );
+  const handleDelete = useCallback(() => dispatch(removeItem(data.productId)), [data.productId, dispatch]);
 
   return (
     <div style={style.component}>
@@ -84,7 +93,7 @@ export function ShoppingCartItem({ data }: Props) {
         <span style={style.amount}>{data.amount}</span>
 
         <div style={style.arrowBox}>
-          <button style={{ ...style.arrows, ...style.noButtons }} onClick={handleIncrease}>
+          <button style={{ ...style.arrows, ...style.noButtons }} onClick={handleIncreaseNEW}>
             ▲
           </button>
           <button style={{ ...style.arrows, ...style.noButtons }} onClick={handleDecrease}>

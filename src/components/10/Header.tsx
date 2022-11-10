@@ -31,10 +31,10 @@ const style: Record<string, CSSProperties> = {
 export function Header() {
   return (
     <header style={style.component}>
-      <span style={style.logoBox}>
+      <div style={style.logoBox}>
         <img alt="Logo" src={logo} style={style.logo} />
         <h1 style={style.title}>Redux Shopping Cart</h1>
-      </span>
+      </div>
       <ShoppingCartIcon />
     </header>
   );

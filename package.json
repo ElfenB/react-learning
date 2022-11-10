@@ -12,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
     "@typescript-eslint/parser": "^5.42.1",
+    "lodash.memoize": "^4.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
@@ -19,6 +20,7 @@
     "sass": "^1.55.0"
   },
   "devDependencies": {
+    "@types/lodash.memoize": "^4.1.7",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
