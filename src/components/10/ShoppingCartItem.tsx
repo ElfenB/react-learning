@@ -68,16 +68,18 @@ export function ShoppingCartItem({ data }: Props) {
   const dispatch = useDispatch();
 
   const handleIncreaseNEW = useDispatchAction(increaseAmountBy, { amount: 1, productId: data.productId });
+  const handleDecreaseNEW = useDispatchAction(decreaseAmountBy, { amount: 1, productId: data.productId });
+  const handleDeleteNEW = useDispatchAction(removeItem, { productId: data.productId });
 
   // const handleIncrease = useCallback(
   //   () => dispatch(increaseAmountBy({ amount: 1, productId: data.productId })),
   //   [data.productId, dispatch]
   // );
-  const handleDecrease = useCallback(
-    () => dispatch(decreaseAmountBy({ amount: 1, productId: data.productId })),
-    [data.productId, dispatch]
-  );
-  const handleDelete = useCallback(() => dispatch(removeItem(data.productId)), [data.productId, dispatch]);
+  // const handleDecrease = useCallback(
+  //   () => dispatch(decreaseAmountBy({ amount: 1, productId: data.productId })),
+  //   [data.productId, dispatch]
+  // );
+  // const handleDelete = useCallback(() => dispatch(removeItem(data.productId)), [data.productId, dispatch]);
 
   return (
     <div style={style.component}>
@@ -96,12 +98,12 @@ export function ShoppingCartItem({ data }: Props) {
           <button style={{ ...style.arrows, ...style.noButtons }} onClick={handleIncreaseNEW}>
             ▲
           </button>
-          <button style={{ ...style.arrows, ...style.noButtons }} onClick={handleDecrease}>
+          <button style={{ ...style.arrows, ...style.noButtons }} onClick={handleDecreaseNEW}>
             ▼
           </button>
         </div>
 
-        <button style={{ ...style.delete, ...style.noButtons }} onClick={handleDelete}>
+        <button style={{ ...style.delete, ...style.noButtons }} onClick={handleDeleteNEW}>
           🗑
         </button>
       </div>
