@@ -1,4 +1,5 @@
 import { CSSProperties } from 'react';
+import { Link } from 'react-router-dom';
 import { ShoppingCartIcon } from './ShoppingCartIcon';
 import logo from './assets/shop.svg';
 
@@ -32,9 +33,12 @@ export function Header() {
   return (
     <header style={style.component}>
       <div style={style.logoBox}>
-        <img alt="Logo" src={logo} style={style.logo} />
+        <Link style={style.logoBox} to={'/ten/shop'}>
+          <img alt="Logo" src={logo} style={style.logo} />
+        </Link>
         <h1 style={style.title}>Redux Shopping Cart</h1>
       </div>
+
       <ShoppingCartIcon />
     </header>
   );

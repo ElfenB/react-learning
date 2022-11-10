@@ -1,7 +1,7 @@
 import { Header } from './Header';
 import { ShoppingCart } from './ShoppingCart';
 
-export function Ten() {
+export function TenCart() {
   return (
     <div>
       <Header />

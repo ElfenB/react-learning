@@ -15,7 +15,7 @@ export function ShoppingCart() {
 
   return (
     <div style={style.component}>
-      <h1>ShoppingCart works!</h1>
+      <h1>Shopping cart</h1>
 
       {cart.map((cartItem) => (
         <ShoppingCartItem key={cartItem.productId} data={cartItem} />

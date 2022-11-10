@@ -23,11 +23,13 @@ const style: Record<string, CSSProperties> = {
   },
   component: {
     alignItems: 'center',
-
     borderRadius: '8px',
-    // border: '1px solid red',
+
     boxShadow: '0px 2px 12px -8px rgba(0,0,0,0.7)',
+
     display: 'flex',
+    // border: '1px solid red',
+    height: 'calc(8rem + 2rem)', // Image height + Image margin
     justifyContent: 'space-between',
     marginBottom: '1rem',
     paddingRight: '1rem',
@@ -41,6 +43,7 @@ const style: Record<string, CSSProperties> = {
     pointerEvents: 'none',
   },
   image: {
+    background: 'white',
     borderRadius: '8px',
     margin: '1rem',
     maxHeight: '8rem',
@@ -76,7 +79,7 @@ export function ShoppingCartItem({ data }: Props) {
 
   return (
     <div style={style.component}>
-      <img alt={`Image of ${data.title}`} src={placeholderProduct} style={style.image} />
+      <img alt={`Image of ${data.title}`} src={data.image || placeholderProduct} style={style.image} />
 
       <span style={style.title}>{data.title}</span>
 

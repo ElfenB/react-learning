@@ -1,25 +1,13 @@
 import { CartItem } from './cart.types';
 import { createSlice } from '@reduxjs/toolkit';
+import { tempData } from './cart.tempdata';
 
 type State = {
   cart: CartItem[];
 };
 
 const initialState: State = {
-  cart: [
-    {
-      amount: 1,
-      price: 10.5,
-      productId: 815,
-      title: 'Headphones',
-    },
-    {
-      amount: 2,
-      price: 23.99,
-      productId: 874,
-      title: 'iPhone 12 Case',
-    },
-  ],
+  cart: [...tempData],
 };
 
 export const cartSlice = createSlice({
@@ -27,7 +15,12 @@ export const cartSlice = createSlice({
   name: 'cart',
   reducers: {
     addItem(state, action: { payload: CartItem; type: string }) {
-      state.cart.push(action.payload);
+      if (state.cart.every((item) => item.productId !== action.payload.productId)) {
+        state.cart.push(action.payload);
+      }
+      state.cart.map((item) =>
+        item.productId !== action.payload.productId ? item : { ...item, amount: item.amount + 1 }
+      );
     },
     decreaseAmountBy(state, action: { payload: { amount: number; productId: number }; type: string }) {
       state.cart = state.cart.map((cartItem) => ({
