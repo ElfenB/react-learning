@@ -1,5 +1,6 @@
 import { CSSProperties } from 'react';
 import { RootState } from '../redux/store';
+import { selectTotalItems } from '../redux/features/cart/cart.selectors';
 import shoppingCart from './assets/shop.svg';
 import { useSelector } from 'react-redux';
 
@@ -31,14 +32,14 @@ const style: Record<string, CSSProperties> = {
 };
 
 export function ShoppingCartIcon() {
-  const cartSize = useSelector((state: RootState) => state.cartState.cart.length);
-  // TODO: Fix error that this is not being rerendered when state changes
-  console.log('carticon rendered');
+  const { cart } = useSelector((state: RootState) => state.cartState);
+
+  const badge = selectTotalItems(cart);
 
   return (
     <div style={style.component}>
       <img alt="shopping cart icon" src={shoppingCart} style={style.icon} />
-      {cartSize > 0 && <span style={style.badge}>{cartSize > 99 ? '99+' : cartSize}</span>}
+      {badge > 0 && <span style={style.badge}>{badge > 99 ? '99+' : badge}</span>}
     </div>
   );
 }

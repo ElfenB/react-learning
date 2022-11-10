@@ -34,7 +34,8 @@ export const cartSlice = createSlice({
         ...cartItem,
         amount: (cartItem.amount =
           cartItem.productId === action.payload.productId
-            ? (cartItem.amount -= action.payload.amount)
+            ? (cartItem.amount =
+                action.payload.amount >= cartItem.amount ? 1 : (cartItem.amount -= action.payload.amount))
             : cartItem.amount),
       }));
     },

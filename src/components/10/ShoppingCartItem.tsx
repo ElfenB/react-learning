@@ -1,9 +1,9 @@
 import { decreaseAmountBy, increaseAmountBy, removeItem } from '../redux/features/cart/cart';
+import { useDispatchAction, useDispatchAction2 } from './ShoppingCart.utils';
 
 import { CSSProperties } from 'react';
 import { CartItem } from '../redux/features/cart/cart.types';
 import placeholderProduct from './assets/placeholderProduct.webp';
-import { useDispatchAction } from './ShoppingCart.utils';
 
 const style: Record<string, CSSProperties> = {
   amount: {
@@ -36,11 +36,16 @@ const style: Record<string, CSSProperties> = {
     color: '#e03619',
     fontSize: '1.5rem',
   },
+  disabled: {
+    filter: 'brightness(30%)',
+    pointerEvents: 'none',
+  },
   image: {
     borderRadius: '8px',
     margin: '1rem',
     maxHeight: '8rem',
     maxWidth: '8rem',
+    userSelect: 'none',
   },
   noButtons: {
     appearance: 'none',
@@ -48,6 +53,7 @@ const style: Record<string, CSSProperties> = {
     border: 'none',
     cursor: 'pointer',
     display: 'block',
+    userSelect: 'none',
   },
   price: {
     padding: '1rem',
@@ -64,9 +70,9 @@ type Props = {
 };
 
 export function ShoppingCartItem({ data }: Props) {
-  const handleIncreaseNEW = useDispatchAction(increaseAmountBy, { amount: 1, productId: data.productId });
-  const handleDecreaseNEW = useDispatchAction(decreaseAmountBy, { amount: 1, productId: data.productId });
-  const handleDeleteNEW = useDispatchAction(removeItem, { productId: data.productId });
+  const handleIncreaseNEW = useDispatchAction2(increaseAmountBy, { amount: 1, productId: data.productId });
+  const handleDecreaseNEW = useDispatchAction2(decreaseAmountBy, { amount: 1, productId: data.productId });
+  const handleDeleteNEW = useDispatchAction2(removeItem, data.productId);
 
   return (
     <div style={style.component}>
@@ -85,7 +91,10 @@ export function ShoppingCartItem({ data }: Props) {
           <button style={{ ...style.arrows, ...style.noButtons }} onClick={handleIncreaseNEW}>
             ▲
           </button>
-          <button style={{ ...style.arrows, ...style.noButtons }} onClick={handleDecreaseNEW}>
+          <button
+            style={{ ...style.arrows, ...style.noButtons, ...(data.amount === 1 ? style.disabled : {}) }}
+            onClick={handleDecreaseNEW}
+          >
             ▼
           </button>
         </div>

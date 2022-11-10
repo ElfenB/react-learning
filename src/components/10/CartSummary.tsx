@@ -1,10 +1,18 @@
-import { selectTotalAmount, selectTotalItems } from '../redux/features/cart/cart.selectors';
+import { selectDistinctNumOfItems, selectTotalAmount, selectTotalItems } from '../redux/features/cart/cart.selectors';
 
 import { CSSProperties } from 'react';
 import { RootState } from '../redux/store';
 import { useSelector } from 'react-redux';
 
 const style: Record<string, CSSProperties> = {
+  component: {
+    position: 'relative',
+  },
+  countOfItems: {
+    position: 'absolute',
+    right: 0,
+    top: 0,
+  },
   numberBox: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -18,7 +26,7 @@ export function CartSummary() {
 
   return (
     <div style={style.component}>
-      {/* // TODO: Fix error that this is not being rerendered when state changes */}
+      <span style={style.countOfItems}>{selectDistinctNumOfItems(cart)}</span>
       <h3>Summary of cart</h3>
       <div style={style.numberBox}>
         <span>
