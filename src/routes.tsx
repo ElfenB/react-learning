@@ -78,9 +78,10 @@ export const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
       {
-        path: 'shop',
+        // path: 'shop',
         element: <TenShop />,
         errorElement: <ErrorPage />,
+        index: true
       },
     ],
   },

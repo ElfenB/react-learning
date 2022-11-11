@@ -33,7 +33,7 @@ export function Header() {
   return (
     <header style={style.component}>
       <div style={style.logoBox}>
-        <Link style={style.logoBox} to={'/ten/shop'}>
+        <Link style={style.logoBox} to={'/ten'}>
           <img alt="Logo" src={logo} style={style.logo} />
         </Link>
 
