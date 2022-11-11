@@ -1,13 +1,16 @@
-import { CartItem } from './cart.types';
+import { CartItem, Product } from './cart.types';
+
 import { createSlice } from '@reduxjs/toolkit';
-import { tempData } from './cart.tempdata';
+import { mockData } from './cart.mockData';
 
 type State = {
   cart: CartItem[];
+  products: Product[];
 };
 
 const initialState: State = {
-  cart: [...tempData],
+  cart: [...mockData.cart],
+  products: [...mockData.products],
 };
 
 export const cartSlice = createSlice({

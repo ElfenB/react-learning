@@ -9,7 +9,8 @@ import { Nine } from './components/9/Nine';
 import { One } from './components/1/One';
 import { Seven } from './components/7/Seven';
 import { Six } from './components/6/Six';
-import { TenCart } from './components/10/Ten';
+import { Ten } from './components/10/Ten';
+import { TenCart } from './components/10/TenCart';
 import { TenShop } from './components/10/TenShop';
 import { Three } from './components/3/Three';
 import { Two } from './components/2/Two';
@@ -68,13 +69,18 @@ export const router = createBrowserRouter([
   },
   {
     path: '/ten',
-    element: <TenCart />,
+    element: <Ten />,
     errorElement: <ErrorPage />,
     children: [
       {
+        path: 'cart',
+        element: <TenCart />,
+        errorElement: <ErrorPage />,
+      },
+      {
         path: 'shop',
         element: <TenShop />,
-        // TODO: Fix Routing
+        errorElement: <ErrorPage />,
       },
     ],
   },

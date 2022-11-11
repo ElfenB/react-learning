@@ -1,11 +1,11 @@
 import { Header } from './Header';
-import { ShoppingCart } from './ShoppingCart';
+import { Outlet } from 'react-router-dom';
 
-export function TenCart() {
+export function Ten() {
   return (
     <div>
       <Header />
-      <ShoppingCart />
+      <Outlet />
     </div>
   );
 }

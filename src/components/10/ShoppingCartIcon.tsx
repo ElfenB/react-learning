@@ -1,4 +1,5 @@
 import { CSSProperties } from 'react';
+import { Link } from 'react-router-dom';
 import { RootState } from '../redux/store';
 import { selectTotalItems } from '../redux/features/cart/cart.selectors';
 import shoppingCart from './assets/shop.svg';
@@ -11,12 +12,12 @@ const style: Record<string, CSSProperties> = {
     fontFamily: 'monospace',
     fontSize: '.8rem',
     height: '1.15rem',
-    left: '-.8rem',
+    left: '0.3rem',
     lineHeight: '1.15rem',
     padding: '0.15em',
     position: 'absolute',
     textAlign: 'center',
-    top: '0.2rem',
+    top: '0.5rem',
     width: '1.15rem',
   },
   component: {
@@ -24,6 +25,7 @@ const style: Record<string, CSSProperties> = {
     display: 'flex',
     height: '100%',
     justifyContent: 'center',
+    padding: '0 1rem',
     position: 'relative',
   },
   icon: {
@@ -37,9 +39,9 @@ export function ShoppingCartIcon() {
   const badge = selectTotalItems(cart);
 
   return (
-    <div style={style.component}>
+    <Link style={style.component} to="/ten/cart">
       <img alt="shopping cart icon" src={shoppingCart} style={style.icon} />
       {badge > 0 && <span style={style.badge}>{badge > 99 ? '99+' : badge}</span>}
-    </div>
+    </Link>
   );
 }

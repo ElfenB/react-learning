@@ -10,7 +10,7 @@ const style: Record<string, CSSProperties> = {
   },
 };
 
-export function ShoppingCart() {
+export function TenCart() {
   const { cart } = useSelector((state: RootState) => state.cartState);
 
   return (

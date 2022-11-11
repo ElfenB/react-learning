@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingCartIcon } from './ShoppingCartIcon';
-import logo from './assets/shop.svg';
+import logo from './assets/redux.svg';
 
 const style: Record<string, CSSProperties> = {
   component: {
@@ -15,7 +15,7 @@ const style: Record<string, CSSProperties> = {
   },
   logo: {
     height: '80%',
-    marginRight: '.5rem',
+    padding: '1rem',
   },
   logoBox: {
     alignItems: 'center',
@@ -36,6 +36,7 @@ export function Header() {
         <Link style={style.logoBox} to={'/ten/shop'}>
           <img alt="Logo" src={logo} style={style.logo} />
         </Link>
+
         <h1 style={style.title}>Redux Shopping Cart</h1>
       </div>
 

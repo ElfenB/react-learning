@@ -1,7 +1,33 @@
+import { CSSProperties } from 'react';
+import { ProductItem } from './ProductItem';
+import { RootState } from '../redux/store';
+import { useSelector } from 'react-redux';
+
+const style: Record<string, CSSProperties> = {
+  component: {
+    margin: '0 20vw',
+  },
+  // TODO: Fix grid
+  // product: {
+  //   flexGrow: 0,
+  //   flexShrink: 0,
+  // },
+  products: {
+    display: 'flex',
+  },
+};
+
 export function TenShop() {
+  const { products } = useSelector((state: RootState) => state.cartState);
+
   return (
-    <div>
-      <h1>TenShop works!</h1>
+    <div style={style.component}>
+      <h1>Shop</h1>
+      <div style={style.products}>
+        {products.map((product) => (
+          <ProductItem key={product.productId} product={product} />
+        ))}
+      </div>
       {/* TODO: Implement shop to add items */}
     </div>
   );
