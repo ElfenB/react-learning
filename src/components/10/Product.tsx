@@ -27,7 +27,6 @@ const style: Record<string, CSSProperties> = {
   },
   image: {
     background: 'white',
-    // boxShadow: '1px 2px 8px -5px rgba(0,0,0,0.5)',
     border: '3px dashed rgba(0,0,0,0.3)',
     borderRadius: '8px',
     padding: '1rem',
@@ -55,11 +54,12 @@ export function Product() {
 
       <img alt={`Image of ${product.title}`} src={product.image} style={style.image} />
 
-      <span>{product.price}€</span>
+      <span>{product.price.toFixed(2)}€</span>
 
       <div style={style.buyBox}>
         <input
           id="amount"
+          min={1}
           name="amount"
           style={{ ...style.controls, ...style.numberInput }}
           type="number"

@@ -10,7 +10,7 @@ const style: Record<string, CSSProperties> = {
     background: 'red',
     borderRadius: '50%',
     fontFamily: 'monospace',
-    fontSize: '.8rem',
+    fontSize: '.6rem',
     height: '1rem',
     left: '0.3rem',
     lineHeight: '1rem',

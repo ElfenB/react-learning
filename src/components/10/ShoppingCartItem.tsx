@@ -2,6 +2,7 @@ import { decreaseAmountBy, increaseAmountBy, removeItem } from '../redux/feature
 
 import { CSSProperties } from 'react';
 import { CartItem } from '../redux/features/cart/cart.types';
+import { Link } from 'react-router-dom';
 import placeholderProduct from './assets/placeholderProduct.webp';
 import { useDispatchAction2 } from './ShoppingCart.utils';
 
@@ -72,30 +73,32 @@ type Props = {
   data: CartItem;
 };
 
-export function ShoppingCartItem({ data }: Props) {
-  const handleIncreaseNEW = useDispatchAction2(increaseAmountBy, { amount: 1, productId: data.productId });
-  const handleDecreaseNEW = useDispatchAction2(decreaseAmountBy, { amount: 1, productId: data.productId });
-  const handleDeleteNEW = useDispatchAction2(removeItem, data.productId);
+export function ShoppingCartItem({ data: product }: Props) {
+  const handleIncreaseNEW = useDispatchAction2(increaseAmountBy, { amount: 1, productId: product.productId });
+  const handleDecreaseNEW = useDispatchAction2(decreaseAmountBy, { amount: 1, productId: product.productId });
+  const handleDeleteNEW = useDispatchAction2(removeItem, product.productId);
 
   return (
     <div style={style.component}>
-      <img alt={`Image of ${data.title}`} src={data.image || placeholderProduct} style={style.image} />
+      <Link to={`/ten/product/${product.productId}`}>
+        <img alt={`Image of ${product.title}`} src={product.image || placeholderProduct} style={style.image} />
+      </Link>
 
-      <span style={style.title}>{data.title}</span>
+      <span style={style.title}>{product.title}</span>
 
       {/* <span>{JSON.stringify(data)}</span> */}
 
-      <span style={style.price}>{data.price.toFixed(2)}€</span>
+      <span style={style.price}>{product.price.toFixed(2)}€</span>
 
       <div style={style.amountBox}>
-        <span style={style.amount}>{data.amount}</span>
+        <span style={style.amount}>{product.amount}</span>
 
         <div style={style.arrowBox}>
           <button style={{ ...style.arrows, ...style.noButtons }} onClick={handleIncreaseNEW}>
             ▲
           </button>
           <button
-            style={{ ...style.arrows, ...style.noButtons, ...(data.amount === 1 ? style.disabled : {}) }}
+            style={{ ...style.arrows, ...style.noButtons, ...(product.amount === 1 ? style.disabled : {}) }}
             onClick={handleDecreaseNEW}
           >
             ▼

@@ -1,4 +1,5 @@
 import { CSSProperties } from 'react';
+import { Link } from 'react-router-dom';
 import { Product } from '../redux/features/cart/cart.types';
 import { addItem } from '../redux/features/cart/cart';
 import { useDispatchActionCallback } from './ShoppingCart.utils';
@@ -42,10 +43,13 @@ type Props = {
 export function ProductItem({ product }: Props) {
   return (
     <div style={style.component}>
-      <img alt={`Picture of ${product.title}`} src={product.image} style={style.image} />
+      <Link to={`product/${product.productId}`}>
+        <img alt={`Picture of ${product.title}`} src={product.image} style={style.image} />
+      </Link>
+
       <h2 style={style.title}>{product.title}</h2>
       <button style={style.addButton} onClick={useDispatchActionCallback(() => addItem({ amount: 1, product }))}>
-        Put in cart {product.price}€
+        Get 1 for {product.price.toFixed(2)}€
       </button>
     </div>
   );

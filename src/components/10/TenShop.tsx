@@ -11,7 +11,7 @@ const style: Record<string, CSSProperties> = {
     display: 'flex',
     flexWrap: 'wrap',
     gap: '2rem',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
   },
 };
 

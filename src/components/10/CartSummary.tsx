@@ -11,7 +11,10 @@ const style: Record<string, CSSProperties> = {
   countOfItems: {
     position: 'absolute',
     right: 0,
-    top: 0,
+    top: '1rem',
+  },
+  line: {
+    display: 'block',
   },
   numberBox: {
     display: 'flex',
@@ -26,7 +29,9 @@ export function CartSummary() {
 
   return (
     <div style={style.component}>
+      <hr style={style.line} />
       <span style={style.countOfItems}>{selectDistinctNumOfItems(cart)}</span>
+
       <h3>Summary of cart</h3>
       <div style={style.numberBox}>
         <span>
