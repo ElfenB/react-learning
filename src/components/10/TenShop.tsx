@@ -26,7 +26,6 @@ export function TenShop() {
           <ProductItem key={product.productId} product={product} />
         ))}
       </div>
-      {/* TODO: Implement shop to add items */}
     </div>
   );
 }
