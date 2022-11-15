@@ -1,6 +1,6 @@
 import { CSSProperties, useCallback, useEffect, useState } from 'react';
 import { gameStartValue, startGameNumber, startRound } from './TenziesGame.consts';
-import { generateInitialDices, getRandomNumber } from './TenziesGame.utils';
+import { generateInitialDices, getJsonFromLocalStorage, getRandomNumber } from './TenziesGame.utils';
 
 import { ActionButton } from './ActionButton';
 import { Bin } from './Bin';
@@ -30,26 +30,13 @@ export function TenziesGame() {
   const [gameNumber, setGameNumber] = useState(startGameNumber);
   const [showHistory, setShowHistory] = useState(false);
 
-  const getJsonFromLocalStorage = (item: string) => {
-    try {
-      const storageItem = localStorage.getItem(item) as string;
-      const data = JSON.parse(storageItem);
-      return data;
-    } catch (err) {
-      if (typeof err === 'string') {
-        console.warn(err);
-      } else if (err instanceof Error) {
-        console.warn(err.message);
-      }
-    }
-    return gameStartValue;
-  };
-
   // Get last value from localStore if available, otherwise take starting value
-  const [currentGameStats, setCurrentGameStats] = useState<GameStats>(getJsonFromLocalStorage('currentGame'));
+  const [currentGameStats, setCurrentGameStats] = useState<GameStats>(
+    getJsonFromLocalStorage('currentGame', gameStartValue)
+  );
 
   // Get overall stats from localStorage when exists, otherwise start with empty array
-  const [gameStats, setGameStats] = useState<GameStats[]>(getJsonFromLocalStorage('gameStats'));
+  const [gameStats, setGameStats] = useState<GameStats[]>(getJsonFromLocalStorage('gameStats', []));
 
   // Check if the game is over
   useEffect(() => {
@@ -161,7 +148,7 @@ export function TenziesGame() {
         positionY={'top'}
         value={gameNumber}
       />
-      <Indicator description={'Round'} positionX={'right'} positionY={'top'} value={currentGameStats.rounds} />
+      <Indicator description={'Round'} positionX={'right'} positionY={'top'} value={currentGameStats?.rounds} />
 
       <h1 style={style.h1}>Tenzies</h1>
       <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
@@ -172,13 +159,13 @@ export function TenziesGame() {
 
       <Nickname
         changed={(newNickName) => handleCurrentGameStatsChange('nickname', newNickName)}
-        value={currentGameStats.nickname}
+        value={currentGameStats?.nickname}
       />
 
-      {currentGameStats.rounds > startRound && (
+      {currentGameStats?.rounds > startRound && (
         <Timer gameNumber={gameNumber} gameOver={gameOver} publishTime={handleTimer} />
       )}
-      <Bin clearHistory={handleClearHistory} username={currentGameStats.nickname} />
+      <Bin clearHistory={handleClearHistory} username={currentGameStats?.nickname} />
 
       {showHistory && <HistoryPane data={gameStats} size={3} />}
     </div>

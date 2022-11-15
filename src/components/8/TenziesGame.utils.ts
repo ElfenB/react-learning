@@ -10,3 +10,25 @@ export const generateInitialDices = (): DiceType[] => {
 };
 
 export const getRandomNumber = (): number => Math.ceil(Math.random() * 6);
+
+export const getJsonFromLocalStorage = (item: string, defaultData: any) => {
+  try {
+    const storageItem = localStorage.getItem(item) as string;
+    const data = JSON.parse(storageItem);
+    
+    // Check if data is null or undefined
+    if (!data) {
+      return defaultData;
+    }
+
+    return data;
+  } catch (err) {
+    if (typeof err === 'string') {
+      console.warn(err);
+    } else if (err instanceof Error) {
+      console.warn(err.message);
+    }
+  }
+
+  return defaultData;
+};
