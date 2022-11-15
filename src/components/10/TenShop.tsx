@@ -7,13 +7,11 @@ const style: Record<string, CSSProperties> = {
   component: {
     margin: '0 20vw',
   },
-  // TODO: Fix grid
-  // product: {
-  //   flexGrow: 0,
-  //   flexShrink: 0,
-  // },
   products: {
     display: 'flex',
+    flexWrap: 'wrap',
+    gap: '2rem',
+    justifyContent: 'space-around',
   },
 };
 

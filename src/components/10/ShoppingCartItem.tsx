@@ -1,9 +1,9 @@
 import { decreaseAmountBy, increaseAmountBy, removeItem } from '../redux/features/cart/cart';
-import { useDispatchAction, useDispatchAction2 } from './ShoppingCart.utils';
 
 import { CSSProperties } from 'react';
 import { CartItem } from '../redux/features/cart/cart.types';
 import placeholderProduct from './assets/placeholderProduct.webp';
+import { useDispatchAction2 } from './ShoppingCart.utils';
 
 const style: Record<string, CSSProperties> = {
   amount: {
