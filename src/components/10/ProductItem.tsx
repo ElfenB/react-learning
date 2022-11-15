@@ -44,7 +44,7 @@ export function ProductItem({ product }: Props) {
     <div style={style.component}>
       <img alt={`Picture of ${product.title}`} src={product.image} style={style.image} />
       <h2 style={style.title}>{product.title}</h2>
-      <button style={style.addButton} onClick={useDispatchActionCallback(() => addItem(product))}>
+      <button style={style.addButton} onClick={useDispatchActionCallback(() => addItem({ amount: 1, product }))}>
         Put in cart {product.price}€
       </button>
     </div>

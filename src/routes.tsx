@@ -7,6 +7,7 @@ import { Five } from './components/5/Five';
 import { Four } from './components/4/Four';
 import { Nine } from './components/9/Nine';
 import { One } from './components/1/One';
+import { Product } from './components/10/Product';
 import { Seven } from './components/7/Seven';
 import { Six } from './components/6/Six';
 import { Ten } from './components/10/Ten';
@@ -73,15 +74,20 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        // path: 'shop',
+        element: <TenShop />,
+        errorElement: <ErrorPage />,
+        index: true,
+      },
+      {
         path: 'cart',
         element: <TenCart />,
         errorElement: <ErrorPage />,
       },
       {
-        // path: 'shop',
-        element: <TenShop />,
+        path: 'product/:id',
+        element: <Product />,
         errorElement: <ErrorPage />,
-        index: true
       },
     ],
   },

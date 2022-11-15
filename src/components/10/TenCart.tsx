@@ -15,7 +15,7 @@ export function TenCart() {
 
   return (
     <div style={style.component}>
-      <h1>Shopping cart</h1>
+      <h1>Cart</h1>
 
       {cart.map((cartItem) => (
         <ShoppingCartItem key={cartItem.productId} data={cartItem} />

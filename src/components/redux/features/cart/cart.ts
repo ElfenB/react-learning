@@ -18,13 +18,16 @@ export const cartSlice = createSlice({
   initialState: initialState,
   name: 'cart',
   reducers: {
-    addItem(state, action: { payload: Product; type: string }) {
-      if (state.cart.every((item) => item.productId !== action.payload.productId)) {
-        const newCartItem: CartItem = { ...action.payload, amount: 1 };
+    addItem(state, action: { payload: { amount: number; product: Product }; type: string }) {
+      const product = action.payload.product;
+      const amount = action.payload.amount;
+
+      if (state.cart.every((item) => item.productId !== product.productId)) {
+        const newCartItem: CartItem = { ...product, amount };
         state.cart.push(newCartItem);
       } else {
         state.cart.map((item) =>
-          item.productId !== action.payload.productId ? item : { ...item, amount: ++item.amount }
+          item.productId !== product.productId ? item : { ...item, amount: item.amount += amount }
         );
       }
     },
