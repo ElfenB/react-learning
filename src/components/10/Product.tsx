@@ -7,6 +7,9 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const style: Record<string, CSSProperties> = {
+  addButton: {
+    userSelect: 'none',
+  },
   buyBox: {
     display: 'flex',
     gap: '1rem',
@@ -30,6 +33,8 @@ const style: Record<string, CSSProperties> = {
     border: '3px dashed rgba(0,0,0,0.3)',
     borderRadius: '8px',
     padding: '1rem',
+    userSelect: 'none',
+    width: '20rem',
   },
   numberInput: {
     width: '3rem',
@@ -50,9 +55,11 @@ export function Product() {
 
   return (
     <div style={style.component}>
-      <h1>Product {product.title}</h1>
+      <h1>{product.title}</h1>
 
       <img alt={`Image of ${product.title}`} src={product.image} style={style.image} />
+
+      <p>{product.description}</p>
 
       <span>{product.price.toFixed(2)}€</span>
 
@@ -67,7 +74,10 @@ export function Product() {
           onChange={handleAmountChange}
         />
 
-        <button style={style.controls} onClick={useDispatchActionCallback(() => addItem({ amount, product }))}>
+        <button
+          style={{ ...style.controls, ...style.addButton }}
+          onClick={useDispatchActionCallback(() => addItem({ amount, product }))}
+        >
           Add to Cart
         </button>
       </div>
