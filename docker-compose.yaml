@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   frontend:
+    container_name: react-learning
     build: .
     restart: always
     ports:
