@@ -8,6 +8,10 @@ import { useSelector } from 'react-redux';
 
 const style: Record<string, CSSProperties> = {
   addButton: {
+    background: 'var(--action-color)',
+    borderRadius: '8px',
+    color: 'var(--background-color)',
+    cursor: 'pointer',
     userSelect: 'none',
   },
   buyBox: {

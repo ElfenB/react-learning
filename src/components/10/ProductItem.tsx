@@ -7,7 +7,7 @@ import { useDispatchActionCallback } from './ShoppingCart.utils';
 const style: Record<string, CSSProperties> = {
   addButton: {
     appearance: 'none',
-    background: '#369',
+    background: 'var(--action-color)',
     border: 'none',
     borderRadius: '8px',
     boxShadow: '1px 1px 12px -5px rgba(0,0,0,0.7)',

@@ -20,6 +20,7 @@ const style: Record<string, CSSProperties> = {
     flexDirection: 'column',
   },
   arrows: {
+    color: 'var(--action-color)',
     fontSize: '1.2rem',
   },
   component: {
