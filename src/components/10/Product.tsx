@@ -57,6 +57,8 @@ export function Product() {
     setAmount(Number(value));
   }, []);
 
+  const handleAddToCart = useDispatchActionCallback(() => addItem({ amount, product }));
+
   return (
     <div style={style.component}>
       <h1>{product.title}</h1>
@@ -78,10 +80,7 @@ export function Product() {
           onChange={handleAmountChange}
         />
 
-        <button
-          style={{ ...style.controls, ...style.addButton }}
-          onClick={useDispatchActionCallback(() => addItem({ amount, product }))}
-        >
+        <button style={{ ...style.controls, ...style.addButton }} onClick={handleAddToCart}>
           Add to Cart
         </button>
       </div>

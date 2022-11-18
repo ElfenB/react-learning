@@ -8,6 +8,7 @@ import { Four } from './components/4/Four';
 import { Nine } from './components/9/Nine';
 import { One } from './components/1/One';
 import { Product } from './components/10/Product';
+import { ProductError } from './components/10/ProductError';
 import { Seven } from './components/7/Seven';
 import { Six } from './components/6/Six';
 import { Ten } from './components/10/Ten';
@@ -87,7 +88,7 @@ export const router = createBrowserRouter([
       {
         path: 'product/:id',
         element: <Product />,
-        errorElement: <ErrorPage />,
+        errorElement: <ProductError />,
       },
     ],
   },
