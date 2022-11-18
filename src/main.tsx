@@ -1,4 +1,5 @@
 import './index.css';
+import './global.css'
 
 import Provider from 'react-redux/es/components/Provider';
 import React from 'react';
