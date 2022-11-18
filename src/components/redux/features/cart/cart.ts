@@ -41,6 +41,9 @@ export const cartSlice = createSlice({
             : cartItem.amount),
       }));
     },
+    emptyCart(state) {
+      state.cart = [];
+    },
     increaseAmountBy(state, action: { payload: { amount: number; productId: number }; type: string }) {
       state.cart = state.cart.map((cartItem) => ({
         ...cartItem,
@@ -56,6 +59,6 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addItem, decreaseAmountBy, increaseAmountBy, removeItem } = cartSlice.actions;
+export const { addItem, decreaseAmountBy, emptyCart, increaseAmountBy, removeItem } = cartSlice.actions;
 
 export default cartSlice.reducer;
