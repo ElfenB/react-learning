@@ -41,6 +41,8 @@ type Props = {
 };
 
 export function ProductItem({ product }: Props) {
+  const handleAddToCart = useDispatchActionCallback(() => addItem({ amount: 1, product }));
+
   return (
     <div style={style.component}>
       <Link to={`product/${product.productId}`}>
@@ -48,7 +50,7 @@ export function ProductItem({ product }: Props) {
       </Link>
 
       <h2 style={style.title}>{product.title}</h2>
-      <button style={style.addButton} onClick={useDispatchActionCallback(() => addItem({ amount: 1, product }))}>
+      <button style={style.addButton} onClick={handleAddToCart}>
         Get 1 for {product.price.toFixed(2)}€
       </button>
     </div>
