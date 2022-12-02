@@ -18,10 +18,16 @@ import { Three } from './components/3/Three';
 import { Two } from './components/2/Two';
 import { createBrowserRouter } from 'react-router-dom';
 import { Eleven } from './components/11/Eleven';
+import { MainAttractions } from './components/attractions/MainAttractions';
 
 export const router = createBrowserRouter([
   {
     path: '/',
+    element: <MainAttractions />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/all',
     element: <App />,
     errorElement: <ErrorPage />,
   },

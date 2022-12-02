@@ -1,7 +1,12 @@
+import { Button, Typography } from '@mui/material';
+
 export function Eleven() {
   return (
-    <div>
-      <h1>Eleven works!</h1>
-    </div>
+    <>
+      <Typography variant="h2">This works! (More to come)</Typography>
+      <Button variant="contained" onClick={() => alert('hi')}>
+        Hello
+      </Button>
+    </>
   );
 }
