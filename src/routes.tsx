@@ -17,6 +17,7 @@ import { TenShop } from './components/10/TenShop';
 import { Three } from './components/3/Three';
 import { Two } from './components/2/Two';
 import { createBrowserRouter } from 'react-router-dom';
+import { Eleven } from './components/11/Eleven';
 
 export const router = createBrowserRouter([
   {
@@ -91,5 +92,10 @@ export const router = createBrowserRouter([
         errorElement: <ProductError />,
       },
     ],
+  },
+  {
+    path: '/eleven',
+    element: <Eleven />,
+    errorElement: <ErrorPage />,
   },
 ]);
