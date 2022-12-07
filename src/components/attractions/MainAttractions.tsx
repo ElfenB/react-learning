@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Theme, Typography } from '@mui/material';
+import { Badge, Card, CardContent, CardMedia, Theme, Typography } from '@mui/material';
 import { Container, SxProps } from '@mui/system';
 import Grid from '@mui/system/Unstable_Grid';
 import { Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ export function MainAttractions() {
   return (
     <Container>
       <Typography sx={sx.heading} variant="h2">
-        Main Attractions
+        Navigation
       </Typography>
 
       <Grid container spacing={2}>
@@ -33,7 +33,9 @@ export function MainAttractions() {
                   sx={sx.cardMedia}
                 />
                 <CardContent sx={sx.cardContent}>
-                  <Typography variant="subtitle1">{link.name}</Typography>
+                  <Badge badgeContent="beta" color="secondary" invisible={!link.isBeta}>
+                    <Typography variant="subtitle1">{link.name}</Typography>
+                  </Badge>
                   <Typography variant="body2">{link.description}</Typography>
                 </CardContent>
               </Card>
