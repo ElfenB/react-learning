@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
-import { Product } from '../redux/features/cart/cart.types';
 import { addItem } from '../redux/features/cart/cart';
+import { Product } from '../redux/features/cart/cart.types';
 import { useDispatchActionCallback } from './ShoppingCart.utils';
 
 const style: Record<string, CSSProperties> = {
@@ -31,8 +31,11 @@ const style: Record<string, CSSProperties> = {
   image: {
     background: 'white',
     borderRadius: '8px',
-    height: '12rem',
+    height: '100%',
     marginTop: '1rem',
+  },
+  link: {
+    height: '60%',
   },
 };
 
@@ -45,7 +48,7 @@ export function ProductItem({ product }: Props) {
 
   return (
     <div style={style.component}>
-      <Link to={`product/${product.productId}`}>
+      <Link style={style.link} to={`product/${product.productId}`}>
         <img alt={`Picture of ${product.title}`} src={product.image} style={style.image} />
       </Link>
 
