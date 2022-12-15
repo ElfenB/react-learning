@@ -1,5 +1,3 @@
-import './App.css';
-
 import { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import { router } from './routes';
