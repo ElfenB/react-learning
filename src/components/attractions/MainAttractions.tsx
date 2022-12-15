@@ -22,7 +22,7 @@ export function MainAttractions() {
 
       <Grid container spacing={2}>
         {links.map((link) => (
-          <Grid xs={4}>
+          <Grid key={link.name} xs={4}>
             <Link to={link.to}>
               <Card sx={sx.gridItem}>
                 <CardMedia
