@@ -11,6 +11,7 @@ export const getTheme = (mode: PaletteMode) => {
   return theme;
 };
 
+// Be careful when changing, css variables in index.css might differ
 export function getMuiPalette(mode: PaletteMode): PaletteOptions {
   const dark = {
     background: {
