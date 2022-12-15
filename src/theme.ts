@@ -1,17 +1,38 @@
-import { createTheme } from '@mui/material/styles';
+import { PaletteMode } from '@mui/material';
+import { createTheme, PaletteOptions } from '@mui/material/styles';
 
-export const theme = createTheme({
-  palette: {
+export const getTheme = (mode: PaletteMode) => {
+  const theme = createTheme({
+    palette: getMuiPalette(mode),
+    typography: {
+      fontFamily: ['Inter'].join(','),
+    },
+  });
+  return theme;
+};
+
+export function getMuiPalette(mode: PaletteMode): PaletteOptions {
+  const dark = {
     background: {
-      default: 'var(--background-color)',
-      paper: 'var(--background-color)',
+      default: '#242424',
+      paper: '#242424',
     },
+    mode: mode,
     text: {
-      primary: 'var(--color)',
-      secondary: 'var(--text-shade)',
+      primary: 'rgba(255, 255, 255, 0.87)',
+      secondary: 'gray',
     },
-  },
-  typography: {
-    fontFamily: ['Inter'].join(','),
-  },
-});
+  };
+  const light = {
+    background: {
+      default: '#ffffff',
+      paper: '#ffffff',
+    },
+    mode: mode,
+    text: {
+      primary: '#213547',
+      secondary: 'gray',
+    },
+  };
+  return mode === 'light' ? light : dark;
+}

@@ -1,44 +1,27 @@
-import { CSSProperties } from 'react';
-import { Link } from 'react-router-dom';
+import { CssBaseline, PaletteMode, ThemeProvider, useMediaQuery } from '@mui/material';
+import { useEffect, useMemo, useState } from 'react';
+import { RouterProvider } from 'react-router-dom';
 import { router } from './routes';
-
-const style: Record<string, CSSProperties> = {
-  component: {
-    height: '100vh',
-  },
-  link: {
-    background: 'var(--color)',
-    border: '1px solid green',
-    borderRadius: '8px',
-    color: 'var(--background-color)',
-    display: 'block',
-    padding: '1rem',
-  },
-  list: {
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    height: '100%',
-    justifyContent: 'space-evenly',
-    listStyle: 'none',
-    margin: 0,
-    padding: 0,
-  },
-};
+import { getTheme } from './theme';
 
 export function App() {
-  const routes = router.routes;
+  // TODO: Move into Redux state and add button that can set this
+  // TODO: Then put it into localStorage so it remembers the last setting
+  const [mode, setMode] = useState<PaletteMode>('light');
+
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+  useEffect(() => {
+    setMode(prefersDarkMode ? 'dark' : 'light');
+  }, [prefersDarkMode]);
+
+  const theme = useMemo(() => getTheme(mode), [mode]);
 
   return (
-    <nav style={style.component}>
-      <ul style={style.list}>
-        {Object.values(routes).map((route) => (
-          <Link key={route.id} style={style.link} to={`${route.path}`}>
-            {route.path}
-          </Link>
-        ))}
-      </ul>
-    </nav>
+    <ThemeProvider theme={theme}>
+      {/* Collection of CSS style-normalizations */}
+      <CssBaseline />
+      <RouterProvider router={router} />
+    </ThemeProvider>
   );
 }
