@@ -8,6 +8,7 @@ import { Ten } from './components/10/Ten';
 import { TenCart } from './components/10/TenCart';
 import { TenShop } from './components/10/TenShop';
 import { Eleven } from './components/11/Eleven';
+import { Twelve } from './components/12/Twelve';
 import { Two } from './components/2/Two';
 import { Three } from './components/3/Three';
 import { Four } from './components/4/Four';
@@ -102,6 +103,11 @@ export const router = createBrowserRouter([
   {
     path: '/eleven',
     element: <Eleven />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/twelve',
+    element: <Twelve />,
     errorElement: <ErrorPage />,
   },
 ]);

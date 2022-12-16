@@ -16,7 +16,8 @@
     "@mui/material": "^5.10.16",
     "@reduxjs/toolkit": "^1.9.0",
     "@typescript-eslint/parser": "^5.43.0",
-    "lodash.memoize": "^4.1.2",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
@@ -24,7 +25,7 @@
     "sass": "^1.56.1"
   },
   "devDependencies": {
-    "@types/lodash.memoize": "^4.1.7",
+    "@types/lodash": "^4.14.191",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
