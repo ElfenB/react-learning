@@ -13,7 +13,7 @@ export function WeekSkipper({ direction, onClick }: Props) {
       placement={direction === 'back' ? 'left' : 'right'}
       title={direction === 'back' ? '1 Woche zurück' : '1 Woche vor'}
     >
-      <Button onClick={onClick}>
+      <Button sx={{color: 'primary.main'}} onClick={onClick}>
         {direction === 'back' && <ArrowBackIosNewIcon />}
         {direction === 'forward' && <ArrowForwardIosIcon />}
       </Button>

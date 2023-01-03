@@ -19,6 +19,7 @@ export function getMuiPalette(mode: PaletteMode): PaletteOptions {
       paper: '#242424',
     },
     mode: mode,
+    primary: { main: '#ffa500' },
     text: {
       primary: 'rgba(255, 255, 255, 0.87)',
       secondary: 'gray',
@@ -30,6 +31,7 @@ export function getMuiPalette(mode: PaletteMode): PaletteOptions {
       paper: '#ffffff',
     },
     mode: mode,
+    primary: { main: '#ffa500' },
     text: {
       primary: '#213547',
       secondary: 'gray',

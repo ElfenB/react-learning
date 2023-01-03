@@ -1,18 +1,13 @@
-import { Box, Fade, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
-import { uniq } from 'lodash';
 import moment from 'moment';
 import { useCallback, useMemo, useState } from 'react';
-import { Day } from './Day';
+import { DataDisplay } from './DataDisplay';
 import { DelayedSpinner } from './DelayedSpinner';
-import { Legend } from './Legend';
-import { res } from './mockData';
 import { TimeSelect } from './TimeSelect';
-import { Period } from './Twelve.types';
-
-type Response = typeof res;
+import { Response } from './Twelve.types';
 
 export function Twelve() {
   // console.log('Twelve rendered');
@@ -49,14 +44,6 @@ export function Twelve() {
   // console.log(JSON.stringify(data));
 
   const myData = data?.data.result.data;
-  const courses = myData?.elements ? myData.elements : [];
-  const periods = useMemo(
-    () => (myData?.elementPeriods[elementId] ? myData.elementPeriods[elementId] : []),
-    [myData?.elementPeriods]
-  );
-
-  const dates = useMemo(() => periods.flatMap((p) => p.date), [periods]);
-  const sortedUniqDays = useMemo(() => uniq(dates.sort((a, b) => a - b)), [dates]);
 
   const handleDateChanged = useCallback(
     (newDate: string) => {
@@ -64,6 +51,7 @@ export function Twelve() {
       setDate(newDate);
       // queryClient.invalidateQueries({ queryKey: ['timetable'] });
       // Invalidation not successful because url has to change for new data
+      // TODO: Find better way to solve this (prefer invalidate, makes it possible to prefetch and cache better)
       queryClient.removeQueries({ queryKey: ['timetable'] });
     },
     [queryClient]
@@ -84,18 +72,7 @@ export function Twelve() {
 
       <DelayedSpinner delayMs={500} loading={isFetching || isLoading} />
 
-      <Fade in={data !== undefined} style={{ transitionDelay: data !== undefined ? '200ms' : '0ms' }} unmountOnExit>
-        <Box>
-          {/* Spacing */}
-          <Box sx={{ m: 2 }} />
-          <Legend courses={courses} />
-          {/* Spacing */}
-          <Box sx={{ m: 5 }} />
-          {sortedUniqDays.map((day) => (
-            <Day key={day} courses={courses} date={day} periods={periods as Period[]} />
-          ))}
-        </Box>
-      </Fade>
+      <DataDisplay data={myData} elementId={elementId} />
     </Container>
   );
 }

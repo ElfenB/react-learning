@@ -1,3 +1,5 @@
+import { res } from './mockData';
+
 export type Course = {
   alternatename: string;
   canViewTimetable: boolean;
@@ -10,42 +12,29 @@ export type Course = {
 };
 
 export type Period = {
-  cellState: string,
-  code: number,
-  date: number,
-  elements: [
-    {
-      id: number,
-      missing: boolean,
-      orgId: number,
-      state: string,
-      type: number,
-    },
-    {
-      id: number,
-      missing: boolean,
-      orgId: number,
-      state: string,
-      type: number,
-    },
-  ],
-  endTime: number,
-  hasPeriodText: boolean,
-  id: number,
+  cellState: string;
+  code: number;
+  date: number;
+  elements: Course[];
+  endTime: number;
+  hasPeriodText: boolean;
+  id: number;
   is: {
-    event: boolean,
-    standard: boolean,
-  },
-  lessonCode: string,
-  lessonId: number,
-  lessonNumber: number,
-  lessonText: string,
-  periodAttachments?: [],
-  periodInfo: string,
-  periodText: string,
-  priority: number,
-  roomCapacity: number,
-  startTime: number,
-  studentCount: number,
-  substText: string,
-}
+    event: boolean;
+    standard: boolean;
+  };
+  lessonCode: string;
+  lessonId: number;
+  lessonNumber: number;
+  lessonText: string;
+  periodAttachments?: [];
+  periodInfo: string;
+  periodText: string;
+  priority: number;
+  roomCapacity: number;
+  startTime: number;
+  studentCount: number;
+  substText: string;
+};
+
+export type Response = typeof res;
