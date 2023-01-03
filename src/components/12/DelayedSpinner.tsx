@@ -1,0 +1,25 @@
+import { Fade, LinearProgress } from '@mui/material';
+import { Box } from '@mui/system';
+
+type Props = {
+  delayMs: number;
+  loading: boolean;
+};
+
+export function DelayedSpinner({ loading, delayMs }: Props) {
+  return (
+    // Set fixed height for no movement when transitioning
+    <Box sx={{ height: 2 }}>
+      <Fade
+        in={loading}
+        style={{
+          transitionDelay: loading ? `${delayMs}ms` : '0ms',
+        }}
+        unmountOnExit
+      >
+        {/* Empty Box is alternative when not loading so that height does not bug around */}
+        {loading ? <LinearProgress sx={{ left: 0, position: 'sticky', top: 0 }} /> : <Box />}
+      </Fade>
+    </Box>
+  );
+}

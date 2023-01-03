@@ -1,12 +1,12 @@
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { Box, Button, SxProps, Theme } from '@mui/material';
+
+import { Box, SxProps, Theme } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import moment, { Moment } from 'moment';
 import { useCallback, useState } from 'react';
+import { WeekSkipper } from './WeekSkipper';
 
 const sx: Record<string, SxProps<Theme>> = {
   root: {
@@ -15,34 +15,42 @@ const sx: Record<string, SxProps<Theme>> = {
   },
 };
 
-export function TimeSelect() {
+type Props = {
+  dateChanged: (newDate: string) => void;
+};
+
+export function TimeSelect({ dateChanged }: Props) {
   const [date, setDate] = useState<Moment | null>(moment());
 
+  const handleDateChange = useCallback(
+    (newValue: Moment | null) => {
+      if (newValue !== null) {
+        console.log('TimeSelect new date:', moment(newValue).format('yyyy-MM-DD'));
+        setDate(newValue);
+        dateChanged(moment(newValue).format('yyyy-MM-DD'));
+      }
+    },
+    [dateChanged]
+  );
+
   const handleAddWeeks = useCallback(
-    (numWeeks: number) => setDate((prevDate) => moment(prevDate).add(numWeeks, 'week')),
-    []
+    (numWeeks: number) => handleDateChange(moment(date).add(numWeeks, 'week')),
+    [date, handleDateChange]
   );
 
   return (
     <Box sx={sx.root}>
       <LocalizationProvider dateAdapter={AdapterMoment}>
-        <Button onClick={() => handleAddWeeks(-1)}>
-          <ArrowBackIosNewIcon />
-        </Button>
+        <WeekSkipper direction='back' onClick={() => handleAddWeeks(-1)} />
 
         <DatePicker
           label="Wochenstart"
           renderInput={(params) => <TextField {...params} />}
           value={date}
-          onChange={(newValue) => {
-            setDate(newValue);
-            console.log(moment(newValue).format('yyyy-MM-DD'));
-          }}
+          onChange={(newValue) => handleDateChange(newValue)}
         />
 
-        <Button onClick={() => handleAddWeeks(1)}>
-          <ArrowForwardIosIcon />
-        </Button>
+        <WeekSkipper direction='forward' onClick={() => handleAddWeeks(1)} />
       </LocalizationProvider>
     </Box>
   );

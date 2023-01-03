@@ -1,4 +1,6 @@
 import { CssBaseline, PaletteMode, ThemeProvider, useMediaQuery } from '@mui/material';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { useEffect, useMemo, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './routes';
@@ -17,11 +19,17 @@ export function App() {
 
   const theme = useMemo(() => getTheme(mode), [mode]);
 
+  const queryClient = new QueryClient();
+
   return (
-    <ThemeProvider theme={theme}>
-      {/* Collection of CSS style-normalizations */}
-      <CssBaseline />
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        {/* Collection of CSS style-normalizations */}
+        <CssBaseline />
+        {/* TanStack Query DevTools */}
+        <ReactQueryDevtools />
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
