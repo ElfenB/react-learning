@@ -24,13 +24,14 @@ export function Day({ courses, date, periods }: Props) {
     [date]
   );
   const dayOfWeek = useMemo(() => moment(date, 'YYYYMMDD').format('dddd'), [date]);
+  const isThisWeek = useMemo(() => formattedDate === dayOfWeek, [dayOfWeek, formattedDate]);
 
   const classes = useMemo(() => periods?.filter((p) => p.date === date), [date, periods]);
   const sortedClasses = useMemo(() => classes?.sort((a, b) => a.startTime - b.startTime), [classes]);
 
   return (
     <>
-      <Typography variant='h5'>{`${dayOfWeek} (${formattedDate})`}</Typography>
+      <Typography variant="h5">{dayOfWeek} {!isThisWeek && `(${formattedDate})`}</Typography>
 
       {sortedClasses && (
         <List>
