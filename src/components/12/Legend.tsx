@@ -8,7 +8,7 @@ type Props = {
 export function Legend({ courses }: Props) {
   return (
     <>
-      <Typography variant="h4">Courses within timeframe</Typography>
+      <Typography variant="h4">Kurse</Typography>
       {/* <List>
         {courses.map((course) => (
           <ListItem key={course.id}>

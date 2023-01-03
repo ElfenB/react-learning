@@ -5,6 +5,7 @@ import { useMemo } from 'react';
 import { Day } from './Day';
 import { Legend } from './Legend';
 import { res } from './mockData';
+import { TimeSelect } from './TimeSelect';
 import { Period } from './Twelve.types';
 
 export function Twelve() {
@@ -20,7 +21,16 @@ export function Twelve() {
 
   return (
     <Container>
-      <Typography variant="h2">TimeTable</Typography>
+      <Box sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
+        <Typography sx={{ m: 2 }} variant="h2">
+          Stundenplan
+        </Typography>
+
+        <TimeSelect />
+      </Box>
+
+      {/* Spacing */}
+      <Box sx={{ m: 2 }} />
 
       {/* Spacing */}
       <Box sx={{ m: 2 }} />
