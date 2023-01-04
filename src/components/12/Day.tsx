@@ -27,8 +27,30 @@ export function Day({ courses, date, periods }: Props) {
   const dayOfWeek = useMemo(() => moment(date, 'YYYYMMDD').format('dddd'), [date]);
   const isThisWeek = useMemo(() => formattedDate === dayOfWeek, [dayOfWeek, formattedDate]);
 
+  // Filter on only classes of this day
   const classes = useMemo(() => periods?.filter((p) => p.date === date), [date, periods]);
+  // Sort classes by startTime
+
   const sortedClasses = useMemo(() => classes?.sort((a, b) => a.startTime - b.startTime), [classes]);
+
+  // Reduce all classes with the same id to one item and take lowest start and highest end time
+  const expandedSortedClasses = useMemo(() => {
+    let ret: Period[] = [];
+    sortedClasses?.forEach((cls) => {
+      if (ret.filter((a) => a.lessonId === cls.lessonId).length < 1) {
+        // If not in the array, push it into
+        ret.push(cls);
+      } else {
+        // If already in the array, change start and end time to min/max value to expand the class
+        ret = ret.flatMap((p) =>
+          p.lessonId !== cls.lessonId
+            ? p
+            : { ...p, endTime: Math.max(p.endTime, cls.endTime), startTime: Math.min(p.startTime, cls.startTime) }
+        );
+      }
+    });
+    return ret;
+  }, [sortedClasses]);
 
   // map with ids and colors
   const colorMap = new Map();
@@ -42,9 +64,9 @@ export function Day({ courses, date, periods }: Props) {
         {dayOfWeek} {!isThisWeek && `(${formattedDate})`}
       </Typography>
 
-      {sortedClasses && (
+      {expandedSortedClasses && (
         <List>
-          {sortedClasses.map((cls) => (
+          {expandedSortedClasses.map((cls) => (
             <Box key={cls.id + cls.lessonId}>
               <CourseItem bgColor={colorMap.get(cls.elements[1].id)} classItem={cls} courses={courses} />
               <Divider component="li" variant="fullWidth" />

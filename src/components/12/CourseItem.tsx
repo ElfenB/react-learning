@@ -20,6 +20,7 @@ export function CourseItem({ bgColor, classItem, courses }: Props) {
             <Typography variant="h6">{course.longName}</Typography>
             <Typography variant="subtitle1">{course.name}</Typography>
             {/* <Typography variant="body2">{`Placeholder2: ${JSON.stringify(classItem)}`}</Typography> */}
+            <Typography variant='subtitle2'>{classItem.lessonText}</Typography>
           </>
         }
         secondary={
