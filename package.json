@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -34,6 +36,7 @@
     "@types/react-dom": "^18.0.9",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@vitejs/plugin-react": "^2.2.0",
+    "@vitest/coverage-c8": "^0.26.3",
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-node": "^0.3.6",
@@ -50,7 +53,8 @@
     "prettier-eslint": "^15.0.1",
     "prettier-eslint-cli": "^6.0.1",
     "typescript": "^4.9.3",
-    "vite": "^3.2.4"
+    "vite": "^3.2.4",
+    "vitest": "^0.26.3"
   },
   "lint-staged": {
     "*": "prettier --write --ignore-unknown"
