@@ -19,7 +19,7 @@ export function Twelve() {
 
   const queryClient = useQueryClient();
 
-  const proxyUrl = 'http://192.168.178.44:1880/untis-proxy/';
+  const proxyUrl = 'http://localhost:3000/proxy/';
 
   const url = encodeURIComponent(
     'https://mese.webuntis.com/WebUntis/api/public/timetable/weekly/data?elementType=1&formatId=2'
@@ -30,7 +30,15 @@ export function Twelve() {
   const { data, isLoading, error, isFetching } = useQuery({
     queryFn: async (): Promise<Response> => {
       console.log('fetching data for', date);
-      return axios.get(proxyUrl + url + `&elementId=${elementId}&date=${date}`).then((res) => res.data);
+      const res = await axios.get(proxyUrl + url, {
+        params: {
+          date,
+          elementId,
+          elementType: 1,
+          formatId: 2,
+        },
+      });
+      return res.data;
     },
     queryKey: ['timetable', elementId, date],
   });
