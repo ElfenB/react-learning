@@ -9,7 +9,7 @@ type Props = {
 export function DelayedSpinner({ loading, delayMs }: Props) {
   return (
     // Set fixed height for no movement when transitioning
-    <Box sx={{ height: 2 }}>
+    <Box sx={{ height: 2, m: 1 }}>
       <Fade
         in={loading}
         style={{
@@ -18,7 +18,7 @@ export function DelayedSpinner({ loading, delayMs }: Props) {
         unmountOnExit
       >
         {/* Empty Box is alternative when not loading so that height does not bug around */}
-        {loading ? <LinearProgress sx={{ left: 0, position: 'sticky', top: 0 }} /> : <Box />}
+        {loading ? <LinearProgress /> : <Box />}
       </Fade>
     </Box>
   );
