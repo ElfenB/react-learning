@@ -3,7 +3,7 @@ import { Container } from '@mui/system';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import moment from 'moment';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { DataDisplay } from './DataDisplay';
 import { DelayedSpinner } from './DelayedSpinner';
 import { TimeSelect } from './TimeSelect';
@@ -19,26 +19,20 @@ export function Twelve() {
 
   const queryClient = useQueryClient();
 
-  // URL with proxy
-  const url = useMemo(() => {
-    console.log('url generation with date:', date);
+  const proxyUrl = 'http://192.168.178.44:1880/untis-proxy/';
 
-    return (
-      'http://192.168.178.44:1880/untis-proxy/' +
-      encodeURIComponent(
-        `https://mese.webuntis.com/WebUntis/api/public/timetable/weekly/data?elementType=1&elementId=${elementId}&date=${date}&formatId=2`
-      )
-    );
-  }, [date]);
+  const url = encodeURIComponent(
+    'https://mese.webuntis.com/WebUntis/api/public/timetable/weekly/data?elementType=1&formatId=2'
+  );
 
   // Cookie with schoolname required when proxy removed
   // schoolname="_YmJzIGJpbmdlbg=="
   const { data, isLoading, error, isFetching } = useQuery({
     queryFn: async (): Promise<Response> => {
-      console.log('data fetching', date, url);
-      return axios.get(url).then((res) => res.data);
+      console.log('fetching data for', date);
+      return axios.get(proxyUrl + url + `&elementId=${elementId}&date=${date}`).then((res) => res.data);
     },
-    queryKey: ['timetable'],
+    queryKey: ['timetable', elementId, date],
   });
 
   // console.log(JSON.stringify(data));
@@ -49,17 +43,10 @@ export function Twelve() {
     (newDate: string) => {
       console.log('invalidate query timetable', newDate);
       setDate(newDate);
-      // queryClient.invalidateQueries({ queryKey: ['timetable'] });
-      // Invalidation not successful because url has to change for new data
-      // TODO: Find better way to solve this (prefer invalidate, makes it possible to prefetch and cache better)
-      queryClient.removeQueries({ queryKey: ['timetable'] });
+      queryClient.invalidateQueries({ queryKey: ['timetable'] });
     },
     [queryClient]
   );
-
-  if (error instanceof Error) {
-    return 'An error has occurred: ' + error.message;
-  }
 
   return (
     <Container>
@@ -72,7 +59,11 @@ export function Twelve() {
 
       <DelayedSpinner delayMs={500} loading={isFetching || isLoading} />
 
-      <DataDisplay data={myData} elementId={elementId} />
+      {!(error instanceof Error) ? (
+        <DataDisplay data={myData} elementId={elementId} />
+      ) : (
+        <Typography>{`An error has occurred: ${error.message}`}</Typography>
+      )}
     </Container>
   );
 }
