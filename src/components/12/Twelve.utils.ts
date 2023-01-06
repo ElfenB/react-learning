@@ -1,20 +1,17 @@
 import { Course } from './Twelve.types';
 
-// TODO: Write tests
 export function formatNatoDate(natoDate: number): string {
   const date = String(natoDate);
   return `${padZero(date.substring(0, date.length - 2), 2)}:${date.substring(date.length - 2, date.length)}`;
 }
 
-// TODO: Write tests
 export function getCourseFromId(courseId: number, courses: Course[]): Course {
   const course = courses.filter((c) => c.id === courseId)[0];
   return course;
 }
 
-// TODO: Write tests
 // Returns color based on string input
-export function stringToColour(str: string) {
+export function stringToColor(str: string) {
   let hash = 0;
   [...str].forEach((char, i) => {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
@@ -29,9 +26,8 @@ export function stringToColour(str: string) {
   return colour;
 }
 
-// TODO: Write tests
 // Returns contrast color or black/white depending on the input color
-export function getContrastColor(hexColor: string, bw: boolean) {
+export function getContrastColor(hexColor: string, bw?: boolean) {
   let hex = hexColor;
 
   if (hex.indexOf('#') === 0) {
@@ -44,7 +40,7 @@ export function getContrastColor(hexColor: string, bw: boolean) {
   }
 
   if (hex.length !== 6) {
-    throw new Error('Invalid HEX color.');
+    return '#000000';
   }
 
   let r: number | string = parseInt(hex.slice(0, 2), 16);
@@ -54,7 +50,7 @@ export function getContrastColor(hexColor: string, bw: boolean) {
   // If only black and white is needed
   if (bw) {
     // https://stackoverflow.com/a/3943023/112731
-    return r * 0.299 + g * 0.587 + b * 0.114 > 186 ? '#000000' : '#FFFFFF';
+    return r * 0.299 + g * 0.587 + b * 0.114 > 186 ? '#000000' : '#ffffff';
   }
 
   // invert color components
@@ -65,10 +61,9 @@ export function getContrastColor(hexColor: string, bw: boolean) {
   return '#' + padZero(r) + padZero(g) + padZero(b);
 }
 
-// TODO: Write tests
 // Returns a string that is a specific length and contains a number (prefixed by zero to get the fixed length)
-function padZero(str: string, length?: number): string {
+export function padZero(str: string, length?: number): string {
   const len = length || 2;
-  const zeros = new Array(length).join('0');
+  const zeros = new Array(len).join('0');
   return (zeros + str).slice(-len);
 }

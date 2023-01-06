@@ -4,7 +4,7 @@ import 'moment/dist/locale/de';
 import { useMemo } from 'react';
 import { CourseItem } from './CourseItem';
 import { Course, Period } from './Twelve.types';
-import { stringToColour } from './Twelve.utils';
+import { stringToColor } from './Twelve.utils';
 
 type Props = {
   courses: Course[];
@@ -55,7 +55,7 @@ export function Day({ courses, date, periods }: Props) {
   // map with ids and colors
   const colorMap = new Map();
   courses.map((c) => {
-    colorMap.set(c.id, stringToColour(String(c.longName)));
+    colorMap.set(c.id, stringToColor(String(c.longName)));
   });
 
   return (
