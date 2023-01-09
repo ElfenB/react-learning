@@ -25,7 +25,7 @@ export function Twelve() {
     'https://mese.webuntis.com/WebUntis/api/public/timetable/weekly/data?elementType=1&formatId=2'
   );
 
-  // Cookie with schoolname required when proxy removed
+  // Cookie with schoolname
   // schoolname="_YmJzIGJpbmdlbg=="
   const { data, isLoading, error, isFetching } = useQuery({
     queryFn: async (): Promise<Response> => {
@@ -36,6 +36,10 @@ export function Twelve() {
           elementId,
           elementType: 1,
           formatId: 2,
+          // When not using proxy, move this outside of params
+          headers: {
+            Cookie: 'schoolname="_YmJzIGJpbmdlbg=="'
+          }
         },
       });
       return res.data;
