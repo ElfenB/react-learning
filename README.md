@@ -32,6 +32,11 @@ To install the required packages:
 npm install
 ```
 
+### Environment variables
+
+To run application 12, there are environment variables that need to be set in advance.
+For reference, the file `.env.example` can be copied and adjusted.
+
 ## Run
 
 To run the application:

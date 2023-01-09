@@ -19,11 +19,11 @@ export function Twelve() {
 
   const queryClient = useQueryClient();
 
-  const proxyUrl = 'http://localhost:3000/proxy/';
+  // locally e.g. http://localhost:3000/proxy/
+  const proxyUrl = import.meta.env.VITE_PROXY_URL;
 
-  const url = encodeURIComponent(
-    'https://mese.webuntis.com/WebUntis/api/public/timetable/weekly/data?elementType=1&formatId=2'
-  );
+  // e.g. https://mese.webuntis.com/WebUntis/api/public/timetable/weekly/data
+  const url = encodeURIComponent(import.meta.env.VITE_API_URL);
 
   // Cookie with schoolname
   // schoolname="_YmJzIGJpbmdlbg=="
@@ -38,8 +38,8 @@ export function Twelve() {
           formatId: 2,
           // When not using proxy, move this outside of params
           headers: {
-            Cookie: 'schoolname="_YmJzIGJpbmdlbg=="'
-          }
+            Cookie: 'schoolname="_YmJzIGJpbmdlbg=="',
+          },
         },
       });
       return res.data;
