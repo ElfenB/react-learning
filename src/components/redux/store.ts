@@ -1,11 +1,13 @@
-import cartState from './features/cart/cart';
 import { configureStore } from '@reduxjs/toolkit';
-import counterState from './features/counter/counter';
+import { timeTableApi } from './../12/Twelve.api';
+import cartState from './features/cart/cart';
 import { localStorageMiddleware } from './features/cart/cart.middleware';
+import counterState from './features/counter/counter';
 
 export const store = configureStore({
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().prepend(localStorageMiddleware.middleware),
-  reducer: { cartState, counterState },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(timeTableApi.middleware).prepend(localStorageMiddleware.middleware),
+  reducer: { cartState, counterState, [timeTableApi.reducerPath]: timeTableApi.reducer },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
