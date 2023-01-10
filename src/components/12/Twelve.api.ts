@@ -24,7 +24,6 @@ export const timeTableApi = createApi({
             elementId,
             elementType,
             formatId,
-            // TODO: Header object is not set, given as serialized string thing "Object [Object]"
             headers: JSON.stringify({
               Cookie: 'schoolname="_YmJzIGJpbmdlbg=="',
             }),

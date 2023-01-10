@@ -17,26 +17,6 @@ export function Twelve() {
 
   const { data, error, isError, isLoading, isFetching } = useGetClassesQuery({ date, elementId, elementType: 1, formatId: 2 });
 
-  // const { data, isLoading, error, isFetching } = useQuery({
-  //   queryFn: async (): Promise<Response> => {
-  //     console.log('fetching data for', date);
-  //     const res = await axios.get(proxyUrl + url, {
-  //       params: {
-  //         date,
-  //         elementId,
-  //         elementType: 1,
-  //         formatId: 2,
-  //         // When not using proxy, move this outside of params
-  //         headers: {
-  //           Cookie: 'schoolname="_YmJzIGJpbmdlbg=="',
-  //         },
-  //       },
-  //     });
-  //     return res.data;
-  //   },
-  //   queryKey: ['timetable', elementId, date],
-  // });
-
   // console.log(JSON.stringify(data));
 
   const myData = data?.data.result.data;
