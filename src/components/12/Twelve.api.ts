@@ -25,15 +25,16 @@ export const timeTableApi = createApi({
             elementType,
             formatId,
             // TODO: Header object is not set, given as serialized string thing "Object [Object]"
-            headers: {
+            headers: JSON.stringify({
               Cookie: 'schoolname="_YmJzIGJpbmdlbg=="',
-            },
+            }),
           },
           url: '',
         };
       },
     }),
   }),
+  reducerPath: 'timeTable',
   tagTypes: ['classes'],
 });
 
