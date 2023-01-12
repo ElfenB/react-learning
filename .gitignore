@@ -1,3 +1,8 @@
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
 # vitest
 coverage
 
@@ -126,3 +131,4 @@ $RECYCLE.BIN/
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/react,macos,windows,yarn
+
