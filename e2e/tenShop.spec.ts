@@ -10,9 +10,13 @@ test.describe('adding something to the cart', () => {
     expect(await getBalanceFromCart(page)).toContain('0.00€');
   });
 
-  test('should be able to add an item to the cart', async ({ page }) => {
+  test('should add and remove an item to the cart', async ({ page }) => {
     await page.getByRole('button', { name: 'Get 1 for 10.50€' }).click();
     expect(await getBalanceFromCart(page)).toContain('10.50€');
+
+    navigateToCart(page);
+    await page.getByRole('button', { name: '🗑' }).click();
+    expect(await getBalanceFromCart(page)).toContain('0.00€');
   });
 });
 
