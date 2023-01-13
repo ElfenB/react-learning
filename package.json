@@ -11,7 +11,9 @@
     "test": "vitest",
     "interactive-test": "vitest --ui",
     "coverage": "vitest run --coverage",
-    "e2e": "playwright test"
+    "e2e": "playwright test",
+    "e2e:debug": "playwright test --debug"
+
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",

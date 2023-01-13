@@ -6,5 +6,8 @@
     "**/.{idea,git,cache,output,temp}/**",
     "**/e2e/**",
     "**/*.spec.ts"
+  ],
+  "vitest.include": [
+    "**/*.{test}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"
   ]
 }
