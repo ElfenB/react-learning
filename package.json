@@ -12,8 +12,8 @@
     "interactive-test": "vitest --ui",
     "coverage": "vitest run --coverage",
     "e2e": "playwright test",
-    "e2e:debug": "playwright test --debug"
-
+    "e2e:debug": "playwright test --debug",
+    "e2e:watch": "chokidar 'e2e/**/*.spec.ts' -c 'yarn e2e --retries=0 {path}'"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -43,6 +43,7 @@
     "@vitejs/plugin-react": "^2.2.0",
     "@vitest/coverage-c8": "^0.26.3",
     "@vitest/ui": "^0.26.3",
+    "chokidar-cli": "^3.0.0",
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-node": "^0.3.6",
