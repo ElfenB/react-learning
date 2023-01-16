@@ -66,12 +66,17 @@ export function Day({ courses, date, periods }: Props) {
 
       {expandedSortedClasses && (
         <List>
-          {expandedSortedClasses.map((cls) => (
-            <Box key={cls.id + cls.lessonId}>
-              <CourseItem bgColor={colorMap.get(cls.elements[1].id)} classItem={cls} courses={courses} />
-              <Divider component="li" variant="fullWidth" />
-            </Box>
-          ))}
+          {expandedSortedClasses.map((cls) =>
+            cls.elements[1] !== undefined ? (
+              <Box key={cls.id + cls.lessonId}>
+                <CourseItem bgColor={colorMap.get(cls.elements[1].id)} classItem={cls} courses={courses} />
+                <Divider component="li" variant="fullWidth" />
+              </Box>
+            ) : (
+              // If not defined, print empty element
+              <></>
+            )
+          )}
         </List>
       )}
     </>
