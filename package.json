@@ -13,6 +13,7 @@
     "coverage": "vitest run --coverage",
     "e2e": "playwright test",
     "e2e:debug": "playwright test --debug",
+    "e2e:gen": "playwright codegen localhost:5173",
     "e2e:watch": "chokidar 'e2e/**/*.spec.ts' -c 'yarn e2e --retries=0 {path}'"
   },
   "dependencies": {

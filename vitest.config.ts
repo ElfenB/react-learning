@@ -7,7 +7,7 @@ export default mergeConfig(
   defineConfig({
     test: {
       // Exclude e2e test files
-      exclude: [...configDefaults.exclude, 'e2e/*', '*.spec.ts'],
+      exclude: [...configDefaults.exclude, 'e2e/*'],
     },
   })
 );
