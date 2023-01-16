@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('Five form should work correctly', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   await page
     .getByRole('link', { name: 'Image of Learning path Learning path See navigation for complete learning path.' })
