@@ -1,4 +1,4 @@
-import { CSSProperties, ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, CSSProperties, FormEvent, useState } from 'react';
 
 import { FormValues } from './LoginDialog.types';
 
@@ -11,7 +11,7 @@ const style: Record<string, CSSProperties> = {
     left: 'calc(50vw - 10rem)',
     padding: '1rem',
     position: 'absolute',
-    top: '30%',
+    top: '25%',
     width: '20rem',
     wordBreak: 'break-word',
   },
