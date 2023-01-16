@@ -18,7 +18,7 @@ test('Five form should work correctly', async ({ page }) => {
   await page.getByLabel('Part-time').check();
   await page.locator('#favColor').selectOption('indigo');
   await page.getByRole('button', { name: 'Send' }).click();
-  expect(await page.getByText('{"comments":"no comment to this","email":"my.playwright@bot.com","employment":"p').allInnerTexts()).toContain(
+  expect(await page.getByText('{"comments":"').allInnerTexts()).toContain(
     '{"comments":"no comment to this","email":"my.playwright@bot.com","employment":"part-time","favColor":"indigo","firstName":"My Playwright","isFriendly":true,"lastName":"Bot"}'
   );
 });
