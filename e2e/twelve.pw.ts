@@ -4,8 +4,9 @@ test('Test Twelve Timetable', async ({ page }) => {
   await page.goto('/twelve');
   await expect(page.getByRole('heading', { name: 'Stundenplan' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Kurse' })).toBeVisible();
-  await page.getByRole('button', { name: 'Choose date, selected date is 16. Jan. 2023' }).click();
-  await page.getByRole('gridcell', { name: '23' }).click();
+
+  await page.getByPlaceholder('dd.mm.yyyy').click();
+  await page.getByPlaceholder('dd.mm.yyyy').fill('16.01.2022');
 
   await page.waitForLoadState('domcontentloaded');
   
