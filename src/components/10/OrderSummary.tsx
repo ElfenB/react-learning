@@ -1,10 +1,10 @@
-import { CSSProperties } from 'react';
+import { Box, Button, SxProps, Theme, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectDistinctNumOfItems, selectTotalAmount } from '../redux/features/cart/cart.selectors';
 
 import { RootState } from '../redux/store';
 
-const style: Record<string, CSSProperties> = {
+const sx: Record<string, SxProps<Theme>> = {
   backdropClicker: {
     height: '100%',
     left: 0,
@@ -52,20 +52,22 @@ export function OrderSummary({ handleCloseSummary }: Props) {
   const handleCompletion = () => alert(`Order completed, please pay ${selectTotalAmount(cart).toFixed(2)}€ now!`);
 
   return (
-    <div style={style.component}>
-      <div style={style.backdropClicker} onClick={handleCloseSummary}></div>
+    <Box sx={sx.component}>
+      <Box sx={sx.backdropClicker} onClick={handleCloseSummary}></Box>
 
-      <div style={style.modal}>
-        <h2 style={style.heading}>Summary of order</h2>
+      <Box sx={sx.modal}>
+        <Typography sx={sx.heading} variant="h2">
+          Summary of order
+        </Typography>
 
-        <p>
+        <Typography>
           {selectDistinctNumOfItems(cart)} items for {selectTotalAmount(cart).toFixed(2)}€
-        </p>
+        </Typography>
 
-        <button className="button" style={style.complete} onClick={handleCompletion}>
+        <Button className="button" sx={sx.complete} onClick={handleCompletion}>
           Complete order
-        </button>
-      </div>
-    </div>
+        </Button>
+      </Box>
+    </Box>
   );
 }

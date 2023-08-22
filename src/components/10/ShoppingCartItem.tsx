@@ -82,7 +82,7 @@ export function ShoppingCartItem({ data: product }: Props) {
   return (
     <div style={style.component}>
       <Link to={`/ten/product/${product.productId}`}>
-        <img alt={`Image of ${product.title}`} src={product.image || placeholderProduct} style={style.image} />
+        <img alt={`${product.title}`} src={product.image || placeholderProduct} style={style.image} />
       </Link>
 
       <span style={style.title}>{product.title}</span>

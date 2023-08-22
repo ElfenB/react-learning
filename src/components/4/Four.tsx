@@ -14,19 +14,26 @@ export function Four() {
   const [memeData, setMemeData] = useState<Meme[]>([]);
 
   useEffect(() => {
-    try {
-      (async () => {
-        const res = await (await fetch('https://api.imgflip.com/get_memes')).json();
-        setMemeData(await res?.data.memes);
-      })();
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        console.warn(err?.message);
-      } else {
-        console.log('There was an issue fetching the data from the API.');
+    async function getMemes() {
+      const res: unknown = await (await fetch('https://api.imgflip.com/get_memes')).json();
+      if (res instanceof Error) {
+        console.warn(res?.message);
       }
-      setMemeData(testdata);
+      if (
+        typeof res === 'object' &&
+        res &&
+        'data' in res &&
+        typeof res?.data === 'object' &&
+        res?.data &&
+        'memes' in res.data &&
+        typeof res?.data?.memes === 'object' &&
+        res?.data?.memes
+      ) {
+        setMemeData(res?.data.memes as Meme[]);
+      }
     }
+    getMemes().catch((err) => console.warn(err));
+    setMemeData(testdata);
   }, [testdata]);
 
   const getRandomMeme = useCallback(() => memeData[Math.floor(Math.random() * memeData.length)], [memeData]);

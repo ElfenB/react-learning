@@ -1,5 +1,3 @@
-/* eslint-disable sort-keys-fix/sort-keys-fix */
-
 import { createBrowserRouter } from 'react-router-dom';
 import { One } from './components/1/One';
 import { Product } from './components/10/Product';

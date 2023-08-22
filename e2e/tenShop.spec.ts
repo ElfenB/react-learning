@@ -14,7 +14,7 @@ test.describe('adding something to the cart', () => {
     await page.getByRole('button', { name: 'Get 1 for 10.50€' }).click();
     expect(await getBalanceFromCart(page)).toContain('10.50€');
 
-    navigateToCart(page);
+    await navigateToCart(page);
     await page.getByRole('button', { name: '🗑' }).click();
     expect(await getBalanceFromCart(page)).toContain('0.00€');
   });

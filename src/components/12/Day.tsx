@@ -43,9 +43,9 @@ export function Day({ courses, date, periods }: Props) {
       } else {
         // If already in the array, change start and end time to min/max value to expand the class
         ret = ret.flatMap((p) =>
-          p.lessonId !== cls.lessonId
-            ? p
-            : { ...p, endTime: Math.max(p.endTime, cls.endTime), startTime: Math.min(p.startTime, cls.startTime) },
+          p.lessonId === cls.lessonId
+            ? { ...p, endTime: Math.max(p.endTime, cls.endTime), startTime: Math.min(p.startTime, cls.startTime) }
+            : p,
         );
       }
     });
@@ -54,7 +54,7 @@ export function Day({ courses, date, periods }: Props) {
 
   // map with ids and colors
   const colorMap = new Map();
-  courses.map((c) => {
+  courses.forEach((c) => {
     colorMap.set(c.id, stringToColor(String(c.longName)));
   });
 
@@ -67,14 +67,14 @@ export function Day({ courses, date, periods }: Props) {
       {expandedSortedClasses && (
         <List>
           {expandedSortedClasses.map((cls) =>
-            cls.elements[1] !== undefined ? (
+            cls.elements[1] === undefined ? (
+              // If not defined, print empty element
+              <></>
+            ) : (
               <Box key={cls.id + cls.lessonId}>
                 <CourseItem bgColor={colorMap.get(cls.elements[1].id)} classItem={cls} courses={courses} />
                 <Divider component="li" variant="fullWidth" />
               </Box>
-            ) : (
-              // If not defined, print empty element
-              <></>
             ),
           )}
         </List>

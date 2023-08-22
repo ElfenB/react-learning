@@ -6,6 +6,7 @@ import { DataDisplay } from './DataDisplay';
 import { DelayedSpinner } from './DelayedSpinner';
 import { TimeSelect } from './TimeSelect';
 import { timeTableApi, useGetClassesQuery } from './Twelve.api';
+import { Data } from './Twelve.types';
 
 export function Twelve() {
   // console.log('Twelve rendered');
@@ -24,14 +25,18 @@ export function Twelve() {
 
   // console.log(JSON.stringify(data));
 
-  const myData = data?.data.result.data;
-
   const handleDateChanged = useCallback((newDate: string) => {
     console.log('invalidate query timetable', newDate);
     setDate(newDate);
     // queryClient.invalidateQueries({ queryKey: ['timetable'] });
     timeTableApi.util.invalidateTags(['classes']);
   }, []);
+
+  if (!data) {
+    return <DelayedSpinner delayMs={500} loading={isFetching || isLoading} />;
+  }
+
+  const myData: Data = data.data.result.data;
 
   return (
     <Container>

@@ -49,7 +49,7 @@ export function ProductItem({ product }: Props) {
   return (
     <div style={style.component}>
       <Link style={style.link} to={`product/${product.productId}`}>
-        <img alt={`Picture of ${product.title}`} src={product.image} style={style.image} />
+        <img alt={`${product.title}`} src={product.image} style={style.image} />
       </Link>
 
       <h2 style={style.title}>{product.title}</h2>
