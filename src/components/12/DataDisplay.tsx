@@ -32,7 +32,7 @@ export function DataDisplay({ data, elementId }: Props) {
         <Box sx={{ m: 5 }} />
 
         {sortedUniqDays.map((day) => (
-          <Day key={day} courses={courses} date={day} periods={periods } />
+          <Day key={day} courses={courses} date={day} periods={periods} />
         ))}
       </Box>
     </Fade>

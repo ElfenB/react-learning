@@ -63,12 +63,14 @@ export function TenziesGame() {
 
   // Shuffle all numbers of dices that have not been locked in
   const shuffleAllUnlocked = () => {
-    setDices((prevDices) => prevDices.map((dice) => {
+    setDices((prevDices) =>
+      prevDices.map((dice) => {
         if (!dice.lockedIn) {
           dice.value = getRandomNumber();
         }
         return dice;
-      }));
+      }),
+    );
   };
 
   const handleReset = useCallback(() => {
@@ -105,12 +107,14 @@ export function TenziesGame() {
 
   const handleToggleSelect = useCallback(
     (diceIndex: any, newVal: boolean) => {
-      setDices((prevDices) => prevDices.map((dice) => {
+      setDices((prevDices) =>
+        prevDices.map((dice) => {
           if (dice.id === diceIndex) {
             dice.lockedIn = newVal;
           }
           return dice;
-        }));
+        }),
+      );
       handleCurrentGameStatsChange('numberPicked', dices[diceIndex].value);
     },
     [dices, handleCurrentGameStatsChange],

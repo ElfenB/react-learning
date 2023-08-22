@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 import { getJsonFromLocalStorage } from './../../../8/TenziesGame.utils';
 import { mockData } from './cart.mockData';
@@ -37,7 +36,9 @@ export const cartSlice = createSlice({
         amount: (cartItem.amount =
           cartItem.productId === action.payload.productId
             ? (cartItem.amount =
-                action.payload.amount >= cartItem.amount ? 1 : (cartItem.amount = cartItem.amount - action.payload.amount))
+                action.payload.amount >= cartItem.amount
+                  ? 1
+                  : (cartItem.amount = cartItem.amount - action.payload.amount))
             : cartItem.amount),
       }));
     },

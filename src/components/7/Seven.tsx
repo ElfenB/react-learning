@@ -11,7 +11,7 @@ export function Seven() {
   useEffect(() => {
     console.info('Effect ran');
 
-    fetch(`https://swapi.dev/api/people/${  count}`)
+    fetch(`https://swapi.dev/api/people/${count}`)
       .then((res) => res.json())
       .then((data) => setApiData(data))
       .catch(() => console.warn('Mistakes ware made'));
