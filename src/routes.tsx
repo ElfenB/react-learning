@@ -1,6 +1,7 @@
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 
 import { createBrowserRouter } from 'react-router-dom';
+import { ErrorPage } from './ErrorPage';
 import { One } from './components/1/One';
 import { Product } from './components/10/Product';
 import { ProductError } from './components/10/ProductError';
@@ -9,6 +10,7 @@ import { TenCart } from './components/10/TenCart';
 import { TenShop } from './components/10/TenShop';
 import { Eleven } from './components/11/Eleven';
 import { Twelve } from './components/12/Twelve';
+import { Thirteen } from './components/13/Thirteen';
 import { Two } from './components/2/Two';
 import { Three } from './components/3/Three';
 import { Four } from './components/4/Four';
@@ -17,9 +19,8 @@ import { Six } from './components/6/Six';
 import { Seven } from './components/7/Seven';
 import { Eight } from './components/8/Eight';
 import { Nine } from './components/9/Nine';
-import { MainAttractions } from './components/attractions/MainAttractions';
 import { Navigation } from './components/Navigation';
-import { ErrorPage } from './ErrorPage';
+import { MainAttractions } from './components/attractions/MainAttractions';
 
 export const router = createBrowserRouter([
   {
@@ -108,6 +109,11 @@ export const router = createBrowserRouter([
   {
     path: '/twelve',
     element: <Twelve />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/thirteen',
+    element: <Thirteen />,
     errorElement: <ErrorPage />,
   },
 ]);
