@@ -52,7 +52,7 @@ export function LoginDialog() {
     e.preventDefault();
     if (!validForm) {
       // passwords dont match
-      alert('error, passwords don\'t match');
+      alert("error, passwords don't match");
       return;
     }
     // passwords match

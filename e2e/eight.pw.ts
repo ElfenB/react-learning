@@ -8,7 +8,7 @@ test('Tenzies game', async ({ page }) => {
 
   // Set every button that contains a 2
   // TODO: Implement
-  
+
   // Show last 3 games
   await page.getByText('Game: 1').click();
   await expect(page.getByRole('heading', { name: 'Last 3 entries' })).toBeVisible();

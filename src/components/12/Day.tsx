@@ -22,7 +22,7 @@ export function Day({ courses, date, periods }: Props) {
         nextWeek: 'dddd',
         sameDay: '[Heute]',
       }),
-    [date]
+    [date],
   );
   const dayOfWeek = useMemo(() => moment(date, 'YYYYMMDD').format('dddd'), [date]);
   const isThisWeek = useMemo(() => formattedDate === dayOfWeek, [dayOfWeek, formattedDate]);
@@ -45,7 +45,7 @@ export function Day({ courses, date, periods }: Props) {
         ret = ret.flatMap((p) =>
           p.lessonId !== cls.lessonId
             ? p
-            : { ...p, endTime: Math.max(p.endTime, cls.endTime), startTime: Math.min(p.startTime, cls.startTime) }
+            : { ...p, endTime: Math.max(p.endTime, cls.endTime), startTime: Math.min(p.startTime, cls.startTime) },
         );
       }
     });
@@ -75,7 +75,7 @@ export function Day({ courses, date, periods }: Props) {
             ) : (
               // If not defined, print empty element
               <></>
-            )
+            ),
           )}
         </List>
       )}

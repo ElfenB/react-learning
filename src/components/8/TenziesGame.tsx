@@ -1,15 +1,15 @@
 import { CSSProperties, useCallback, useEffect, useState } from 'react';
-import { gameStartValue, startGameNumber, startRound } from './TenziesGame.consts';
-import { generateInitialDices, getJsonFromLocalStorage, getRandomNumber } from './TenziesGame.utils';
 
 import { ActionButton } from './ActionButton';
 import { Bin } from './Bin';
 import { DiceType } from './Dice.types';
 import { Dices } from './Dices';
-import { GameStats } from './TenziesGame.types';
 import { HistoryPane } from './HistoryPane';
 import { Indicator } from './Indicator';
 import { Nickname } from './Nickname';
+import { gameStartValue, startGameNumber, startRound } from './TenziesGame.consts';
+import { GameStats } from './TenziesGame.types';
+import { generateInitialDices, getJsonFromLocalStorage, getRandomNumber } from './TenziesGame.utils';
 import { Timer } from './Timer';
 
 const style: Record<string, CSSProperties> = {
@@ -32,7 +32,7 @@ export function TenziesGame() {
 
   // Get last value from localStore if available, otherwise take starting value
   const [currentGameStats, setCurrentGameStats] = useState<GameStats>(
-    getJsonFromLocalStorage('currentGame', gameStartValue)
+    getJsonFromLocalStorage('currentGame', gameStartValue),
   );
 
   // Get overall stats from localStorage when exists, otherwise start with empty array
@@ -46,9 +46,7 @@ export function TenziesGame() {
     const firstValue = dices[0].value;
 
     // Compare every value to first value (if all are the same)
-    const allNumSame = dices.every((dice) => {
-      return dice.value === firstValue;
-    });
+    const allNumSame = dices.every((dice) => dice.value === firstValue);
 
     setGameOver(allLockedIn && allNumSame);
   }, [dices]);
@@ -65,14 +63,12 @@ export function TenziesGame() {
 
   // Shuffle all numbers of dices that have not been locked in
   const shuffleAllUnlocked = () => {
-    setDices((prevDices) => {
-      return prevDices.map((dice) => {
+    setDices((prevDices) => prevDices.map((dice) => {
         if (!dice.lockedIn) {
           dice.value = getRandomNumber();
         }
         return dice;
-      });
-    });
+      }));
   };
 
   const handleReset = useCallback(() => {
@@ -109,17 +105,15 @@ export function TenziesGame() {
 
   const handleToggleSelect = useCallback(
     (diceIndex: any, newVal: boolean) => {
-      setDices((prevDices) => {
-        return prevDices.map((dice) => {
+      setDices((prevDices) => prevDices.map((dice) => {
           if (dice.id === diceIndex) {
             dice.lockedIn = newVal;
           }
           return dice;
-        });
-      });
+        }));
       handleCurrentGameStatsChange('numberPicked', dices[diceIndex].value);
     },
-    [dices, handleCurrentGameStatsChange]
+    [dices, handleCurrentGameStatsChange],
   );
 
   const handleTimer = useCallback((time: number) => {

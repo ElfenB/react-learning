@@ -22,7 +22,7 @@ test('Six form should work correctly', async ({ page }) => {
   await page.getByRole('button', { name: 'Login' }).click();
 
   // Check result
-  expect(
-    await page.getByText('{"email":"').allInnerTexts()
-  ).toContain('{"email":"playwright@bot.com","newsletter":false,"password":"test123","passwordRepeat":"test123"}');
+  expect(await page.getByText('{"email":"').allInnerTexts()).toContain(
+    '{"email":"playwright@bot.com","newsletter":false,"password":"test123","passwordRepeat":"test123"}',
+  );
 });

@@ -1,8 +1,8 @@
-import { CartItem, Product } from './cart.types';
 
 import { createSlice } from '@reduxjs/toolkit';
 import { getJsonFromLocalStorage } from './../../../8/TenziesGame.utils';
 import { mockData } from './cart.mockData';
+import { CartItem, Product } from './cart.types';
 
 type State = {
   cart: CartItem[];
@@ -27,7 +27,7 @@ export const cartSlice = createSlice({
         state.cart.push(newCartItem);
       } else {
         state.cart.map((item) =>
-          item.productId !== product.productId ? item : { ...item, amount: (item.amount += amount) }
+          item.productId !== product.productId ? item : { ...item, amount: (item.amount = item.amount + amount) },
         );
       }
     },
@@ -37,7 +37,7 @@ export const cartSlice = createSlice({
         amount: (cartItem.amount =
           cartItem.productId === action.payload.productId
             ? (cartItem.amount =
-                action.payload.amount >= cartItem.amount ? 1 : (cartItem.amount -= action.payload.amount))
+                action.payload.amount >= cartItem.amount ? 1 : (cartItem.amount = cartItem.amount - action.payload.amount))
             : cartItem.amount),
       }));
     },
@@ -49,7 +49,7 @@ export const cartSlice = createSlice({
         ...cartItem,
         amount: (cartItem.amount =
           cartItem.productId === action.payload.productId
-            ? (cartItem.amount += action.payload.amount)
+            ? (cartItem.amount = cartItem.amount + action.payload.amount)
             : cartItem.amount),
       }));
     },

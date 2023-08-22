@@ -1,12 +1,12 @@
 import './4.scss';
 
-import { CurrentMeme, Meme } from './Four.types';
 import { useCallback, useEffect, useState } from 'react';
 
-import { Display } from './Display';
 import { Header } from '../4/Header';
-import { Interaction } from './Interaction';
 import { apiData } from './api-data';
+import { Display } from './Display';
+import { CurrentMeme, Meme } from './Four.types';
+import { Interaction } from './Interaction';
 
 export function Four() {
   const testdata = apiData.data.memes;
@@ -39,7 +39,7 @@ export function Four() {
         ...prevCurrMeme,
         meme: getRandomMeme(),
       })),
-    [getRandomMeme]
+    [getRandomMeme],
   );
 
   const setText = useCallback(
@@ -48,7 +48,7 @@ export function Four() {
         ...prevCurrMeme,
         [fieldName]: newText,
       })),
-    []
+    [],
   );
 
   useEffect(() => displayNew(), [displayNew]);

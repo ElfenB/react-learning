@@ -17,7 +17,7 @@ export function Legend({ courses }: Props) {
         ))}
       </List> */}
       <TableContainer>
-        <Table size='small'>
+        <Table size="small">
           <TableHead>
             <TableRow>
               <TableCell component={'th'}>

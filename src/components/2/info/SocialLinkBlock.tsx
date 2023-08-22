@@ -1,6 +1,6 @@
-import { SocialLink } from './SocialLink';
 import email from '../assets/email.png';
 import linkedin from '../assets/linkedin1.png';
+import { SocialLink } from './SocialLink';
 
 export function SocialLinkBlock() {
   return (

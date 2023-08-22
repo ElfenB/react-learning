@@ -9,5 +9,5 @@ export default mergeConfig(
       // Exclude e2e test files
       exclude: [...configDefaults.exclude, 'e2e/*'],
     },
-  })
+  }),
 );

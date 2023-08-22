@@ -1,12 +1,12 @@
 import { CSSProperties, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { emptyCart } from '../redux/features/cart/cart';
+import { RootState } from '../redux/store';
 import { CartSummary } from './CartSummary';
 import { OrderSummary } from './OrderSummary';
 import { Purchase } from './Purchase';
-import { RootState } from '../redux/store';
 import { ShoppingCartItem } from './ShoppingCartItem';
-import { emptyCart } from '../redux/features/cart/cart';
 
 const style: Record<string, CSSProperties> = {
   component: {

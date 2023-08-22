@@ -27,6 +27,6 @@ test('Five form should work correctly', async ({ page }) => {
 
   // Check result
   expect(await page.getByText('{"comments":"').allInnerTexts()).toContain(
-    '{"comments":"no comment to this","email":"my.playwright@bot.com","employment":"part-time","favColor":"indigo","firstName":"My Playwright","isFriendly":true,"lastName":"Bot"}'
+    '{"comments":"no comment to this","email":"my.playwright@bot.com","employment":"part-time","favColor":"indigo","firstName":"My Playwright","isFriendly":true,"lastName":"Bot"}',
   );
 });

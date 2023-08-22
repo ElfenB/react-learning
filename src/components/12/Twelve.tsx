@@ -1,7 +1,7 @@
+import { useCallback, useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import moment from 'moment';
-import { useCallback, useState } from 'react';
 import { DataDisplay } from './DataDisplay';
 import { DelayedSpinner } from './DelayedSpinner';
 import { TimeSelect } from './TimeSelect';
@@ -15,7 +15,12 @@ export function Twelve() {
 
   const [date, setDate] = useState(moment().format('yyyy-MM-DD'));
 
-  const { data, error, isError, isLoading, isFetching } = useGetClassesQuery({ date, elementId, elementType: 1, formatId: 2 });
+  const { data, error, isError, isLoading, isFetching } = useGetClassesQuery({
+    date,
+    elementId,
+    elementType: 1,
+    formatId: 2,
+  });
 
   // console.log(JSON.stringify(data));
 

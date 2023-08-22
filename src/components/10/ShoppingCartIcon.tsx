@@ -1,9 +1,9 @@
 import { CSSProperties } from 'react';
-import { Link } from 'react-router-dom';
-import { RootState } from '../redux/store';
-import { selectTotalItems } from '../redux/features/cart/cart.selectors';
-import shoppingCart from './assets/shop.svg';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { selectTotalItems } from '../redux/features/cart/cart.selectors';
+import { RootState } from '../redux/store';
+import shoppingCart from './assets/shop.svg';
 
 const style: Record<string, CSSProperties> = {
   badge: {

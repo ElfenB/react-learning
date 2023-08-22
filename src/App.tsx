@@ -1,6 +1,6 @@
+import { useEffect, useMemo, useState } from 'react';
 import { CssBaseline, PaletteMode, ThemeProvider, useMediaQuery } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useEffect, useMemo, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './routes';
 import { getTheme } from './theme';

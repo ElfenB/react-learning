@@ -1,8 +1,8 @@
+import { CSSProperties } from 'react';
+import { useSelector } from 'react-redux';
 import { selectDistinctNumOfItems, selectTotalAmount } from '../redux/features/cart/cart.selectors';
 
-import { CSSProperties } from 'react';
 import { RootState } from '../redux/store';
-import { useSelector } from 'react-redux';
 
 const style: Record<string, CSSProperties> = {
   backdropClicker: {

@@ -15,7 +15,7 @@ export const getJsonFromLocalStorage = (item: string, defaultData: any) => {
   try {
     const storageItem = localStorage.getItem(item) as string;
     const data = JSON.parse(storageItem);
-    
+
     // Check if data is null or undefined
     if (!data) {
       return defaultData;

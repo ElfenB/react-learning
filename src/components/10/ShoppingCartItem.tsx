@@ -1,8 +1,8 @@
+import { CSSProperties } from 'react';
+import { Link } from 'react-router-dom';
 import { decreaseAmountBy, increaseAmountBy, removeItem } from '../redux/features/cart/cart';
 
-import { CSSProperties } from 'react';
 import { CartItem } from '../redux/features/cart/cart.types';
-import { Link } from 'react-router-dom';
 import placeholderProduct from './assets/placeholderProduct.webp';
 import { useDispatchAction2 } from './ShoppingCart.utils';
 

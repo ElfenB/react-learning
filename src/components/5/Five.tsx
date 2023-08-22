@@ -17,7 +17,7 @@ export function Five() {
   const [formData, setFormData] = useState<FormValues>(formDataInit);
 
   const handleFormInput = useCallback(
-    (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLSelectElement>) => {
+    (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLTextAreaElement>) => {
       const { name, value, type } = e.target;
       const checked = (e.target as HTMLInputElement).checked;
       setFormData((prevFormData) => ({
@@ -25,7 +25,7 @@ export function Five() {
         [name]: type === 'checkbox' ? checked : value,
       }));
     },
-    []
+    [],
   );
 
   const handleSubmit = (e: FormEvent) => {

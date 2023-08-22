@@ -9,6 +9,6 @@ test('Test Twelve Timetable', async ({ page }) => {
   await page.getByPlaceholder('dd.mm.yyyy').fill('16.01.2022');
 
   await page.waitForLoadState('domcontentloaded');
-  
+
   await expect(page.getByText('Montag')).toBeVisible();
 });

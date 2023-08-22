@@ -1,5 +1,5 @@
-import { GameStats } from './TenziesGame.types';
 import { HistoryElement } from './HistoryElement';
+import { GameStats } from './TenziesGame.types';
 
 type Props = {
   data: GameStats[];
@@ -16,9 +16,7 @@ export function HistoryPane({ data, size = 3 }: Props) {
       {data
         .slice(data.length - substraction, data.length)
         .reverse()
-        .map((game, i) => {
-          return <HistoryElement key={i} game={game} />;
-        })}
+        .map((game, i) => <HistoryElement key={i} game={game} />)}
     </div>
   );
 }

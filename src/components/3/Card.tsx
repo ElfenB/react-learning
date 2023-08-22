@@ -1,5 +1,5 @@
-import { CardPrice } from './CardPrice';
 import { CardType } from './Card.types';
+import { CardPrice } from './CardPrice';
 import { Rating } from './Rating';
 
 type Props = {

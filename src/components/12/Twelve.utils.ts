@@ -20,7 +20,7 @@ export function stringToColor(str: string) {
   let colour = '#';
   for (let i = 0; i < 3; i++) {
     const value = (hash >> (i * 8)) & 0xff;
-    colour += ('00' + value.toString(16)).slice(-2);
+    colour = colour + (`00${  value.toString(16)}`).slice(-2);
   }
 
   return colour;
@@ -58,7 +58,7 @@ export function getContrastColor(hexColor: string, bw?: boolean) {
   g = (255 - g).toString(16);
   b = (255 - b).toString(16);
   // pad each with zeros and return
-  return '#' + padZero(r) + padZero(g) + padZero(b);
+  return `#${  padZero(r)  }${padZero(g)  }${padZero(b)}`;
 }
 
 // Returns a string that is a specific length and contains a number (prefixed by zero to get the fixed length)

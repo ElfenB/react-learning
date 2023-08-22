@@ -1,11 +1,10 @@
-
+import { useCallback, useState } from 'react';
 import { Box, SxProps, Theme } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import moment, { Moment } from 'moment';
-import { useCallback, useState } from 'react';
 import { WeekSkipper } from './WeekSkipper';
 
 const sx: Record<string, SxProps<Theme>> = {
@@ -30,18 +29,18 @@ export function TimeSelect({ dateChanged }: Props) {
         dateChanged(moment(newValue).format('yyyy-MM-DD'));
       }
     },
-    [dateChanged]
+    [dateChanged],
   );
 
   const handleAddWeeks = useCallback(
     (numWeeks: number) => handleDateChange(moment(date).add(numWeeks, 'week')),
-    [date, handleDateChange]
+    [date, handleDateChange],
   );
 
   return (
     <Box sx={sx.root}>
       <LocalizationProvider dateAdapter={AdapterMoment}>
-        <WeekSkipper direction='back' onClick={() => handleAddWeeks(-1)} />
+        <WeekSkipper direction="back" onClick={() => handleAddWeeks(-1)} />
 
         <DatePicker
           label="Wochenstart"
@@ -50,7 +49,7 @@ export function TimeSelect({ dateChanged }: Props) {
           onChange={(newValue) => handleDateChange(newValue)}
         />
 
-        <WeekSkipper direction='forward' onClick={() => handleAddWeeks(1)} />
+        <WeekSkipper direction="forward" onClick={() => handleAddWeeks(1)} />
       </LocalizationProvider>
     </Box>
   );

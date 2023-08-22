@@ -16,7 +16,7 @@ type Props = {
   clicked?: () => void;
   description?: string;
   positionX: 'left' | 'right';
-  positionY: 'top' | 'bottom';
+  positionY: 'bottom' | 'top';
   value?: number;
 };
 
