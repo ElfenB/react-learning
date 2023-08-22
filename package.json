@@ -36,6 +36,7 @@
     "sass": "^1.56.1"
   },
   "devDependencies": {
+    "@boehringer-ingelheim/eslint-config": "^1.1.4",
     "@playwright/test": "^1.29.2",
     "@types/lodash": "^4.14.191",
     "@types/react": "^18.0.25",
@@ -45,7 +46,7 @@
     "@vitest/coverage-c8": "^0.26.3",
     "@vitest/ui": "^0.26.3",
     "chokidar-cli": "^3.0.0",
-    "eslint": "^8.27.0",
+    "eslint": "^8.47.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-import-resolver-typescript": "^3.5.2",
