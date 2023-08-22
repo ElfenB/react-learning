@@ -1,10 +1,10 @@
 import { CSSProperties, ChangeEvent, useCallback, useState } from 'react';
 
-import { RootState } from '../redux/store';
-import { addItem } from '../redux/features/cart/cart';
-import { useDispatchActionCallback } from './ShoppingCart.utils';
-import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { addItem } from '../redux/features/cart/cart';
+import { RootState } from '../redux/store';
+import { useDispatchActionCallback } from './ShoppingCart.utils';
 
 const style: Record<string, CSSProperties> = {
   addButton: {
@@ -41,7 +41,7 @@ const style: Record<string, CSSProperties> = {
     width: '20rem',
   },
   numberInput: {
-    width: '3rem',
+    minWidth: '4rem',
   },
 };
 
@@ -63,7 +63,7 @@ export function Product() {
     <div style={style.component}>
       <h1>{product.title}</h1>
 
-      <img alt={`Image of ${product.title}`} src={product.image} style={style.image} />
+      <img alt={`${product.title}`} src={product.image} style={style.image} />
 
       <p>{product.description}</p>
 

@@ -1,5 +1,3 @@
-/* eslint-disable sort-keys-fix/sort-keys-fix */
-
 import { createBrowserRouter } from 'react-router-dom';
 import { One } from './components/1/One';
 import { Product } from './components/10/Product';
@@ -9,6 +7,7 @@ import { TenCart } from './components/10/TenCart';
 import { TenShop } from './components/10/TenShop';
 import { Eleven } from './components/11/Eleven';
 import { Twelve } from './components/12/Twelve';
+import { Thirteen } from './components/13/Thirteen';
 import { Two } from './components/2/Two';
 import { Three } from './components/3/Three';
 import { Four } from './components/4/Four';
@@ -23,64 +22,61 @@ import { ErrorPage } from './ErrorPage';
 
 export const router = createBrowserRouter([
   {
-    path: '/',
     element: <MainAttractions />,
     errorElement: <ErrorPage />,
+    path: '/',
   },
   {
-    path: '/all',
     element: <Navigation />,
     errorElement: <ErrorPage />,
+    path: '/all',
   },
   {
-    path: '/one',
     element: <One />,
     errorElement: <ErrorPage />,
+    path: '/one',
   },
   {
-    path: '/two',
     element: <Two />,
     errorElement: <ErrorPage />,
+    path: '/two',
   },
   {
-    path: '/three',
     element: <Three />,
     errorElement: <ErrorPage />,
+    path: '/three',
   },
   {
-    path: '/four',
     element: <Four />,
     errorElement: <ErrorPage />,
+    path: '/four',
   },
   {
-    path: '/five',
     element: <Five />,
     errorElement: <ErrorPage />,
+    path: '/five',
   },
   {
-    path: '/six',
     element: <Six />,
     errorElement: <ErrorPage />,
+    path: '/six',
   },
   {
-    path: '/seven',
     element: <Seven />,
     errorElement: <ErrorPage />,
+    path: '/seven',
   },
   {
-    path: '/eight',
     element: <Eight />,
     errorElement: <ErrorPage />,
+    path: '/eight',
   },
   {
-    path: '/nine',
     element: <Nine />,
     errorElement: <ErrorPage />,
+    path: '/nine',
   },
   {
-    path: '/ten',
-    element: <Ten />,
-    errorElement: <ErrorPage />,
     children: [
       {
         // path: 'shop',
@@ -89,25 +85,33 @@ export const router = createBrowserRouter([
         index: true,
       },
       {
-        path: 'cart',
         element: <TenCart />,
         errorElement: <ErrorPage />,
+        path: 'cart',
       },
       {
-        path: 'product/:id',
         element: <Product />,
         errorElement: <ProductError />,
+        path: 'product/:id',
       },
     ],
+    element: <Ten />,
+    errorElement: <ErrorPage />,
+    path: '/ten',
   },
   {
-    path: '/eleven',
     element: <Eleven />,
     errorElement: <ErrorPage />,
+    path: '/eleven',
   },
   {
-    path: '/twelve',
     element: <Twelve />,
     errorElement: <ErrorPage />,
+    path: '/twelve',
+  },
+  {
+    element: <Thirteen />,
+    errorElement: <ErrorPage />,
+    path: '/thirteen',
   },
 ]);

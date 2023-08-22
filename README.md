@@ -23,13 +23,15 @@ The project is based on an empty vite React template.
 8. Small game as final exercise of first course
 9. First steps with Redux and Redux Toolkit
 10. Shopping cart example with Redux Toolkit
+11. `TODO:` Dishes explorer
+12. Timetable with RTK-Query and Material UI (MUI)
 
 ## Installation
 
 To install the required packages:
 
 ```shell
-npm install
+yarn install
 ```
 
 ### Environment variables
@@ -42,12 +44,12 @@ For reference, the file `.env.example` can be copied and adjusted.
 To run the application:
 
 ```shell
-npm run dev
+yarn dev
 ```
 
 ## Learning resources
 
-The learning path is based on:
+The learning path was initially based on:
 
 - [The official tutorial](https://reactjs.org/tutorial/tutorial.html#overview)
 - [Scrimba course from Bob Ziroll](https://youtu.be/bMknfKXIFA8)

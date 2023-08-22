@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
-import { ProductItem } from './ProductItem';
-import { RootState } from '../redux/store';
 import { useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
+import { ProductItem } from './ProductItem';
 
 const style: Record<string, CSSProperties> = {
   component: {

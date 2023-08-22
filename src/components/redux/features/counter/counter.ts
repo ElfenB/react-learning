@@ -7,13 +7,13 @@ const counterSlice = createSlice({
   name: 'counter',
   reducers: {
     decrement(state) {
-      state.count -= 1;
+      state.count = state.count - 1;
     },
     increment(state) {
-      state.count += 1;
+      state.count = state.count + 1;
     },
     incrementByAmount(state) {
-      state.count += state.amount;
+      state.count = state.count + state.amount;
     },
     reset(state) {
       state.count = initialState.count;

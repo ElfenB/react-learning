@@ -1,12 +1,12 @@
 import './4.scss';
 
-import { CurrentMeme, Meme } from './Four.types';
 import { useCallback, useEffect, useState } from 'react';
 
-import { Display } from './Display';
 import { Header } from '../4/Header';
-import { Interaction } from './Interaction';
 import { apiData } from './api-data';
+import { Display } from './Display';
+import { CurrentMeme, Meme } from './Four.types';
+import { Interaction } from './Interaction';
 
 export function Four() {
   const testdata = apiData.data.memes;
@@ -14,19 +14,26 @@ export function Four() {
   const [memeData, setMemeData] = useState<Meme[]>([]);
 
   useEffect(() => {
-    try {
-      (async () => {
-        const res = await (await fetch('https://api.imgflip.com/get_memes')).json();
-        setMemeData(await res?.data.memes);
-      })();
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        console.warn(err?.message);
-      } else {
-        console.log('There was an issue fetching the data from the API.');
+    async function getMemes() {
+      const res: unknown = await (await fetch('https://api.imgflip.com/get_memes')).json();
+      if (res instanceof Error) {
+        console.warn(res?.message);
       }
-      setMemeData(testdata);
+      if (
+        typeof res === 'object' &&
+        res &&
+        'data' in res &&
+        typeof res?.data === 'object' &&
+        res?.data &&
+        'memes' in res.data &&
+        typeof res?.data?.memes === 'object' &&
+        res?.data?.memes
+      ) {
+        setMemeData(res?.data.memes as Meme[]);
+      }
     }
+    getMemes().catch((err) => console.warn(err));
+    setMemeData(testdata);
   }, [testdata]);
 
   const getRandomMeme = useCallback(() => memeData[Math.floor(Math.random() * memeData.length)], [memeData]);
@@ -39,7 +46,7 @@ export function Four() {
         ...prevCurrMeme,
         meme: getRandomMeme(),
       })),
-    [getRandomMeme]
+    [getRandomMeme],
   );
 
   const setText = useCallback(
@@ -48,7 +55,7 @@ export function Four() {
         ...prevCurrMeme,
         [fieldName]: newText,
       })),
-    []
+    [],
   );
 
   useEffect(() => displayNew(), [displayNew]);

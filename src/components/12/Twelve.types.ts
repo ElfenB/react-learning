@@ -38,3 +38,5 @@ export type Period = {
 };
 
 export type Response = typeof res;
+
+export type Data = typeof res.data.result.data;

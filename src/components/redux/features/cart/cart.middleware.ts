@@ -1,7 +1,7 @@
-import { addItem, decreaseAmountBy, increaseAmountBy, removeItem } from './cart';
 import { createListenerMiddleware, isAnyOf } from '@reduxjs/toolkit';
 
 import { RootState } from './../../store';
+import { addItem, decreaseAmountBy, increaseAmountBy, removeItem } from './cart';
 
 export const localStorageMiddleware = createListenerMiddleware();
 

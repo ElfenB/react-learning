@@ -1,3 +1,8 @@
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
 # vitest
 coverage
 
@@ -21,6 +26,7 @@ dist-ssr
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
 .DS_Store
 *.suo
@@ -126,3 +132,4 @@ $RECYCLE.BIN/
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/react,macos,windows,yarn
+

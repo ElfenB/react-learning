@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingCartIcon } from './ShoppingCartIcon';
 import logo from './assets/redux.svg';
+import { ShoppingCartIcon } from './ShoppingCartIcon';
 
 const style: Record<string, CSSProperties> = {
   component: {
@@ -15,7 +15,8 @@ const style: Record<string, CSSProperties> = {
   },
   logo: {
     height: '80%',
-    padding: '1rem',
+    marginRight: '1rem',
+    padding: '2px',
   },
   logoBox: {
     alignItems: 'center',

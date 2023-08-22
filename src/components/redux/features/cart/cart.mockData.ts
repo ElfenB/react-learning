@@ -1,6 +1,6 @@
 import { CartItem, Product } from './cart.types';
 
-export type MockData = {
+type MockData = {
   cart: CartItem[];
   products: Product[];
 };
