@@ -31,7 +31,7 @@ The project is based on an empty vite React template.
 To install the required packages:
 
 ```shell
-yarn install
+npm install
 ```
 
 ### Environment variables
@@ -44,7 +44,7 @@ For reference, the file `.env.example` can be copied and adjusted.
 To run the application:
 
 ```shell
-yarn dev
+npm run dev
 ```
 
 ## Learning resources
