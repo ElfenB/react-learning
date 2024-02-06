@@ -1,8 +1,9 @@
-import { Box, Button, SxProps, Theme, Typography } from '@mui/material';
+import type { SxProps, Theme} from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectDistinctNumOfItems, selectTotalAmount } from '../redux/features/cart/cart.selectors';
 
-import { RootState } from '../redux/store';
+import type { RootState } from '../redux/store';
 
 const sx: Record<string, SxProps<Theme>> = {
   backdropClicker: {
@@ -49,7 +50,7 @@ type Props = {
 export function OrderSummary({ handleCloseSummary }: Props) {
   const { cart } = useSelector((state: RootState) => state.cartState);
 
-  const handleCompletion = () => alert(`Order completed, please pay ${selectTotalAmount(cart).toFixed(2)}€ now!`);
+  const handleCompletion = () => { alert(`Order completed, please pay ${selectTotalAmount(cart).toFixed(2)}€ now!`); };
 
   return (
     <Box sx={sx.component}>

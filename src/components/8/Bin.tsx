@@ -1,7 +1,9 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 
 const style: Record<string, CSSProperties> = {
   button: {
+    background: 'none',
+    border: 'none',
     bottom: 0,
     cursor: 'pointer',
     display: 'inline-block',
@@ -23,10 +25,8 @@ export function Bin({ clearHistory, username = 'Anonymous' }: Props) {
   };
 
   return (
-    <div>
-      <span style={style.button} onClick={askUser}>
-        🗑️
-      </span>
-    </div>
+    <button style={style.button} onClick={askUser}>
+      🗑️
+    </button>
   );
 }

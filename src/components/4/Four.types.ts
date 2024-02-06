@@ -1,6 +1,6 @@
 export type CurrentMeme = {
   bottomText: string;
-  meme: Meme;
+  meme?: Meme;
   topText: string;
 };
 

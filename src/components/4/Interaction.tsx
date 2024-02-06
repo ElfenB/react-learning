@@ -1,5 +1,5 @@
-import { CSSProperties } from 'react';
-import { CurrentMeme } from './Four.types';
+import type { CSSProperties } from 'react';
+import type { CurrentMeme } from './Four.types';
 
 const style: Record<string, CSSProperties> = {
   input: {
@@ -24,7 +24,7 @@ export function Interaction({ data, getNewMeme, setNewText }: Props) {
           style={style.input}
           type="text"
           value={data.topText}
-          onChange={(e) => setNewText(e.target.name, e.target.value)}
+          onChange={(e) => { setNewText(e.target.name, e.target.value); }}
         />
         <input
           className="secondInput input"
@@ -33,7 +33,7 @@ export function Interaction({ data, getNewMeme, setNewText }: Props) {
           style={style.input}
           type="text"
           value={data.bottomText}
-          onChange={(e) => setNewText(e.target.name, e.target.value)}
+          onChange={(e) => { setNewText(e.target.name, e.target.value); }}
         />
       </div>
 

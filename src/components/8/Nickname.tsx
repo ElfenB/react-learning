@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 
 const style: Record<string, CSSProperties> = {
   input: {
@@ -29,7 +29,7 @@ export function Nickname({ changed: handleChange, value }: Props) {
         style={style.input}
         type="text"
         value={value}
-        onChange={(e) => handleChange(e.target.value)}
+        onChange={(e) => { handleChange(e.target.value); }}
       />
     </div>
   );

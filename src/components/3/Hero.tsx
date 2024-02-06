@@ -3,7 +3,7 @@ import hero from './assets/hero.png';
 export function Hero() {
   return (
     <section>
-      <img alt="Image Collection: Travel" className="hero" src={hero} />
+      <img alt="Collection: Travel" className="hero" src={hero} />
 
       <div className="headline-info">
         <h1>Online experiences</h1>

@@ -1,5 +1,7 @@
-import { Badge, Card, CardContent, CardMedia, Theme, Typography } from '@mui/material';
-import { Container, SxProps } from '@mui/system';
+import type { Theme} from '@mui/material';
+import { Badge, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import type { SxProps } from '@mui/system';
+import { Container } from '@mui/system';
 import Grid from '@mui/system/Unstable_Grid';
 import { Link } from 'react-router-dom';
 import { links } from './attractions.mockData';

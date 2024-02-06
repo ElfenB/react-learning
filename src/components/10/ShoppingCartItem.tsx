@@ -1,8 +1,8 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import { decreaseAmountBy, increaseAmountBy, removeItem } from '../redux/features/cart/cart';
 
-import { CartItem } from '../redux/features/cart/cart.types';
+import type { CartItem } from '../redux/features/cart/cart.types';
 import placeholderProduct from './assets/placeholderProduct.webp';
 import { useDispatchAction2 } from './ShoppingCart.utils';
 
@@ -82,7 +82,7 @@ export function ShoppingCartItem({ data: product }: Props) {
   return (
     <div style={style.component}>
       <Link to={`/ten/product/${product.productId}`}>
-        <img alt={`${product.title}`} src={product.image || placeholderProduct} style={style.image} />
+        <img alt={product.title} src={product.image ?? placeholderProduct} style={style.image} />
       </Link>
 
       <span style={style.title}>{product.title}</span>

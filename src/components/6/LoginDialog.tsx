@@ -1,6 +1,7 @@
-import { ChangeEvent, CSSProperties, FormEvent, useState } from 'react';
+import type { ChangeEvent, CSSProperties, FormEvent } from 'react';
+import { useState } from 'react';
 
-import { FormValues } from './LoginDialog.types';
+import type { FormValues } from './LoginDialog.types';
 
 const style: Record<string, CSSProperties> = {
   component: {
@@ -34,7 +35,7 @@ export function LoginDialog() {
   });
 
   const handleFormInput = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value, checked, type } = e.target;
+    const { checked, name, type, value } = e.target;
 
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -56,7 +57,9 @@ export function LoginDialog() {
       return;
     }
     // passwords match
+    // eslint-disable-next-line no-console -- poc
     console.log(formData);
+    // eslint-disable-next-line no-console -- poc
     formData.newsletter ? console.log('Thank you for signing up to our newsletter!') : '';
   };
 

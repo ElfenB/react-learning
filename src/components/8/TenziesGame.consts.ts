@@ -1,4 +1,4 @@
-import { GameStats } from './TenziesGame.types';
+import type { GameStats } from './TenziesGame.types';
 
 export const gameSize = 10;
 export const startRound = 1;

@@ -1,8 +1,8 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import { useSelector } from 'react-redux';
 import { selectDistinctNumOfItems, selectTotalAmount, selectTotalItems } from '../redux/features/cart/cart.selectors';
 
-import { RootState } from '../redux/store';
+import type { RootState } from '../redux/store';
 
 const style: Record<string, CSSProperties> = {
   component: {

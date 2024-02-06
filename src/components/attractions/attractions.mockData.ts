@@ -3,7 +3,7 @@ import learn from './assets/learn.jpg';
 import shop from './assets/shop.jpg';
 import tenzies from './assets/tenzies.jpg';
 
-import { LinkItem } from './attractions.types';
+import type { LinkItem } from './attractions.types';
 
 export const links: LinkItem[] = [
   { description: 'Fun game to play with your colleagues.', image: tenzies, name: 'Tenzies Game', to: '/eight' },

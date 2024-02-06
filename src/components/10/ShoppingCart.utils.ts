@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { AnyAction } from '@reduxjs/toolkit';
+import type { AnyAction } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 
 export function useDispatchAction2<T>(action: (args: T) => AnyAction, args: T): () => void {

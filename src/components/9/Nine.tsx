@@ -1,11 +1,11 @@
-import { ChangeEvent } from 'react';
+import type { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment, incrementByAmount, reset, setAmount } from '../redux/features/counter/counter';
 
-import { RootState } from '../redux/store';
+import type { RootState } from '../redux/store';
 
 export function Nine() {
-  const { count, amount } = useSelector((state: RootState) => state.counterState);
+  const { amount, count } = useSelector((state: RootState) => state.counterState);
   const dispatch = useDispatch();
 
   const handleAmountChange = (e: ChangeEvent<HTMLInputElement>) => dispatch(setAmount(Number(e.target.value)));

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getJsonFromLocalStorage } from './../../../8/TenziesGame.utils';
 import { mockData } from './cart.mockData';
-import { CartItem, Product } from './cart.types';
+import type { CartItem, Product } from './cart.types';
 
 type State = {
   cart: CartItem[];
@@ -13,7 +13,7 @@ const initialState: State = {
   products: mockData.products,
 };
 
-export const cartSlice = createSlice({
+const cartSlice = createSlice({
   initialState: initialState,
   name: 'cart',
   reducers: {
@@ -26,7 +26,7 @@ export const cartSlice = createSlice({
         state.cart.push(newCartItem);
       } else {
         state.cart.map((item) =>
-          item.productId !== product.productId ? item : { ...item, amount: (item.amount = item.amount + amount) },
+          item.productId === product.productId ? { ...item, amount: (item.amount = item.amount + amount) } : item,
         );
       }
     },

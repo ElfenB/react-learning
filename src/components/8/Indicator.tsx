@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 
 const style: Record<string, CSSProperties> = {
   component: {
@@ -20,11 +20,13 @@ type Props = {
   value?: number;
 };
 
-export function Indicator({ description, positionX, positionY, value, clicked }: Props) {
+export function Indicator({ clicked, description, positionX, positionY, value }: Props) {
   return (
-    <div
+    <button
       style={{
         ...style.component,
+        background: 'none',
+        border: 'none',
         cursor: clicked ? 'pointer' : 'select',
         [positionX]: 0,
         [positionY]: 0,
@@ -34,6 +36,6 @@ export function Indicator({ description, positionX, positionY, value, clicked }:
       {description}
       {description && value && ': '}
       {value && <span style={style.value}>{value}</span>}
-    </div>
+    </button>
   );
 }

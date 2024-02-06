@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import { TenziesGame } from './TenziesGame';
 
 const style: Record<string, CSSProperties> = {

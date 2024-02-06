@@ -1,7 +1,7 @@
 import bike from './assets/bike.svg';
 import katy from './assets/katy.svg';
 import wedding from './assets/wedding.svg';
-import { CardType } from './Card.types';
+import type { CardType } from './Card.types';
 
 export const testdata: CardType[] = [
   {

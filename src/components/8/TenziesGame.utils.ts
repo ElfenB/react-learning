@@ -1,4 +1,4 @@
-import { DiceType } from './Dice.types';
+import type { DiceType } from './Dice.types';
 import { gameSize } from './TenziesGame.consts';
 
 export const generateInitialDices = (): DiceType[] => {
@@ -11,17 +11,18 @@ export const generateInitialDices = (): DiceType[] => {
 
 export const getRandomNumber = (): number => Math.ceil(Math.random() * 6);
 
-export const getJsonFromLocalStorage = (item: string, defaultData: any) => {
+export function getJsonFromLocalStorage<T>(item: string, defaultData: T): T {
   try {
-    const storageItem = localStorage.getItem(item) as string;
-    const data = JSON.parse(storageItem);
+    const storageItem = localStorage.getItem(item);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const data = JSON.parse(storageItem ?? '');
 
     // Check if data is null or undefined
     if (!data) {
       return defaultData;
     }
 
-    return data;
+    return data as T;
   } catch (err) {
     if (typeof err === 'string') {
       console.warn(err);
@@ -31,4 +32,4 @@ export const getJsonFromLocalStorage = (item: string, defaultData: any) => {
   }
 
   return defaultData;
-};
+}

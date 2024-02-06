@@ -1,10 +1,12 @@
 import { useCallback, useState } from 'react';
-import { Box, SxProps, Theme } from '@mui/material';
+import type { SxProps, Theme } from '@mui/material';
+import { Box } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import moment, { Moment } from 'moment';
+import type { Moment } from 'moment';
+import moment from 'moment';
 import { WeekSkipper } from './WeekSkipper';
 
 const sx: Record<string, SxProps<Theme>> = {
@@ -24,7 +26,7 @@ export function TimeSelect({ dateChanged }: Props) {
   const handleDateChange = useCallback(
     (newValue: Moment | null) => {
       if (newValue !== null) {
-        console.log('TimeSelect new date:', moment(newValue).format('yyyy-MM-DD'));
+        // console.log('TimeSelect new date:', moment(newValue).format('yyyy-MM-DD'));
         setDate(newValue);
         dateChanged(moment(newValue).format('yyyy-MM-DD'));
       }
@@ -33,23 +35,37 @@ export function TimeSelect({ dateChanged }: Props) {
   );
 
   const handleAddWeeks = useCallback(
-    (numWeeks: number) => handleDateChange(moment(date).add(numWeeks, 'week')),
+    (numWeeks: number) => {
+      handleDateChange(moment(date).add(numWeeks, 'week'));
+    },
     [date, handleDateChange],
   );
 
   return (
     <Box sx={sx.root}>
       <LocalizationProvider dateAdapter={AdapterMoment}>
-        <WeekSkipper direction="back" onClick={() => handleAddWeeks(-1)} />
+        <WeekSkipper
+          direction="back"
+          onClick={() => {
+            handleAddWeeks(-1);
+          }}
+        />
 
         <DatePicker
           label="Wochenstart"
           renderInput={(params) => <TextField {...params} />}
           value={date}
-          onChange={(newValue) => handleDateChange(newValue)}
+          onChange={(newValue) => {
+            handleDateChange(newValue);
+          }}
         />
 
-        <WeekSkipper direction="forward" onClick={() => handleAddWeeks(1)} />
+        <WeekSkipper
+          direction="forward"
+          onClick={() => {
+            handleAddWeeks(1);
+          }}
+        />
       </LocalizationProvider>
     </Box>
   );

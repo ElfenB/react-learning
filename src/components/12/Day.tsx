@@ -1,10 +1,10 @@
+import { useMemo } from 'react';
 import { Box, Divider, List, Typography } from '@mui/material';
 import moment from 'moment';
-import 'moment/dist/locale/de';
-import { useMemo } from 'react';
 import { CourseItem } from './CourseItem';
-import { Course, Period } from './Twelve.types';
+import type { Course, Period } from './Twelve.types';
 import { stringToColor } from './Twelve.utils';
+import 'moment/dist/locale/de';
 
 type Props = {
   courses: Course[];
@@ -64,15 +64,16 @@ export function Day({ courses, date, periods }: Props) {
         {dayOfWeek} {!isThisWeek && `(${formattedDate})`}
       </Typography>
 
-      {expandedSortedClasses && (
+      {expandedSortedClasses.length > 0 && (
         <List>
           {expandedSortedClasses.map((cls) =>
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- unknown api definition
             cls.elements[1] === undefined ? (
               // If not defined, print empty element
               <></>
             ) : (
               <Box key={cls.id + cls.lessonId}>
-                <CourseItem bgColor={colorMap.get(cls.elements[1].id)} classItem={cls} courses={courses} />
+                <CourseItem bgColor={colorMap.get(cls.elements[1].id) as string} classItem={cls} courses={courses} />
                 <Divider component="li" variant="fullWidth" />
               </Box>
             ),

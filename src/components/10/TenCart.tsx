@@ -1,8 +1,9 @@
-import { CSSProperties, useCallback, useState } from 'react';
+import type { CSSProperties} from 'react';
+import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { emptyCart } from '../redux/features/cart/cart';
-import { RootState } from '../redux/store';
+import type { RootState } from '../redux/store';
 import { CartSummary } from './CartSummary';
 import { OrderSummary } from './OrderSummary';
 import { Purchase } from './Purchase';

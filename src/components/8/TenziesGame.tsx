@@ -1,14 +1,15 @@
-import { CSSProperties, useCallback, useEffect, useState } from 'react';
+import type { CSSProperties } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { ActionButton } from './ActionButton';
 import { Bin } from './Bin';
-import { DiceType } from './Dice.types';
+import type { DiceType } from './Dice.types';
 import { Dices } from './Dices';
 import { HistoryPane } from './HistoryPane';
 import { Indicator } from './Indicator';
 import { Nickname } from './Nickname';
 import { gameStartValue, startGameNumber, startRound } from './TenziesGame.consts';
-import { GameStats } from './TenziesGame.types';
+import type { GameStats } from './TenziesGame.types';
 import { generateInitialDices, getJsonFromLocalStorage, getRandomNumber } from './TenziesGame.utils';
 import { Timer } from './Timer';
 
@@ -32,7 +33,7 @@ export function TenziesGame() {
 
   // Get last value from localStore if available, otherwise take starting value
   const [currentGameStats, setCurrentGameStats] = useState<GameStats>(
-    getJsonFromLocalStorage('currentGame', gameStartValue),
+    getJsonFromLocalStorage<GameStats>('currentGame', gameStartValue),
   );
 
   // Get overall stats from localStorage when exists, otherwise start with empty array
@@ -106,7 +107,7 @@ export function TenziesGame() {
   }, []);
 
   const handleToggleSelect = useCallback(
-    (diceIndex: any, newVal: boolean) => {
+    (diceIndex: number, newVal: boolean) => {
       setDices((prevDices) =>
         prevDices.map((dice) => {
           if (dice.id === diceIndex) {
@@ -146,7 +147,7 @@ export function TenziesGame() {
         positionY={'top'}
         value={gameNumber}
       />
-      <Indicator description={'Round'} positionX={'right'} positionY={'top'} value={currentGameStats?.rounds} />
+      <Indicator description={'Round'} positionX={'right'} positionY={'top'} value={currentGameStats.rounds} />
 
       <h1 style={style.h1}>Tenzies</h1>
       <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
@@ -156,14 +157,16 @@ export function TenziesGame() {
       <ActionButton finished={gameOver} reset={handleReset} roll={handleRoll} />
 
       <Nickname
-        changed={(newNickName) => handleCurrentGameStatsChange('nickname', newNickName)}
-        value={currentGameStats?.nickname}
+        changed={(newNickName) => {
+          handleCurrentGameStatsChange('nickname', newNickName);
+        }}
+        value={currentGameStats.nickname}
       />
 
-      {currentGameStats?.rounds > startRound && (
+      {currentGameStats.rounds > startRound && (
         <Timer gameNumber={gameNumber} gameOver={gameOver} publishTime={handleTimer} />
       )}
-      <Bin clearHistory={handleClearHistory} username={currentGameStats?.nickname} />
+      <Bin clearHistory={handleClearHistory} username={currentGameStats.nickname} />
 
       {showHistory && <HistoryPane data={gameStats} size={3} />}
     </div>

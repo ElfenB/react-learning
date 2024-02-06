@@ -1,4 +1,5 @@
-import { CSSProperties, useEffect, useState } from 'react';
+import type { CSSProperties} from 'react';
+import { useEffect, useState } from 'react';
 
 const style: Record<string, CSSProperties> = {
   component: {
@@ -21,16 +22,16 @@ export function Timer({ gameNumber, gameOver, publishTime }: Props) {
   const [timer, setTimer] = useState(0);
   const [startTime, setStartTime] = useState<number>(Date.now());
 
-  useEffect(() => setStartTime(Date.now()), [gameNumber]);
+  useEffect(() => { setStartTime(Date.now()); }, [gameNumber]);
 
-  useEffect(() => publishTime(timer), [publishTime, timer]);
+  useEffect(() => { publishTime(timer); }, [publishTime, timer]);
 
   useEffect(() => {
-    const interval = setInterval(() => setTimer(Math.ceil((Date.now() - startTime) / 1000) - 1), 1000);
+    const interval = setInterval(() => { setTimer(Math.ceil((Date.now() - startTime) / 1000) - 1); }, 1000);
     if (gameOver) {
       clearInterval(interval);
     }
-    return () => clearInterval(interval);
+    return () => { clearInterval(interval); };
   }, [startTime, gameOver, timer]);
 
   return (

@@ -1,4 +1,4 @@
-import { Course } from './Twelve.types';
+import type { Course } from './Twelve.types';
 
 export function formatNatoDate(natoDate: number): string {
   const date = String(natoDate);
@@ -30,7 +30,7 @@ export function stringToColor(str: string) {
 export function getContrastColor(hexColor: string, bw?: boolean) {
   let hex = hexColor;
 
-  if (hex.indexOf('#') === 0) {
+  if (hex.startsWith('#')) {
     hex = hex.slice(1);
   }
 
@@ -63,7 +63,7 @@ export function getContrastColor(hexColor: string, bw?: boolean) {
 
 // Returns a string that is a specific length and contains a number (prefixed by zero to get the fixed length)
 export function padZero(str: string, length?: number): string {
-  const len = length || 2;
+  const len = length ?? 2;
   const zeros = new Array(len).join('0');
   return (zeros + str).slice(-len);
 }

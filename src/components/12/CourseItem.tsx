@@ -1,5 +1,5 @@
 import { ListItem, ListItemText, Typography } from '@mui/material';
-import { Course, Period } from './Twelve.types';
+import type { Course, Period } from './Twelve.types';
 import { formatNatoDate, getContrastColor, getCourseFromId } from './Twelve.utils';
 
 type Props = {

@@ -4,17 +4,25 @@ export function Seven() {
   const [apiData, setApiData] = useState({});
   const [count, setCount] = useState(1);
 
-  console.info('Seven rendered');
+  // console.info('Seven rendered');
 
-  const IncreaseCount = () => setCount((prevCount) => prevCount + 1);
+  const IncreaseCount = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
 
   useEffect(() => {
-    console.info('Effect ran');
+    // console.info('Effect ran');
 
     fetch(`https://swapi.dev/api/people/${count}`)
       .then((res) => res.json())
-      .then((data) => setApiData(data))
-      .catch(() => console.warn('Mistakes ware made'));
+      .then((data) => {
+        if (data instanceof Array) {
+          setApiData(data);
+        }
+      })
+      .catch(() => {
+        console.warn('Mistakes ware made');
+      });
   }, [count]);
 
   return (

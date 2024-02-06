@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string -- mock data only */
 export const res = {
   data: {
     result: {

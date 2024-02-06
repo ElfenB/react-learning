@@ -1,9 +1,10 @@
-import { CSSProperties, ChangeEvent, useCallback, useState } from 'react';
+import type { ChangeEvent, CSSProperties} from 'react';
+import { useCallback, useState } from 'react';
 
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addItem } from '../redux/features/cart/cart';
-import { RootState } from '../redux/store';
+import type { RootState } from '../redux/store';
 import { useDispatchActionCallback } from './ShoppingCart.utils';
 
 const style: Record<string, CSSProperties> = {
@@ -63,7 +64,7 @@ export function Product() {
     <div style={style.component}>
       <h1>{product.title}</h1>
 
-      <img alt={`${product.title}`} src={product.image} style={style.image} />
+      <img alt={product.title} src={product.image} style={style.image} />
 
       <p>{product.description}</p>
 

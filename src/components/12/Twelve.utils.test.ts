@@ -1,5 +1,5 @@
 import { describe, expect, it, test } from 'vitest';
-import { Course } from './Twelve.types';
+import type { Course } from './Twelve.types';
 import { formatNatoDate, getContrastColor, getCourseFromId, padZero, stringToColor } from './Twelve.utils';
 
 describe('formatNatoDate', () => {

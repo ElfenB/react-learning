@@ -1,4 +1,4 @@
-import { CartItem, Product } from './cart.types';
+import type { CartItem, Product } from './cart.types';
 
 type MockData = {
   cart: CartItem[];

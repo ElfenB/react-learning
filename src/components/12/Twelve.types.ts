@@ -1,4 +1,4 @@
-import { res } from './mockData';
+import type { res } from './mockData';
 
 export type Course = {
   alternatename: string;

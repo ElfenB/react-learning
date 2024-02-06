@@ -1,4 +1,4 @@
-import { GameStats } from './TenziesGame.types';
+import type { GameStats } from './TenziesGame.types';
 
 type Props = {
   game: GameStats;

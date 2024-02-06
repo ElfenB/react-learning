@@ -1,6 +1,7 @@
-import { CSSProperties, MouseEvent, useState } from 'react';
+import type { CSSProperties, MouseEvent } from 'react';
+import { useState } from 'react';
 
-import { DiceType } from './Dice.types';
+import type { DiceType } from './Dice.types';
 
 const style: Record<string, CSSProperties> = {
   dice: {
@@ -35,7 +36,9 @@ type Props = {
 export function Dice({ dice, toggleSelect }: Props) {
   const [hovered, setHovered] = useState(false);
 
-  const handleHover = (e: MouseEvent) => (e.type === 'mouseover' ? setHovered(true) : setHovered(false));
+  const handleHover = (e: Pick<MouseEvent, 'type'>) => {
+    e.type === 'mouseover' ? setHovered(true) : setHovered(false);
+  };
 
   return (
     <div>
@@ -46,6 +49,7 @@ export function Dice({ dice, toggleSelect }: Props) {
           boxShadow: hovered ? cssVars.boxShadowHovered : cssVars.boxShadowNotHovered,
         }}
         onClick={toggleSelect}
+        onFocus={handleHover}
         onMouseLeave={handleHover}
         onMouseOver={handleHover}
       >

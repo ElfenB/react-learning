@@ -1,6 +1,6 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import { Dice } from './Dice';
-import { DiceType } from './Dice.types';
+import type { DiceType } from './Dice.types';
 
 const style: Record<string, CSSProperties> = {
   component: {
@@ -24,7 +24,7 @@ export function Dices({ dices, toggleSelect: handleToggleSelect }: Props) {
     <div style={style.component}>
       <div style={style.dices}>
         {dices.map((dice) => (
-          <Dice key={dice.id} dice={dice} toggleSelect={() => handleToggleSelect(dice.id, !dice.lockedIn)} />
+          <Dice key={dice.id} dice={dice} toggleSelect={() => { handleToggleSelect(dice.id, !dice.lockedIn); }} />
         ))}
       </div>
     </div>

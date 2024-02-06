@@ -1,5 +1,5 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
-import { Course } from './Twelve.types';
+import type { Course } from './Twelve.types';
 
 type Props = {
   courses: Course[];

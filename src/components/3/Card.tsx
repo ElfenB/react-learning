@@ -1,4 +1,4 @@
-import { CardType } from './Card.types';
+import type { CardType } from './Card.types';
 import { CardPrice } from './CardPrice';
 import { Rating } from './Rating';
 

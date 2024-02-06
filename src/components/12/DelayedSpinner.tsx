@@ -6,7 +6,7 @@ type Props = {
   loading: boolean;
 };
 
-export function DelayedSpinner({ loading, delayMs }: Props) {
+export function DelayedSpinner({ delayMs, loading }: Props) {
   return (
     // Set fixed height for no movement when transitioning
     <Box sx={{ height: 2, m: 1 }}>

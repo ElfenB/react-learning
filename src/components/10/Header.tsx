@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import logo from './assets/redux.svg';
 import { ShoppingCartIcon } from './ShoppingCartIcon';

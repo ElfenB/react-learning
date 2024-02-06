@@ -1,5 +1,6 @@
-import { PaletteMode } from '@mui/material';
-import { createTheme, PaletteOptions } from '@mui/material/styles';
+import type { PaletteMode } from '@mui/material';
+import type { PaletteOptions } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 
 export const getTheme = (mode: PaletteMode) => {
   const theme = createTheme({
@@ -12,7 +13,7 @@ export const getTheme = (mode: PaletteMode) => {
 };
 
 // Be careful when changing, css variables in index.css might differ
-export function getMuiPalette(mode: PaletteMode): PaletteOptions {
+function getMuiPalette(mode: PaletteMode): PaletteOptions {
   const dark = {
     background: {
       default: '#242424',

@@ -1,5 +1,5 @@
 import { HistoryElement } from './HistoryElement';
-import { GameStats } from './TenziesGame.types';
+import type { GameStats } from './TenziesGame.types';
 
 type Props = {
   data: GameStats[];

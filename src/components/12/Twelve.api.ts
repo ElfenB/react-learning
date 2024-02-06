@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Response } from './Twelve.types';
+import type { Response } from './Twelve.types';
 
 // locally e.g. http://localhost:3000/proxy/
 const proxyUrl = import.meta.env.VITE_PROXY_URL;

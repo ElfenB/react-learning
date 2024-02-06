@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import { expect, test } from '@playwright/test';
 
 test('Five form should work correctly', async ({ page }) => {

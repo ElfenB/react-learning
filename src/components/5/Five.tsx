@@ -1,8 +1,9 @@
+import type { ChangeEvent, FormEvent } from 'react';
+import { useCallback, useState } from 'react';
+
+import type { FormValues } from './Five.types';
+
 import './5.scss';
-
-import { ChangeEvent, FormEvent, useCallback, useState } from 'react';
-
-import { FormValues } from './Five.types';
 
 export function Five() {
   const formDataInit = {
@@ -18,7 +19,7 @@ export function Five() {
 
   const handleFormInput = useCallback(
     (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLTextAreaElement>) => {
-      const { name, value, type } = e.target;
+      const { name, type, value } = e.target;
       const checked = (e.target as HTMLInputElement).checked;
       setFormData((prevFormData) => ({
         ...prevFormData,
@@ -30,7 +31,7 @@ export function Five() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
   };
 
   return (

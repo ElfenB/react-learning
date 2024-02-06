@@ -1,7 +1,7 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import { addItem } from '../redux/features/cart/cart';
-import { Product } from '../redux/features/cart/cart.types';
+import type { Product } from '../redux/features/cart/cart.types';
 import { useDispatchActionCallback } from './ShoppingCart.utils';
 
 const style: Record<string, CSSProperties> = {
@@ -49,7 +49,7 @@ export function ProductItem({ product }: Props) {
   return (
     <div style={style.component}>
       <Link style={style.link} to={`product/${product.productId}`}>
-        <img alt={`${product.title}`} src={product.image} style={style.image} />
+        <img alt={product.title} src={product.image} style={style.image} />
       </Link>
 
       <h2 style={style.title}>{product.title}</h2>

@@ -1,5 +1,5 @@
 import { Card } from './Card';
-import { CardType } from './Card.types';
+import type { CardType } from './Card.types';
 
 export function Cards(props: { data: CardType[] }) {
   return (
