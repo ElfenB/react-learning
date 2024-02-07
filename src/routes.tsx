@@ -16,96 +16,33 @@ import { TenShop } from './components/10/TenShop';
 import { Eleven } from './components/11/Eleven';
 import { Twelve } from './components/12/Twelve';
 import { MainAttractions } from './components/attractions/MainAttractions';
+// eslint-disable-next-line import/no-cycle -- this is known and intended
 import { Navigation } from './components/Navigation';
 import { ErrorPage } from './ErrorPage';
 
 export const router = createBrowserRouter([
-  {
-    element: <MainAttractions />,
-    errorElement: <ErrorPage />,
-    path: '/',
-  },
-  {
-    element: <Navigation />,
-    errorElement: <ErrorPage />,
-    path: '/all',
-  },
-  {
-    element: <One />,
-    errorElement: <ErrorPage />,
-    path: '/one',
-  },
-  {
-    element: <Two />,
-    errorElement: <ErrorPage />,
-    path: '/two',
-  },
-  {
-    element: <Three />,
-    errorElement: <ErrorPage />,
-    path: '/three',
-  },
-  {
-    element: <Four />,
-    errorElement: <ErrorPage />,
-    path: '/four',
-  },
-  {
-    element: <Five />,
-    errorElement: <ErrorPage />,
-    path: '/five',
-  },
-  {
-    element: <Six />,
-    errorElement: <ErrorPage />,
-    path: '/six',
-  },
-  {
-    element: <Seven />,
-    errorElement: <ErrorPage />,
-    path: '/seven',
-  },
-  {
-    element: <Eight />,
-    errorElement: <ErrorPage />,
-    path: '/eight',
-  },
-  {
-    element: <Nine />,
-    errorElement: <ErrorPage />,
-    path: '/nine',
-  },
+  { element: <MainAttractions />, path: '/' },
+  { element: <Navigation />, path: '/all' },
+  { element: <One />, path: '/one' },
+  { element: <Two />, path: '/two' },
+  { element: <Three />, path: '/three' },
+  { element: <Four />, path: '/four' },
+  { element: <Five />, path: '/five' },
+  { element: <Six />, path: '/six' },
+  { element: <Seven />, path: '/seven' },
+  { element: <Eight />, path: '/eight' },
+  { element: <Nine />, path: '/nine' },
   {
     children: [
-      {
-        // path: 'shop',
-        element: <TenShop />,
-        errorElement: <ErrorPage />,
-        index: true,
-      },
-      {
-        element: <TenCart />,
-        errorElement: <ErrorPage />,
-        path: 'cart',
-      },
-      {
-        element: <Product />,
-        errorElement: <ProductError />,
-        path: 'product/:id',
-      },
+      { element: <TenShop />, index: true },
+      { element: <TenCart />, path: 'cart' },
+      { element: <Product />, errorElement: <ProductError />, path: 'product/:id' },
     ],
     element: <Ten />,
-    errorElement: <ErrorPage />,
     path: '/ten',
   },
-  {
-    element: <Eleven />,
-    errorElement: <ErrorPage />,
-    path: '/eleven',
-  },
-  {
-    element: <Twelve />,
-    errorElement: <ErrorPage />,
-    path: '/twelve',
-  },
+  { element: <Eleven />, path: '/eleven' },
+  { element: <Twelve />, path: '/twelve' },
+  // Error element
+  { element: <ErrorPage />, path: '*' },
 ]);
