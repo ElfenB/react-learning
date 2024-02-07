@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/ElfenB/react-learning/compare/v1.0.0...v1.0.1) (2024-02-07)
+
+
+### Bug Fixes
+
+* assert that everything will work out ([faa737d](https://github.com/ElfenB/react-learning/commit/faa737d078a97e0eaee0f72b5c197163948d092d))
+* typo ([cf10b49](https://github.com/ElfenB/react-learning/commit/cf10b491bc2da89bd5c7f34838c6fa5957de3c16))
+
 # 1.0.0 (2024-02-05)
 
 
