@@ -1,3 +1,4 @@
+import type { AnchorHTMLAttributes } from 'react';
 import { useEffect, useMemo, useState } from 'react';
 
 import type { SxProps, Theme } from '@mui/material';
@@ -38,8 +39,16 @@ export function Changelog({ cutOff, sx }: Props) {
   return (
     <Box sx={sx}>
       <div className="markdown-body">
-        <Markdown>{cutOffChangelog}</Markdown>
+        <Markdown components={{ a: LinkRenderer }}>{cutOffChangelog}</Markdown>
       </div>
     </Box>
+  );
+}
+
+function LinkRenderer(props: AnchorHTMLAttributes<HTMLAnchorElement>) {
+  return (
+    <a href={props.href} rel="noopener noreferrer" target="_blank">
+      {props.children}
+    </a>
   );
 }
