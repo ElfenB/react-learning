@@ -15,6 +15,7 @@ import { TenCart } from './components/10/TenCart';
 import { TenShop } from './components/10/TenShop';
 import { Eleven } from './components/11/Eleven';
 import { Twelve } from './components/12/Twelve';
+import { Thirteen } from './components/13/Thirteen';
 import { MainAttractions } from './components/attractions/MainAttractions';
 // eslint-disable-next-line import/no-cycle -- this is known and intended
 import { Navigation } from './components/Navigation';
@@ -43,6 +44,7 @@ export const router = createBrowserRouter([
   },
   { element: <Eleven />, path: '/eleven' },
   { element: <Twelve />, path: '/twelve' },
+  { element: <Thirteen />, path: '/thirteen' },
   // Error element
   { element: <ErrorPage />, path: '*' },
 ]);
