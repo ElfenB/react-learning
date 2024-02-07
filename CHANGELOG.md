@@ -1,3 +1,17 @@
+# Changelog
+
+# [1.1.0](https://github.com/ElfenB/react-learning/compare/v1.0.1...v1.1.0) (2024-02-07)
+
+
+### Bug Fixes
+
+* Error page lol ([4b307f9](https://github.com/ElfenB/react-learning/commit/4b307f9120a048f151ead557bae80953b8093c73))
+
+
+### Features
+
+* added 13 with changelog and version ([6741c15](https://github.com/ElfenB/react-learning/commit/6741c1564b013a291a0c7cfc52a7b5da97542dd2))
+
 ## [1.0.1](https://github.com/ElfenB/react-learning/compare/v1.0.0...v1.0.1) (2024-02-07)
 
 
