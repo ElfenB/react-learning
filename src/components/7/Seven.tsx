@@ -21,7 +21,7 @@ export function Seven() {
         }
       })
       .catch(() => {
-        console.warn('Mistakes ware made');
+        console.warn('Mistakes were made');
       });
   }, [count]);
 
