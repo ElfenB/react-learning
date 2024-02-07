@@ -1,8 +1,30 @@
+import { useMemo } from 'react';
 import { useRouteError } from 'react-router-dom';
 
 export function ErrorPage() {
-  const error = useRouteError() as { message: string; status: string; statusText: string };
+  const error = useRouteError();
   console.error(error);
+
+  const statusCode = useMemo(() => {
+    if (error instanceof Response) {
+      return error.status;
+    }
+    return 'unknown status code';
+  }, [error]);
+
+  const statusText = useMemo(() => {
+    if (error instanceof Response) {
+      return error.statusText;
+    }
+    return 'Internal Error - does this route exist?';
+  }, [error]);
+
+  const errorMessage = useMemo(() => {
+    if (error instanceof Error) {
+      return error.message;
+    }
+    return 'An unknown error occurred';
+  }, [error]);
 
   return (
     <div>
@@ -10,7 +32,7 @@ export function ErrorPage() {
       <p>You are seeing this because some error ocurred.</p>
       <p>
         <i>
-          {error.status} - {error.statusText || error.message}
+          {statusCode} - {statusText || errorMessage}
         </i>
       </p>
     </div>
