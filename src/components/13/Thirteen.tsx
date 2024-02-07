@@ -1,20 +1,27 @@
-import { Container, Typography } from '@mui/material';
+import { useState } from 'react';
+import { Box, Container, Typography } from '@mui/material';
 import { Changelog } from './Changelog';
+import { Header } from './Header';
 
 export function Thirteen() {
-  const currentVersion = import.meta.env.VITE_PACKAGE_VERSION;
+  const [inputValue, setInputValue] = useState('');
 
   return (
-    <Container sx={{ position: 'relative' }}>
-      <Typography sx={{ mb: 2 }} variant="h2">
-        Changelog
-      </Typography>
+    <Box>
+      <Header
+        handleInputChange={(v) => {
+          setInputValue(v);
+        }}
+        sx={{ mb: 3, position: 'sticky', top: 0, zIndex: 1 }}
+      />
 
-      <Typography sx={{ position: 'absolute', right: '2em', textAlign: 'right', top: '2em' }} variant="subtitle1">
-        v{currentVersion}
-      </Typography>
+      <Container sx={{ pb: 3, position: 'relative' }}>
+        <Changelog cutOff={inputValue} />
+      </Container>
 
-      <Changelog />
-    </Container>
+      <Typography sx={{ color: 'text.secondary', pb: 2, textAlign: 'center' }} variant="body2">
+        ©2024 Benjamin Elfen - v{import.meta.env.VITE_PACKAGE_VERSION}
+      </Typography>
+    </Box>
   );
 }
