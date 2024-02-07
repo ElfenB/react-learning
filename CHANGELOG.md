@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/ElfenB/react-learning/compare/v1.2.0...v1.3.0) (2024-02-07)
+
+
+### Features
+
+* open links in new tab ([df3535c](https://github.com/ElfenB/react-learning/commit/df3535c7fb5ca1b9ceaf580440711e3fd22d4d67))
+
 # [1.2.0](https://github.com/ElfenB/react-learning/compare/v1.1.0...v1.2.0) (2024-02-07)
 
 
