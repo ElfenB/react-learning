@@ -16,8 +16,8 @@ export function Seven() {
     fetch(`https://swapi.dev/api/people/${count}`)
       .then((res) => res.json())
       .then((data) => {
-        if (data instanceof Array) {
-          setApiData(data);
+        if (data) {
+          setApiData(data as object);
         }
       })
       .catch(() => {
