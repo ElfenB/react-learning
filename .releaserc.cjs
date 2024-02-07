@@ -6,7 +6,13 @@ module.exports = {
     '@semantic-release/release-notes-generator',
     ['@semantic-release/changelog', { changelogTitle: '# Changelog' }],
     '@semantic-release/npm',
-    ['@semantic-release/git', { message: 'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}' }],
+    [
+      '@semantic-release/git',
+      {
+        message: 'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
+        assets: ['CHANGELOG.md', 'package-lock.json', 'package.json'],
+      },
+    ],
   ],
   branches: ['main'],
 };
