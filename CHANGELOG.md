@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/ElfenB/react-learning/compare/v1.3.0...v1.3.1) (2024-02-08)
+
+
+### Bug Fixes
+
+* removed heading in between ([2474238](https://github.com/ElfenB/react-learning/commit/2474238ee396c19a1dc5d6dff8ada8565f0143ce))
+
 # [1.3.0](https://github.com/ElfenB/react-learning/compare/v1.2.0...v1.3.0) (2024-02-07)
 
 
