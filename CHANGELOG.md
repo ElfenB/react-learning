@@ -12,8 +12,6 @@
 
 * added changelog filtering and header ([5e5f9e4](https://github.com/ElfenB/react-learning/commit/5e5f9e4a9e5d3961b0b00b8ea526f61d0ab2f428))
 
-# Changelog
-
 # [1.1.0](https://github.com/ElfenB/react-learning/compare/v1.0.1...v1.1.0) (2024-02-07)
 
 
