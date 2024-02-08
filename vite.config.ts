@@ -7,4 +7,7 @@ export default defineConfig({
     'import.meta.env.VITE_PACKAGE_VERSION': JSON.stringify(process.env.npm_package_version),
   },
   plugins: [react()],
+  test: {
+    includeSource: ['src/**/*.utils.{js,ts}'],
+  },
 });
