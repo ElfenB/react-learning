@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/ElfenB/react-learning/compare/v1.3.1...v1.4.0) (2024-02-08)
+
+
+### Features
+
+* initial test of data loader in router ([e3d9a3d](https://github.com/ElfenB/react-learning/commit/e3d9a3dc52f68d3ef2ac4125e996b7a143c85503))
+
 ## [1.3.1](https://github.com/ElfenB/react-learning/compare/v1.3.0...v1.3.1) (2024-02-08)
 
 
