@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
-import { router } from '../routes';
+import { router } from '../Router';
 
 const style: Record<string, CSSProperties> = {
   component: {
