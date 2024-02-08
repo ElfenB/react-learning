@@ -42,7 +42,11 @@ export const router = createBrowserRouter([
     element: <Ten />,
     path: '/ten',
   },
-  { element: <Eleven />, path: '/eleven' },
+  {
+    element: <Eleven />,
+    loader: async () => fetch(`https://api.thecatapi.com/v1/images/search?limit=10`),
+    path: '/eleven',
+  },
   { element: <Twelve />, path: '/twelve' },
   { element: <Thirteen />, path: '/thirteen' },
   // Error element
